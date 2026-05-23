@@ -298,8 +298,9 @@ Please contact us to guide us further on the admission and counselling process. 
 
           {/* Action Button */}
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-            <button className="desktop-only btn-nav-apply" onClick={() => go("admission")} style={{ backgroundColor: B.goldBg, color: B.navy, border: "1.5px solid transparent", borderRadius: "8px", padding: "8.5px 18.5px", fontSize: "12px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.05em", cursor: "pointer", boxShadow: "0 4px 14px rgba(241,175,60,0.15)" }}>
-              Apply Now
+            <button className="desktop-only btn-nav-apply" onClick={() => go("admission")} style={{ backgroundColor: B.goldBg, color: B.navy, border: "1.5px solid transparent", borderRadius: "8px", padding: "8.5px 18.5px", fontSize: "12px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.05em", cursor: "pointer", boxShadow: "0 4px 14px rgba(241,175,60,0.15)", display: "inline-flex", alignItems: "center", gap: "6px" }}>
+              <span>Apply Now</span>
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ transition: "transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)" }}><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
             </button>
 
             {/* Mobile Hamburger menu */}
@@ -323,8 +324,9 @@ Please contact us to guide us further on the admission and counselling process. 
                 {n.l}
               </button>
             ))}
-            <button onClick={() => go("admission")} style={{ backgroundColor: B.goldBg, color: B.navy, border: "none", borderRadius: "10px", padding: "16px", fontSize: "14px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.06em", cursor: "pointer", marginTop: "24px" }}>
-              Apply for Admission →
+            <button onClick={() => go("admission")} style={{ backgroundColor: B.goldBg, color: B.navy, border: "none", borderRadius: "10px", padding: "16px", fontSize: "14px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.06em", cursor: "pointer", marginTop: "24px", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}>
+              <span>Apply for Admission</span>
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
             </button>
           </div>
         )}
@@ -364,8 +366,9 @@ Please contact us to guide us further on the admission and counselling process. 
 
                 {/* Action Buttons */}
                 <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", marginBottom: "20px" }}>
-                  <button className="btn-shine-gold" onClick={() => go("admission")} style={{ backgroundColor: B.goldBg, color: B.navy, border: "none", borderRadius: "10px", padding: "16px 28px", fontSize: "13px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.06em", cursor: "pointer", boxShadow: "0 6px 20px rgba(241,175,60,0.35)" }}>
-                    Apply Online For Admission
+                  <button className="btn-shine-gold" onClick={() => go("admission")} style={{ backgroundColor: B.goldBg, color: B.navy, border: "none", borderRadius: "10px", padding: "16px 28px", fontSize: "13px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.06em", cursor: "pointer", boxShadow: "0 6px 20px rgba(241,175,60,0.35)", display: "inline-flex", alignItems: "center", gap: "8px" }}>
+                    <span>Apply Online For Admission</span>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" style={{ transition: "transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)" }}><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
                   </button>
                   <button className="btn-shine-navy" onClick={() => go("admission")} style={{ backgroundColor: B.navy, color: B.white, border: `1.5px solid ${B.navy}`, borderRadius: "10px", padding: "16px 28px", fontSize: "13px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.06em", cursor: "pointer", display: "inline-flex", alignItems: "center", gap: "8px" }}>
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
@@ -463,8 +466,9 @@ Please contact us to guide us further on the admission and counselling process. 
                 </ul>
 
                 {/* Card CTA */}
-                <button onClick={() => go("admission")} style={{ width: "100%", marginTop: "auto", border: `1.5px solid ${B.borderCol}`, backgroundColor: B.beige, borderRadius: "10px", padding: "12px", fontSize: "12px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.05em", color: B.textNavy, cursor: "pointer", transition: "background 0.2s" }} onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = B.goldLt; e.currentTarget.style.borderColor = B.goldBg; }} onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = B.beige; e.currentTarget.style.borderColor = B.borderCol; }}>
-                  View Detailed Syllabus →
+                <button className="btn-syllabus-cta" onClick={() => go("admission")} style={{ width: "100%", marginTop: "auto", border: `1.5px solid ${B.borderCol}`, backgroundColor: B.beige, borderRadius: "10px", padding: "12px", fontSize: "12px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.05em", color: B.textNavy, cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "6px" }}>
+                  <span>View Detailed Syllabus</span>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ transition: "transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)", color: B.gold }}><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
                 </button>
 
               </div>
@@ -708,10 +712,12 @@ Please contact us to guide us further on the admission and counselling process. 
               </p>
 
               <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", justifyContent: "center" }}>
-                <button onClick={() => go("admission")} style={{ backgroundColor: B.goldBg, color: B.navy, border: "none", borderRadius: "10px", padding: "16px 32px", fontSize: "13px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.06em", cursor: "pointer", boxShadow: "0 6px 20px rgba(241,175,60,0.3)" }}>
-                  Register / Apply Now
+                <button className="btn-shine-gold" onClick={() => go("admission")} style={{ backgroundColor: B.goldBg, color: B.navy, border: "none", borderRadius: "10px", padding: "16px 32px", fontSize: "13px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.06em", cursor: "pointer", boxShadow: "0 6px 20px rgba(241,175,60,0.3)", display: "inline-flex", alignItems: "center", gap: "8px" }}>
+                  <span>Register / Apply Now</span>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" style={{ transition: "transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)" }}><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
                 </button>
-                <button onClick={() => go("admission")} style={{ background: "none", border: `1.5px solid ${B.goldBg}`, color: B.goldBg, borderRadius: "10px", padding: "16px 32px", fontSize: "13px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.06em", cursor: "pointer" }}>
+                <button onClick={() => go("admission")} style={{ background: "none", border: `1.5px solid ${B.goldBg}`, color: B.goldBg, borderRadius: "10px", padding: "16px 32px", fontSize: "13px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.06em", cursor: "pointer", display: "inline-flex", alignItems: "center", gap: "8px" }}>
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><polyline points="7 10 12 15 17 10" /><line x1="12" y1="15" x2="12" y2="3" /></svg>
                   Download Prospectus {new Date().getFullYear()}
                 </button>
               </div>
@@ -842,7 +848,7 @@ Please contact us to guide us further on the admission and counselling process. 
         .btn-shine-gold {
           position: relative;
           overflow: hidden;
-          transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+          transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
         }
 
         .btn-shine-gold::after {
@@ -858,7 +864,7 @@ Please contact us to guide us further on the admission and counselling process. 
 
         .btn-shine-gold:hover::after {
           left: 150%;
-          transition: all 0.85s ease-in-out !important;
+          transition: all 1.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
         }
 
         /* Glowing colors & elegant light-up box shadow for Gold button */
@@ -869,11 +875,33 @@ Please contact us to guide us further on the admission and counselling process. 
           box-shadow: 0 6px 20px rgba(241, 175, 60, 0.25) !important;
         }
 
+        /* Vector slide right interactions on hover */
+        .btn-shine-gold:hover svg {
+          transform: translateX(4px);
+        }
+
+        .btn-nav-apply:hover svg {
+          transform: translateX(3px);
+        }
+
+        .btn-syllabus-cta {
+          transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
+        }
+
+        .btn-syllabus-cta:hover {
+          background-color: #fef3c7 !important; /* GoldLt */
+          border-color: #f1af3c !important; /* GoldBg */
+        }
+
+        .btn-syllabus-cta:hover svg {
+          transform: translateX(4px);
+        }
+
         /* Navbar Apply button - NO SCALE effect, simple clean ghost/outline transition */
         .btn-nav-apply {
           position: relative;
           overflow: hidden;
-          transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+          transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
         }
 
         .btn-nav-apply:hover {
@@ -890,7 +918,7 @@ Please contact us to guide us further on the admission and counselling process. 
           z-index: 1;
           background-color: #0a1835;
           color: #ffffff;
-          transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+          transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
         }
 
         .btn-shine-navy::before {
@@ -902,7 +930,7 @@ Please contact us to guide us further on the admission and counselling process. 
           height: 100%;
           background-color: #ffffff;
           z-index: -1;
-          transition: width 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+          transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1) !important;
         }
 
         .btn-shine-navy:hover::before {
@@ -917,22 +945,21 @@ Please contact us to guide us further on the admission and counselling process. 
         }
 
         .btn-shine-navy svg {
-          transition: transform 0.3s ease;
+          transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         .btn-shine-navy:hover svg {
-          animation: buttonWiggle 0.6s ease-in-out infinite;
+          animation: buttonWiggle 1.8s cubic-bezier(0.16, 1, 0.3, 1) infinite;
         }
 
         @keyframes buttonWiggle {
-          0% { transform: rotate(0deg); }
-          15% { transform: rotate(-12deg); }
-          30% { transform: rotate(12deg); }
-          45% { transform: rotate(-12deg); }
-          60% { transform: rotate(12deg); }
-          75% { transform: rotate(-6deg); }
-          90% { transform: rotate(6deg); }
-          100% { transform: rotate(0deg); }
+          0%, 100% { transform: rotate(0deg); }
+          8% { transform: rotate(-14deg); }
+          16% { transform: rotate(12deg); }
+          24% { transform: rotate(-10deg); }
+          32% { transform: rotate(8deg); }
+          40% { transform: rotate(-4deg); }
+          48% { transform: rotate(0deg); }
         }
 
         /* Desktop navigation links - Underline Sliding Flow on hover */
@@ -947,7 +974,7 @@ Please contact us to guide us further on the admission and counselling process. 
           letter-spacing: 0.06em;
           cursor: pointer;
           padding: 6px 0;
-          transition: color 0.3s ease !important;
+          transition: color 0.5s cubic-bezier(0.16, 1, 0.3, 1) !important;
         }
 
         .nav-link-item:hover {
@@ -965,7 +992,7 @@ Please contact us to guide us further on the admission and counselling process. 
           background-color: #f1af3c;
           transform: scaleX(0);
           transform-origin: right center;
-          transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+          transition: transform 0.55s cubic-bezier(0.16, 1, 0.3, 1) !important;
         }
 
         .nav-link-item:hover::after {
