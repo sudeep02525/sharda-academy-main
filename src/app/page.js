@@ -278,9 +278,7 @@ Please contact us to guide us further on the admission and counselling process. 
           
           {/* Logo & Brand */}
           <div style={{ display: "flex", alignItems: "center", gap: "12px", cursor: "pointer" }} onClick={() => go("home")}>
-            <div style={{ width: "42px", height: "42px", borderRadius: "50%", border: `2.5px solid ${B.goldBg}`, backgroundColor: "#fff", display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden", boxShadow: "0 0 10px rgba(241,175,60,0.3)" }}>
-              <img src="/logo.png" alt="Sharda Academy Logo" onError={(e) => { e.target.style.display = "none"; }} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-            </div>
+            <img src="/logo.png" alt="Sharda Academy Logo" onError={(e) => { e.target.style.display = "none"; }} style={{ width: "58px", height: "58px", objectFit: "contain" }} />
             <div>
               <div style={{ fontSize: "15px", fontWeight: "900", letterSpacing: "0.05em", lineHeight: 1.1 }}>SHARDA ACADEMY</div>
               <div style={{ fontSize: "8px", fontWeight: "800", color: B.goldBg, letterSpacing: "0.18em", textTransform: "uppercase" }}>Mankhurd · Est. 2009</div>
