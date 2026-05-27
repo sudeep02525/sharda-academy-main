@@ -89,20 +89,61 @@
   --font-weight-black: 900;
 }
 
+:root {
+  --background: #faf9f6;
+  --foreground: #0f1a30;
+  --card-bg: #ffffff;
+  --card-border: rgba(10, 24, 53, 0.08);
+  --text-primary: #0f1a30;
+  --text-secondary: #5e6675;
+  --text-tertiary: #94a3b8;
+  --dot-color: rgba(10,24,53,0.06);
+  /* ── Light mode: navy navbar ── */
+  --header-bg: #0a1835;
+  --header-text: #ffffff;
+  --nav-link: rgba(255, 255, 255, 0.85);
+  /* ── Gold accent ── */
+  --color-primary-gold: #f1af3c;
+}
+
+.dark {
+  --background: #0B1120;
+  --foreground: #F9FAFB;
+  --card-bg: #131C2E;
+  --card-border: #243145;
+  --text-primary: #F9FAFB;
+  --text-secondary: #CBD5E1;
+  --text-tertiary: #94A3B8;
+  --dot-color: rgba(255, 255, 255, 0.03);
+  --header-bg: #081226;
+  --header-text: #F9FAFB;
+  --nav-link: rgba(249, 250, 251, 0.95);
+  --color-primary-gold: #F4B63D;
+  /* Additional brand colors for dark mode */
+  --color-blue: #0c46c4;
+  --color-blue-light: #dbeafe;
+  --color-pink: #dc2626;
+  --color-pink-light: #fee2e2;
+  --color-cream: #f5f3ed;
+}
+
+
+
 html { scroll-behavior: smooth; }
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  background: #faf9f6;
-  color: #0f1a30;
+  background: var(--background);
+  color: var(--text-primary);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 ::-webkit-scrollbar { width: 6px; }
-::-webkit-scrollbar-track { background: #faf9f6; }
+::-webkit-scrollbar-track { background: var(--background); }
 ::-webkit-scrollbar-thumb { background: #0a1835; border-radius: 4px; }
 
 input::placeholder, textarea::placeholder { color: rgba(15,26,48,0.4); }
@@ -187,3 +228,69 @@ select option { background: #ffffff; color: #0f1a30; }
 /* Responsive helpers */
 @media (max-width: 768px) { .desktop-only { display: none !important; } }
 @media (min-width: 769px) { .mobile-only  { display: none !important; } }
+
+/* ── Universal Dark Mode Utility Mappings ── */
+.dark .bg-white {
+  background-color: var(--card-bg) !important;
+  color: var(--text-primary) !important;
+  border-color: var(--card-border) !important;
+}
+
+.dark .text-slate-900,
+.dark .text-slate-800,
+.dark .text-slate-700,
+.dark .text-gray-900,
+.dark .text-gray-800 {
+  color: var(--text-primary) !important;
+}
+
+.dark .text-slate-600,
+.dark .text-slate-500,
+.dark .text-slate-400,
+.dark .text-gray-600,
+.dark .text-gray-500 {
+  color: var(--text-secondary) !important;
+}
+
+.dark .text-slate-300,
+.dark .text-gray-400 {
+  color: var(--text-tertiary) !important;
+}
+
+.dark .bg-slate-50,
+.dark .bg-slate-100,
+.dark .bg-gray-50,
+.dark .bg-gray-100 {
+  background-color: var(--card-bg) !important;
+}
+
+.dark .border-slate-100,
+.dark .border-slate-200,
+.dark .border-slate-300,
+.dark .border-gray-100,
+.dark .border-gray-200 {
+  border-color: var(--card-border) !important;
+}
+
+.dark .dotbg {
+  background-image: radial-gradient(var(--dot-color) 1px, transparent 1px) !important;
+}
+
+.dark header,
+.dark nav {
+  border-color: var(--card-border) !important;
+}
+
+.dark select option {
+  background: var(--card-bg) !important;
+  color: var(--text-primary) !important;
+}
+
+.theme-toggle-btn {
+  transition: all 0.3s ease !important;
+}
+
+.theme-toggle-btn:hover {
+  border-color: #F4B63D !important;
+  box-shadow: 0 0 10px rgba(244, 182, 61, 0.3) !important;
+}

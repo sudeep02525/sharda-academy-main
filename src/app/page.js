@@ -226,6 +226,53 @@ export default function Page() {
   const [form, setForm] = useState({ name: "", cls: "10", phone: "", email: "" });
   const [sent, setSent] = useState(false);
 
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    const handleThemeChange = (e) => {
+      const isMobile = window.innerWidth < 768;
+      if (isMobile) {
+        if (e.matches) {
+          setDarkMode(true);
+          document.documentElement.classList.add("dark");
+        } else {
+          setDarkMode(false);
+          document.documentElement.classList.remove("dark");
+        }
+      }
+    };
+
+    const mediaQuery = window.matchMedia("(prefers-color-scheme: dark)");
+    mediaQuery.addEventListener("change", handleThemeChange);
+    
+    const isMobile = window.innerWidth < 768;
+    const systemDark = mediaQuery.matches;
+    const savedTheme = localStorage.getItem("sams-theme");
+    const shouldBeDark = isMobile ? systemDark : (savedTheme === "dark" || (!savedTheme && systemDark));
+    
+    if (shouldBeDark) {
+      setDarkMode(true);
+      document.documentElement.classList.add("dark");
+    } else {
+      setDarkMode(false);
+      document.documentElement.classList.remove("dark");
+    }
+
+    return () => mediaQuery.removeEventListener("change", handleThemeChange);
+  }, []);
+
+  const toggleTheme = () => {
+    if (darkMode) {
+      document.documentElement.classList.remove("dark");
+      localStorage.setItem("sams-theme", "light");
+      setDarkMode(false);
+    } else {
+      document.documentElement.classList.add("dark");
+      localStorage.setItem("sams-theme", "dark");
+      setDarkMode(true);
+    }
+  };
+
   const go = (id) => {
     setMenu(false);
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
@@ -256,8 +303,20 @@ Please contact us to guide us further on the admission and counselling process. 
     setTimeout(() => setSent(false), 5000);
   };
 
+  /* ── Computed theme colors (JS-driven, no CSS var dependency) ── */
+  const C = {
+    bg:         darkMode ? "#0B1120"               : "#faf9f6",
+    cardBg:     darkMode ? "#131C2E"               : "#ffffff",
+    cardBorder: darkMode ? "#243145"               : "rgba(10,24,53,0.08)",
+    textPrimary:darkMode ? "#F9FAFB"               : "#0f1a30",
+    textSecond: darkMode ? "#CBD5E1"               : "#5e6675",
+    gold:       "#f1af3c",
+    navBg:      darkMode ? "#081226"               : "#0a1835",
+  };
+
   return (
-    <div style={{ backgroundColor: B.beige, minHeight: "100vh", fontFamily: "'Inter', sans-serif", color: B.textNavy }}>
+
+    <div style={{ backgroundColor: darkMode ? "#0B1120" : "#faf9f6", minHeight: "100vh", fontFamily: "'Inter', sans-serif", color: darkMode ? "#F9FAFB" : B.textNavy }}>
       
       {/* ══════ TOP HEADER BAR (Mobile & Desktop) ════════════════════════════════ */}
       <div style={{ backgroundColor: "#060f22", color: B.goldBg, padding: "8px 16px", fontSize: "11px", fontWeight: "700", textAlign: "center", borderBottom: "1px solid rgba(255,255,255,0.08)", letterSpacing: "0.08em", display: "flex", justifyContent: "center", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
@@ -273,15 +332,15 @@ Please contact us to guide us further on the admission and counselling process. 
       </div>
 
       {/* ══════ MAIN NAVIGATION BAR ════════════════════════════════════════════ */}
-      <nav style={{ position: "sticky", top: 0, zIndex: 500, backgroundColor: B.navy, color: B.white, boxShadow: "0 4px 20px rgba(0,0,0,0.15)" }}>
+      <nav style={{ position: "sticky", top: 0, zIndex: 500, backgroundColor: darkMode ? "#081226" : "#0a1835", color: "#ffffff", boxShadow: "0 4px 20px rgba(0,0,0,0.15)" }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px", height: "66px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           
           {/* Logo & Brand */}
           <div style={{ display: "flex", alignItems: "center", gap: "12px", cursor: "pointer" }} onClick={() => go("home")}>
             <img src="/logo.png" alt="Sharda Academy Logo" onError={(e) => { e.target.style.display = "none"; }} style={{ width: "58px", height: "58px", objectFit: "contain" }} />
             <div>
-              <div style={{ fontSize: "15px", fontWeight: "900", letterSpacing: "0.05em", lineHeight: 1.1 }}>SHARDA ACADEMY</div>
-              <div style={{ fontSize: "8px", fontWeight: "800", color: B.goldBg, letterSpacing: "0.18em", textTransform: "uppercase" }}>Mankhurd · Est. 2009</div>
+              <div style={{ fontSize: "15px", fontWeight: "900", letterSpacing: "0.05em", lineHeight: 1.1, color: "#ffffff" }}>SHARDA ACADEMY</div>
+              <div style={{ fontSize: "8px", fontWeight: "800", color: C.gold, letterSpacing: "0.18em", textTransform: "uppercase" }}>Mankhurd · Est. 2009</div>
             </div>
           </div>
 
@@ -296,7 +355,37 @@ Please contact us to guide us further on the admission and counselling process. 
 
           {/* Action Button */}
           <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-            <button className="desktop-only btn-nav-apply" onClick={() => go("admission")} style={{ backgroundColor: B.goldBg, color: B.navy, border: "1.5px solid transparent", borderRadius: "8px", padding: "8.5px 18.5px", fontSize: "12px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.05em", cursor: "pointer", boxShadow: "0 4px 14px rgba(241,175,60,0.15)", display: "inline-flex", alignItems: "center", gap: "6px" }}>
+            {/* 🌗 Premium Light/Dark Theme Switcher */}
+            <button
+              onClick={toggleTheme}
+              style={{
+                background: "rgba(255,255,255,0.05)",
+                border: "1.5px solid rgba(255,255,255,0.12)",
+                borderRadius: "8px",
+                padding: "8.5px",
+                cursor: "pointer",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                transition: "all 0.3s ease"
+              }}
+              className="theme-toggle-btn desktop-only"
+              title="Toggle Theme"
+            >
+              {darkMode ? (
+                // Moon Icon (shows in Dark Mode)
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.2} stroke="#F4B63D" className="w-4 h-4" style={{ width: "15px", height: "15px" }}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
+                </svg>
+              ) : (
+                // Sun Icon (shows in Light Mode)
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.2} stroke="#F4B63D" className="w-4 h-4 animate-spin-slow" style={{ width: "15px", height: "15px" }}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m0 13.5V21m9.75-9h-2.25M4.95 19.05l1.59-1.59m11.92-11.92l1.59-1.59M3.52 12h2.25m11.92 7.05l-1.59-1.59M4.95 4.95l1.59 1.59M12 7.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Z" />
+                </svg>
+              )}
+            </button>
+
+            <button className="desktop-only btn-nav-apply" onClick={() => go("admission")} style={{ backgroundColor: "#f1af3c", color: "#0a1835", border: "1.5px solid transparent", borderRadius: "8px", padding: "8.5px 18.5px", fontSize: "12px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.05em", cursor: "pointer", boxShadow: "0 4px 14px rgba(241,175,60,0.35)", display: "inline-flex", alignItems: "center", gap: "6px" }}>
               <span>Apply Now</span>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ transition: "transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)" }}><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
             </button>
@@ -312,7 +401,7 @@ Please contact us to guide us further on the admission and counselling process. 
 
         {/* Mobile drawer */}
         {menu && (
-          <div style={{ position: "fixed", inset: 0, zIndex: 600, backgroundColor: B.navy, display: "flex", flexDirection: "column", padding: "80px 32px 32px", gap: "10px" }}>
+          <div style={{ position: "fixed", inset: 0, zIndex: 600, backgroundColor: C.navBg, display: "flex", flexDirection: "column", padding: "80px 32px 32px", gap: "10px" }}>
             {/* Close Button inside the drawer */}
             <button onClick={() => setMenu(false)} aria-label="close menu" style={{ position: "absolute", top: "24px", right: "24px", background: "none", border: "none", color: "rgba(255,255,255,0.85)", fontSize: "28px", fontWeight: "300", cursor: "pointer" }}>
               ✕
@@ -322,7 +411,7 @@ Please contact us to guide us further on the admission and counselling process. 
                 {n.l}
               </button>
             ))}
-            <button onClick={() => go("admission")} style={{ backgroundColor: B.goldBg, color: B.navy, border: "none", borderRadius: "10px", padding: "16px", fontSize: "14px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.06em", cursor: "pointer", marginTop: "24px", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}>
+            <button onClick={() => go("admission")} style={{ backgroundColor: C.gold, color: C.textPrimary, border: "none", borderRadius: "10px", padding: "16px", fontSize: "14px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.06em", cursor: "pointer", marginTop: "24px", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}>
               <span>Apply for Admission</span>
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
             </button>
@@ -331,7 +420,7 @@ Please contact us to guide us further on the admission and counselling process. 
       </nav>
 
       {/* ══════ HERO SECTION (Desktop / Mobile Dual Layouts) ══════════════════════ */}
-      <section id="home" style={{ position: "relative", overflow: "visible", padding: "48px 0", minHeight: "calc(100vh - 102px)", display: "flex", alignItems: "center", borderBottom: `1px solid ${B.borderCol}` }}>
+      <section id="home" style={{ position: "relative", overflow: "visible", padding: "48px 0", minHeight: "calc(100vh - 102px)", display: "flex", alignItems: "center", borderBottom: `1px solid ${C.cardBorder}` }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px", width: "100%" }}>
           
           {/* Dual Desktop and Mobile Grid */}
@@ -341,34 +430,34 @@ Please contact us to guide us further on the admission and counselling process. 
             <div style={{ display: "flex", flexDirection: "column", justifyContent: "space-between", height: "100%" }}>
               <div>
                 {/* Gold Chip */}
-                <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", backgroundColor: B.goldLt, border: `1px solid ${B.goldBg}`, padding: "6px 14px", borderRadius: "999px", marginBottom: "20px" }}>
-                  <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: B.gold, display: "inline-block" }} />
-                  <span style={{ fontSize: "10px", fontWeight: "800", color: B.gold, letterSpacing: "0.08em", textTransform: "uppercase" }}>ADMISSIONS OPEN FOR SESSION {getDynamicSession()}</span>
+                <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", backgroundColor: "#fef3c7", border: "1px solid #f1af3c", padding: "6px 14px", borderRadius: "999px", marginBottom: "20px" }}>
+                  <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#d97706", display: "inline-block" }} />
+                  <span style={{ fontSize: "10px", fontWeight: "800", color: "#d97706", letterSpacing: "0.08em", textTransform: "uppercase" }}>ADMISSIONS OPEN FOR SESSION {getDynamicSession()}</span>
                 </div>
 
                 {/* Dynamic responsive headings (Mobile view uses "India's Top Coaching..." and Desktop "Nurturing Minds...") */}
-                <h1 className="desktop-only" style={{ fontSize: "44px", fontWeight: "900", color: B.textNavy, lineHeight: 1.1, letterSpacing: "-0.02em", marginBottom: "12px" }}>
+                <h1 className="desktop-only" style={{ fontSize: "44px", fontWeight: "900", color: C.textPrimary, lineHeight: 1.1, letterSpacing: "-0.02em", marginBottom: "12px" }}>
                   Nurturing Minds & Building <br />
                   <span style={{ color: B.gold }}>Academic Leaders</span> <br />
                   from Class 1st to 12th
                 </h1>
-                <h1 className="mobile-only" style={{ fontSize: "28px", fontWeight: "900", color: B.textNavy, lineHeight: 1.2, letterSpacing: "-0.01em", marginBottom: "16px" }}>
+                <h1 className="mobile-only" style={{ fontSize: "28px", fontWeight: "900", color: C.textPrimary, lineHeight: 1.2, letterSpacing: "-0.01em", marginBottom: "16px" }}>
                   India's Top Coaching for <br />
                   <span style={{ color: B.gold }}>Classes 1st to 12th</span>
                 </h1>
 
                 {/* Sub-headline */}
-                <p style={{ fontSize: "14.5px", color: B.textGrey, lineHeight: 1.6, marginBottom: "20px", maxWidth: "560px" }}>
+                <p style={{ fontSize: "14.5px", color: C.textSecond, lineHeight: 1.6, marginBottom: "20px", maxWidth: "560px" }}>
                   Sharda Academy, Mankhurd-43 — Mumbai's most trusted coaching institute for academic excellence. We combine professional Board expert mentorship with high-tech smart classrooms and advanced biometric safety to deliver top Board results.
                 </p>
 
                 {/* Action Buttons */}
                 <div style={{ display: "flex", gap: "16px", flexWrap: "wrap", marginBottom: "20px" }}>
-                  <button className="btn-shine-gold" onClick={() => go("admission")} style={{ backgroundColor: B.goldBg, color: B.navy, border: "none", borderRadius: "10px", padding: "16px 28px", fontSize: "13px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.06em", cursor: "pointer", boxShadow: "0 6px 20px rgba(241,175,60,0.35)", display: "inline-flex", alignItems: "center", gap: "8px" }}>
+                  <button className="btn-shine-gold" onClick={() => go("admission")} style={{ backgroundColor: "#f1af3c", color: "#0a1835", border: "none", borderRadius: "10px", padding: "16px 28px", fontSize: "13px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.06em", cursor: "pointer", boxShadow: "0 6px 20px rgba(241,175,60,0.35)", display: "inline-flex", alignItems: "center", gap: "8px" }}>
                     <span>Apply Online For Admission</span>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" style={{ transition: "transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)" }}><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
                   </button>
-                  <button className="btn-shine-navy" onClick={() => go("admission")} style={{ backgroundColor: B.navy, color: B.white, border: `1.5px solid ${B.navy}`, borderRadius: "10px", padding: "16px 28px", fontSize: "13px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.06em", cursor: "pointer", display: "inline-flex", alignItems: "center", gap: "8px" }}>
+                  <button className="btn-shine-navy" onClick={() => go("admission")} style={{ backgroundColor: darkMode ? "#081226" : "#0a1835", color: "#ffffff", border: `1.5px solid ${darkMode ? "#081226" : "#0a1835"}`, borderRadius: "10px", padding: "16px 28px", fontSize: "13px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.06em", cursor: "pointer", display: "inline-flex", alignItems: "center", gap: "8px" }}>
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
                     Book Free Counselling
                   </button>
@@ -376,13 +465,13 @@ Please contact us to guide us further on the admission and counselling process. 
               </div>
 
               {/* Stats Card (Floating/Rounded block in hero - Desktop Only) */}
-              <div className="desktop-only" style={{ backgroundColor: B.white, border: `1.5px solid ${B.goldBg}50`, borderRadius: "16px", padding: "20px", display: "flex", justifyContent: "space-between", maxWidth: "520px", boxShadow: "0 10px 32px rgba(10,24,53,0.06)", marginTop: "24px" }}>
+              <div className="desktop-only" style={{ backgroundColor: C.cardBg, border: `1.5px solid ${C.gold}50`, borderRadius: "16px", padding: "20px", display: "flex", justifyContent: "space-between", maxWidth: "520px", boxShadow: "0 10px 32px rgba(10,24,53,0.06)", marginTop: "24px" }}>
                 <div style={{ textAlign: "center", flex: 1, borderRight: `1.5px solid ${B.goldBg}25` }}>
-                  <div style={{ fontSize: "24px", fontWeight: "900", color: B.textNavy }}>15+</div>
+                  <div style={{ fontSize: "24px", fontWeight: "900", color: C.textPrimary }}>15+</div>
                   <div style={{ fontSize: "9px", fontWeight: "700", color: B.textGrey, textTransform: "uppercase", marginTop: "4px" }}>Years Teaching</div>
                 </div>
                 <div style={{ textAlign: "center", flex: 1, borderRight: `1.5px solid ${B.goldBg}25` }}>
-                  <div style={{ fontSize: "24px", fontWeight: "900", color: B.gold }}>98.4%</div>
+                  <div style={{ fontSize: "24px", fontWeight: "900", color: C.gold }}>98.4%</div>
                   <div style={{ fontSize: "9px", fontWeight: "700", color: B.textGrey, textTransform: "uppercase", marginTop: "4px" }}>Success Rate</div>
                 </div>
                 <div style={{ textAlign: "center", flex: 1 }}>
@@ -394,31 +483,31 @@ Please contact us to guide us further on the admission and counselling process. 
 
             {/* Right Asset Column */}
             <div style={{ display: "flex", flexDirection: "column", justifyContent: "center", height: "100%" }}>
-              <div style={{ position: "relative", borderRadius: "24px", overflow: "hidden", boxShadow: "0 20px 48px rgba(0,0,0,0.08)", border: `6px solid ${B.white}` }}>
+              <div style={{ position: "relative", borderRadius: "24px", overflow: "hidden", boxShadow: "0 20px 48px rgba(0,0,0,0.08)", border: `6px solid ${C.cardBg}` }}>
                 <img src="/hero_classroom.png" alt="Sharda Academy Premium Classroom" style={{ width: "100%", height: "auto", display: "block" }} />
                 
                 {/* Floating Labels over Hero Image (Bound inside relative card) */}
                 <div style={{ position: "absolute", top: "20px", right: "20px", backgroundColor: "rgba(16,185,129,0.9)", backdropFilter: "blur(4px)", padding: "6px 12px", borderRadius: "999px", display: "flex", alignItems: "center", gap: "6px", boxShadow: "0 4px 12px rgba(0,0,0,0.1)", zIndex: 10 }}>
                   <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#fff", display: "inline-block" }} />
-                  <span style={{ fontSize: "9px", fontWeight: "800", color: B.white, textTransform: "uppercase", letterSpacing: "0.05em" }}>INTELLIGENT CLASSROOMS</span>
+                  <span style={{ fontSize: "9px", fontWeight: "800", color: "#ffffff", textTransform: "uppercase", letterSpacing: "0.05em" }}>INTELLIGENT CLASSROOMS</span>
                 </div>
                 <div style={{ position: "absolute", bottom: "20px", left: "20px", backgroundColor: "rgba(10,24,53,0.85)", backdropFilter: "blur(4px)", padding: "10px 18px", borderRadius: "12px", border: "1px solid rgba(255,255,255,0.1)", boxShadow: "0 6px 16px rgba(0,0,0,0.15)", zIndex: 10 }}>
-                  <div style={{ fontSize: "11px", fontWeight: "800", color: B.goldBg, textTransform: "uppercase" }}>State-of-the-Art Learning Spaces</div>
+                  <div style={{ fontSize: "11px", fontWeight: "800", color: C.gold, textTransform: "uppercase" }}>State-of-the-Art Learning Spaces</div>
                 </div>
               </div>
 
               {/* Mobile Stats Card (Rendered below classroom image only on mobile viewports) */}
-              <div className="mobile-only" style={{ backgroundColor: B.white, border: `1.5px solid ${B.goldBg}50`, borderRadius: "16px", padding: "20px", display: "flex", justifyContent: "space-between", width: "100%", boxShadow: "0 10px 32px rgba(10,24,53,0.06)", marginTop: "24px" }}>
+              <div className="mobile-only" style={{ backgroundColor: C.cardBg, border: `1.5px solid ${C.gold}50`, borderRadius: "16px", padding: "20px", display: "flex", justifyContent: "space-between", width: "100%", boxShadow: "0 10px 32px rgba(10,24,53,0.06)", marginTop: "24px" }}>
                 <div style={{ textAlign: "center", flex: 1, borderRight: `1.5px solid ${B.goldBg}25` }}>
-                  <div style={{ fontSize: "24px", fontWeight: "900", color: B.textNavy }}>15+</div>
+                  <div style={{ fontSize: "24px", fontWeight: "900", color: C.textPrimary }}>15+</div>
                   <div style={{ fontSize: "9px", fontWeight: "700", color: B.textGrey, textTransform: "uppercase", marginTop: "4px" }}>Years Teaching</div>
                 </div>
                 <div style={{ textAlign: "center", flex: 1, borderRight: `1.5px solid ${B.goldBg}25` }}>
-                  <div style={{ fontSize: "24px", fontWeight: "900", color: B.gold }}>98.4%</div>
+                  <div style={{ fontSize: "24px", fontWeight: "900", color: C.gold }}>98.4%</div>
                   <div style={{ fontSize: "9px", fontWeight: "700", color: B.textGrey, textTransform: "uppercase", marginTop: "4px" }}>Success Rate</div>
                 </div>
                 <div style={{ textAlign: "center", flex: 1 }}>
-                  <div style={{ fontSize: "24px", fontWeight: "900", color: B.textNavy }}>2,500+</div>
+                  <div style={{ fontSize: "24px", fontWeight: "900", color: C.textPrimary }}>2,500+</div>
                   <div style={{ fontSize: "9px", fontWeight: "700", color: B.textGrey, textTransform: "uppercase", marginTop: "4px" }}>Students Mentored</div>
                 </div>
               </div>
@@ -429,13 +518,13 @@ Please contact us to guide us further on the admission and counselling process. 
       </section>
 
       {/* ══════ CURRICULUM SECTION ══════════════════════════════════════════════════ */}
-      <section id="courses" style={{ padding: "80px 0", backgroundColor: B.cream, borderBottom: `1px solid ${B.borderCol}` }}>
+      <section id="courses" style={{ padding: "80px 0", backgroundColor: C.bg, borderBottom: `1px solid ${C.cardBorder}` }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
           
           {/* Section Header */}
           <div style={{ textAlign: "center", marginBottom: "54px" }}>
-            <div style={{ fontSize: "10px", fontWeight: "800", color: B.gold, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "8px" }}>CURRICULUM / COMPREHENSIVE</div>
-            <h2 style={{ fontSize: "36px", fontWeight: "900", color: B.textNavy, marginBottom: "16px" }}>Exceptional Classes 1st to 12th Curriculum</h2>
+            <div style={{ fontSize: "10px", fontWeight: "800", color: C.gold, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "8px" }}>CURRICULUM / COMPREHENSIVE</div>
+            <h2 style={{ fontSize: "36px", fontWeight: "900", color: C.textPrimary, marginBottom: "16px" }}>Exceptional Classes 1st to 12th Curriculum</h2>
             <p style={{ fontSize: "15px", color: B.textGrey, maxWidth: "600px", margin: "0 auto", lineHeight: 1.6 }}>
               Tailored learning paths engineered to trigger academic excellence, conceptual clarity, and unshakeable foundations for SSC & HSC Board success.
             </p>
@@ -444,29 +533,29 @@ Please contact us to guide us further on the admission and counselling process. 
           {/* Three columns curriculum cards */}
           <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "24px" }} className="curriculum-grid">
             {WINGS.map((w, idx) => (
-              <div key={idx} className="hover-card" style={{ backgroundColor: B.white, border: `1px solid ${B.borderCol}`, borderRadius: "20px", padding: "32px", display: "flex", flexDirection: "column", transition: "transform 0.3s, box-shadow 0.3s" }}>
+              <div key={idx} className="hover-card" style={{ backgroundColor: C.cardBg, border: `1px solid ${C.cardBorder}`, borderRadius: "20px", padding: "32px", display: "flex", flexDirection: "column", transition: "transform 0.3s, box-shadow 0.3s" }}>
                 
                 {/* Wing Category Chip */}
                 <div style={{ display: "inline-flex", alignSelf: "flex-start", backgroundColor: w.bg, color: w.tc, border: `1px solid ${w.tc}30`, borderRadius: "999px", padding: "6px 12px", fontSize: "9px", fontWeight: "800", letterSpacing: "0.06em", marginBottom: "20px" }}>
                   {w.tag}
                 </div>
 
-                <h3 style={{ fontSize: "20px", fontWeight: "850", color: B.textNavy, marginBottom: "4px" }}>{w.title}</h3>
-                <div style={{ fontSize: "12px", fontWeight: "700", color: B.textGrey, marginBottom: "20px" }}>{w.sub}</div>
+                <h3 style={{ fontSize: "20px", fontWeight: "850", color: C.textPrimary, marginBottom: "4px" }}>{w.title}</h3>
+                <div style={{ fontSize: "12px", fontWeight: "700", color: C.textSecond, marginBottom: "20px" }}>{w.sub}</div>
 
                 {/* Point Checkmarks */}
                 <ul style={{ listStyle: "none", padding: 0, margin: "0 0 32px 0", display: "flex", flexDirection: "column", gap: "10px" }}>
                   {w.points.map((pt, pIdx) => (
-                    <li key={pIdx} style={{ fontSize: "13.5px", color: B.textNavy, display: "flex", alignItems: "center", gap: "8px", fontWeight: "500" }}>
-                      <span style={{ color: B.gold, fontWeight: "900" }}>✓</span> {pt}
+                    <li key={pIdx} style={{ fontSize: "13.5px", color: C.textPrimary, display: "flex", alignItems: "center", gap: "8px", fontWeight: "500" }}>
+                      <span style={{ color: C.gold, fontWeight: "900" }}>✓</span> {pt}
                     </li>
                   ))}
                 </ul>
 
                 {/* Card CTA */}
-                <button className="btn-syllabus-cta" onClick={() => go("admission")} style={{ width: "100%", marginTop: "auto", border: `1.5px solid ${B.borderCol}`, backgroundColor: B.beige, borderRadius: "10px", padding: "12px", fontSize: "12px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.05em", color: B.textNavy, cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "6px" }}>
+                <button className="btn-syllabus-cta" onClick={() => go("admission")} style={{ width: "100%", marginTop: "auto", border: `1.5px solid ${C.cardBorder}`, backgroundColor: C.bg, borderRadius: "10px", padding: "12px", fontSize: "12px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.05em", color: C.textPrimary, cursor: "pointer", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "6px" }}>
                   <span>View Detailed Syllabus</span>
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ transition: "transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)", color: B.gold }}><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ transition: "transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)", color: C.gold }}><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
                 </button>
 
               </div>
@@ -482,7 +571,7 @@ Please contact us to guide us further on the admission and counselling process. 
           
           {/* Section Header */}
           <div style={{ textAlign: "center", marginBottom: "54px" }}>
-            <div style={{ fontSize: "10px", fontWeight: "800", color: B.gold, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "8px" }}>OUR SMART INFRASTRUCTURE</div>
+            <div style={{ fontSize: "10px", fontWeight: "800", color: C.gold, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "8px" }}>OUR SMART INFRASTRUCTURE</div>
             <h2 style={{ fontSize: "36px", fontWeight: "900", color: B.textNavy, marginBottom: "16px" }}>Premium Standards & Smart Infrastructure</h2>
             <p style={{ fontSize: "15px", color: B.textGrey, maxWidth: "600px", margin: "0 auto", lineHeight: 1.6 }}>
               World-class classroom environments and cutting-edge administrative tools engineered to guarantee seamless learning and complete safety.
@@ -505,8 +594,8 @@ Please contact us to guide us further on the admission and counselling process. 
 
                 {/* Card content */}
                 <div style={{ padding: "28px", display: "flex", flexDirection: "column", flexGrow: 1 }}>
-                  <h3 style={{ fontSize: "18px", fontWeight: "850", color: B.textNavy, marginBottom: "8px" }}>{f.title}</h3>
-                  <p style={{ fontSize: "13px", color: B.textGrey, lineHeight: 1.6, margin: 0 }}>{f.desc}</p>
+                  <h3 style={{ fontSize: "18px", fontWeight: "850", color: C.textPrimary, marginBottom: "8px" }}>{f.title}</h3>
+                  <p style={{ fontSize: "13px", color: C.textSecond, lineHeight: 1.6, margin: 0 }}>{f.desc}</p>
                 </div>
 
               </div>
@@ -519,13 +608,13 @@ Please contact us to guide us further on the admission and counselling process. 
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "20px" }} className="benefits-grid">
             {BENEFITS.map((b, idx) => (
-              <div key={idx} style={{ backgroundColor: B.white, border: `1px solid ${B.borderCol}`, borderRadius: "16px", padding: "20px", display: "flex", gap: "16px", alignItems: "flex-start" }}>
-                <div style={{ width: "42px", height: "42px", borderRadius: "10px", backgroundColor: B.cream, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "20px", flexShrink: 0 }}>
+              <div key={idx} style={{ backgroundColor: C.cardBg, border: `1px solid ${C.cardBorder}`, borderRadius: "16px", padding: "20px", display: "flex", gap: "16px", alignItems: "flex-start" }}>
+                <div style={{ width: "42px", height: "42px", borderRadius: "10px", backgroundColor: C.bg, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "20px", flexShrink: 0 }}>
                   {b.icon}
                 </div>
                 <div>
-                  <h4 style={{ fontSize: "14px", fontWeight: "800", color: B.textNavy, marginBottom: "4px" }}>{b.title}</h4>
-                  <p style={{ fontSize: "12px", color: B.textGrey, lineHeight: 1.5, margin: 0 }}>{b.desc}</p>
+                  <h4 style={{ fontSize: "14px", fontWeight: "800", color: C.textPrimary, marginBottom: "4px" }}>{b.title}</h4>
+                  <p style={{ fontSize: "12px", color: C.textSecond, lineHeight: 1.5, margin: 0 }}>{b.desc}</p>
                 </div>
               </div>
             ))}
@@ -535,13 +624,13 @@ Please contact us to guide us further on the admission and counselling process. 
       </section>
 
       {/* ══════ TOPOERS & HALL OF FAME SECTION ═════════════════════════════════════ */}
-      <section id="results" style={{ padding: "80px 0", backgroundColor: B.cream, borderBottom: `1px solid ${B.borderCol}` }}>
+      <section id="results" style={{ padding: "80px 0", backgroundColor: C.bg, borderBottom: `1px solid ${C.cardBorder}` }}>
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
           
           {/* Section Header */}
           <div style={{ textAlign: "center", marginBottom: "54px" }}>
-            <div style={{ fontSize: "10px", fontWeight: "800", color: B.gold, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "8px" }}>ACHIEVERS & TOPPERS</div>
-            <h2 style={{ fontSize: "36px", fontWeight: "900", color: B.textNavy, marginBottom: "16px" }}>Our State Board Toppers & SSC/HSC Scores</h2>
+            <div style={{ fontSize: "10px", fontWeight: "800", color: C.gold, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "8px" }}>ACHIEVERS & TOPPERS</div>
+            <h2 style={{ fontSize: "36px", fontWeight: "900", color: C.textPrimary, marginBottom: "16px" }}>Our State Board Toppers & SSC/HSC Scores</h2>
             <p style={{ fontSize: "15px", color: B.textGrey, maxWidth: "600px", margin: "0 auto", lineHeight: 1.6 }}>
               A decade-long legacy of unshakeable ranks. Witness the spectacular board achievements from our classroom champions.
             </p>
@@ -550,22 +639,22 @@ Please contact us to guide us further on the admission and counselling process. 
           {/* Three topper cards */}
           <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "24px" }} className="curriculum-grid">
             {TOPPERS.map((t, idx) => (
-              <div key={idx} style={{ backgroundColor: B.white, border: `1px solid ${B.borderCol}`, borderRadius: "20px", padding: "32px", textAlign: "center" }}>
+              <div key={idx} style={{ backgroundColor: C.cardBg, border: `1px solid ${C.cardBorder}`, borderRadius: "20px", padding: "32px", textAlign: "center" }}>
                 
                 {/* Avatar Initials block */}
                 <div style={{ width: "64px", height: "64px", borderRadius: "50%", backgroundColor: t.bg, color: t.c, fontSize: "20px", fontWeight: "900", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 20px", border: `2px solid ${t.c}50` }}>
                   {t.avatar}
                 </div>
 
-                <h3 style={{ fontSize: "18px", fontWeight: "850", color: B.textNavy, marginBottom: "4px" }}>{t.name}</h3>
+                <h3 style={{ fontSize: "18px", fontWeight: "850", color: C.textPrimary, marginBottom: "4px" }}>{t.name}</h3>
                 
                 {/* Rank Badge */}
-                <div style={{ display: "inline-block", backgroundColor: t.bg, color: t.c, border: `1px solid ${t.c}30`, borderRadius: "999px", padding: "4px 14px", fontSize: "10px", fontWeight: "800", letterSpacing: "0.04em", margin: "8px 0 16px" }}>
+                <div style={{ display: "inline-block", backgroundColor: t.bg, color: t.c, border: `2px solid ${C.gold}50`, borderRadius: "999px", padding: "4px 14px", fontSize: "10px", fontWeight: "800", letterSpacing: "0.04em", margin: "8px 0 16px" }}>
                   {t.rank}
                 </div>
 
-                <div style={{ fontSize: "13.5px", color: B.gold, fontWeight: "700", marginBottom: "4px" }}>{t.score}</div>
-                <div style={{ fontSize: "12px", color: B.textGrey, fontWeight: "600" }}>{t.exam}</div>
+                <div style={{ fontSize: "13.5px", color: C.gold, fontWeight: "700", marginBottom: "4px" }}>{t.score}</div>
+                <div style={{ fontSize: "12px", color: C.textSecond, fontWeight: "600" }}>{t.exam}</div>
 
               </div>
             ))}
