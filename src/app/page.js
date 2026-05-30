@@ -2,6 +2,8 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 /* ═══════════════════════════════════════════════════════════════
    PREMIUM THEME BRAND SYSTEM — Extracted from mockups
@@ -161,7 +163,7 @@ const BENEFITS = [
         height="20"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#0a1835"
+        stroke="#f1af3c"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -180,7 +182,7 @@ const BENEFITS = [
         height="20"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#0a1835"
+        stroke="#f1af3c"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -199,7 +201,7 @@ const BENEFITS = [
         height="20"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#0a1835"
+        stroke="#f1af3c"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -218,7 +220,7 @@ const BENEFITS = [
         height="20"
         viewBox="0 0 24 24"
         fill="none"
-        stroke="#0a1835"
+        stroke="#f1af3c"
         strokeWidth="2"
         strokeLinecap="round"
         strokeLinejoin="round"
@@ -584,402 +586,33 @@ Please contact us to guide us further on the admission and counselling process. 
 
   /* ── Computed theme colors (JS-driven, no CSS var dependency) ── */
   const C = {
-    bg: darkMode ? "#0B1120" : "#ffffff",
+    bg: darkMode ? "#0a0e1a" : "#ffffff",
     cardBg: darkMode ? "#131C2E" : "#ffffff",
     cardBorder: darkMode ? "#243145" : "rgba(10,24,53,0.08)",
     textPrimary: darkMode ? "#F9FAFB" : "#0f1a30",
     textSecond: darkMode ? "#CBD5E1" : "#5e6675",
     gold: "#f1af3c",
-    navBg: darkMode ? "#081226" : "#0a1835",
+    navBg: darkMode ? "#0d1222" : "#0a1835",
   };
 
   return (
     <div
       className="page-wrapper"
       style={{
-        backgroundColor: darkMode ? "#0B1120" : "#ffffff",
+        backgroundColor: darkMode ? "#0a0e1a" : "#ffffff",
         minHeight: "100vh",
         fontFamily: "'Inter', sans-serif",
         color: darkMode ? "#F9FAFB" : B.textNavy,
       }}
     >
-      {/* ══════ TOP HEADER BAR (Mobile & Desktop) ════════════════════════════════ */}
-      <div
-        style={{
-          backgroundColor: "#060f22",
-          color: B.goldBg,
-          padding: "8px 16px",
-          fontSize: "11px",
-          fontWeight: "700",
-          textAlign: "center",
-          borderBottom: "1px solid rgba(255,255,255,0.08)",
-          letterSpacing: "0.08em",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          gap: "8px",
-          flexWrap: "wrap",
-        }}
-      >
-        <span
-          style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}
-        >
-          <svg
-            width="11"
-            height="11"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            style={{ display: "inline-block" }}
-          >
-            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-          </svg>
-          CALL ACADEMY: +91 93244 44269
-        </span>
-        <span className="desktop-only">|</span>
-        <span
-          className="desktop-only"
-          style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}
-        >
-          <svg
-            width="11"
-            height="11"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2.5"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            style={{ display: "inline-block" }}
-          >
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-            <circle cx="12" cy="10" r="3" />
-          </svg>
-          LOCATION: PMG Colony, Mankhurd, Mumbai — 400043
-        </span>
-      </div>
-
-      {/* ══════ MAIN NAVIGATION BAR ════════════════════════════════════════════ */}
-      <nav
-        style={{
-          position: "sticky",
-          top: 0,
-          zIndex: 500,
-          backgroundColor: darkMode ? "#081226" : "#0a1835",
-          color: "#ffffff",
-          boxShadow: "0 4px 20px rgba(0,0,0,0.15)",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            padding: "0 24px",
-            height: "66px",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-          }}
-        >
-          {/* Logo & Brand */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "12px",
-              cursor: "pointer",
-            }}
-            onClick={() => go("home")}
-          >
-            <img
-              src="/logo.png"
-              alt="Sharda Academy Logo"
-              onError={(e) => {
-                e.target.style.display = "none";
-              }}
-              style={{ width: "58px", height: "58px", objectFit: "contain" }}
-            />
-            <div>
-              <div
-                style={{
-                  fontSize: "15px",
-                  fontWeight: "900",
-                  letterSpacing: "0.05em",
-                  lineHeight: 1.1,
-                  color: "#ffffff",
-                }}
-              >
-                SHARDA ACADEMY
-              </div>
-              <div
-                style={{
-                  fontSize: "8px",
-                  fontWeight: "800",
-                  color: C.gold,
-                  letterSpacing: "0.18em",
-                  textTransform: "uppercase",
-                }}
-              >
-                Mankhurd · Est. 2009
-              </div>
-            </div>
-          </div>
-
-          {/* Desktop Navigation Links */}
-          <div
-            className="desktop-only"
-            style={{
-              display: "flex",
-              gap: "28px",
-              marginLeft: "auto",
-              marginRight: "32px",
-            }}
-          >
-            {NAV.map((n) => (
-              <button
-                key={n.id}
-                className={`nav-link-item ${activeId === n.id ? "active" : ""}`}
-                onClick={() => go(n.id)}
-              >
-                {n.l}
-              </button>
-            ))}
-          </div>
-
-          {/* Action Button */}
-          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-            {/* 🌗 Premium Light/Dark Theme Switcher */}
-            <button
-              onClick={toggleTheme}
-              style={{
-                background: "rgba(255,255,255,0.05)",
-                border: "1.5px solid rgba(255,255,255,0.12)",
-                borderRadius: "8px",
-                padding: "8.5px",
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                transition: "all 0.3s ease",
-              }}
-              className="theme-toggle-btn desktop-only"
-              title="Toggle Theme"
-            >
-              {darkMode ? (
-                // Moon Icon (shows in Dark Mode)
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2.2}
-                  stroke="#F4B63D"
-                  className="w-4 h-4"
-                  style={{ width: "15px", height: "15px" }}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z"
-                  />
-                </svg>
-              ) : (
-                // Sun Icon (shows in Light Mode)
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  strokeWidth={2.2}
-                  stroke="#F4B63D"
-                  className="w-4 h-4 animate-spin-slow"
-                  style={{ width: "15px", height: "15px" }}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 3v2.25m0 13.5V21m9.75-9h-2.25M4.95 19.05l1.59-1.59m11.92-11.92l1.59-1.59M3.52 12h2.25m11.92 7.05l-1.59-1.59M4.95 4.95l1.59 1.59M12 7.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Z"
-                  />
-                </svg>
-              )}
-            </button>
-
-            <button
-              className="desktop-only btn-nav-apply"
-              onClick={() => go("admission")}
-              style={{
-                backgroundColor: "#f1af3c",
-                color: "#0a1835",
-                border: "1.5px solid transparent",
-                borderRadius: "8px",
-                padding: "8.5px 18.5px",
-                fontSize: "12px",
-                fontWeight: "800",
-                textTransform: "uppercase",
-                letterSpacing: "0.05em",
-                cursor: "pointer",
-                boxShadow: "0 4px 14px rgba(241,175,60,0.35)",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "6px",
-              }}
-            >
-              <span>Apply Now</span>
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="3"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                style={{
-                  transition: "transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)",
-                }}
-              >
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
-            </button>
-
-            {/* Mobile Hamburger menu */}
-            <button
-              className="mobile-only"
-              onClick={() => setMenu(!menu)}
-              aria-label="menu"
-              style={{
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.08)",
-                borderRadius: "8px",
-                padding: "10px",
-                cursor: "pointer",
-                display: "flex",
-                flexDirection: "column",
-                gap: "5px",
-              }}
-            >
-              {[0, 1, 2].map((i) => (
-                <span
-                  key={i}
-                  style={{
-                    display: "block",
-                    width: "18px",
-                    height: "2px",
-                    backgroundColor: "rgba(255,255,255,0.85)",
-                    borderRadius: "1px",
-                    transition: "0.3s",
-                    transform:
-                      menu && i === 0
-                        ? "rotate(45deg) translateY(5px)"
-                        : menu && i === 2
-                          ? "rotate(-45deg) translateY(-5px)"
-                          : "",
-                    opacity: menu && i === 1 ? 0 : 1,
-                  }}
-                />
-              ))}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile drawer */}
-        {menu && (
-          <div
-            style={{
-              position: "fixed",
-              inset: 0,
-              zIndex: 600,
-              backgroundColor: C.navBg,
-              display: "flex",
-              flexDirection: "column",
-              padding: "80px 32px 32px",
-              gap: "10px",
-            }}
-          >
-            {/* Close Button inside the drawer */}
-            <button
-              onClick={() => setMenu(false)}
-              aria-label="close menu"
-              style={{
-                position: "absolute",
-                top: "24px",
-                right: "24px",
-                background: "none",
-                border: "none",
-                color: "rgba(255,255,255,0.85)",
-                fontSize: "28px",
-                fontWeight: "300",
-                cursor: "pointer",
-              }}
-            >
-              ✕
-            </button>
-            {NAV.map((n) => (
-              <button
-                key={n.id}
-                onClick={() => go(n.id)}
-                style={{
-                  background: "none",
-                  border: "none",
-                  borderBottom: "1px solid rgba(255,255,255,0.06)",
-                  padding: "16px 0",
-                  textAlign: "left",
-                  fontSize: "20px",
-                  fontWeight: "800",
-                  color: activeId === n.id ? "#f1af3c" : "#fff",
-                  cursor: "pointer",
-                }}
-              >
-                {n.l}
-              </button>
-            ))}
-            <button
-              onClick={() => go("admission")}
-              style={{
-                backgroundColor: C.gold,
-                color: C.textPrimary,
-                border: "none",
-                borderRadius: "10px",
-                padding: "16px",
-                fontSize: "14px",
-                fontWeight: "800",
-                textTransform: "uppercase",
-                letterSpacing: "0.06em",
-                cursor: "pointer",
-                marginTop: "24px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "8px",
-              }}
-            >
-              <span>Apply for Admission</span>
-              <svg
-                width="14"
-                height="14"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="3"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="5" y1="12" x2="19" y2="12" />
-                <polyline points="12 5 19 12 12 19" />
-              </svg>
-            </button>
-          </div>
-        )}
-      </nav>
+      <Navbar darkMode={darkMode} toggleTheme={toggleTheme} activeId={activeId} go={go} menu={menu} setMenu={setMenu} />
 
       {/* ══════ HERO SECTION (Desktop / Mobile Dual Layouts) ══════════════════════ */}
       <section
         id="home"
         style={{
           position: "relative",
-          overflow: "visible",
+          overflow: "hidden",
           padding: "48px 0",
           minHeight: "calc(100vh - 102px)",
           display: "flex",
@@ -987,6 +620,7 @@ Please contact us to guide us further on the admission and counselling process. 
           borderBottom: `1px solid ${C.cardBorder}`,
         }}
       >
+
         <div
           style={{
             maxWidth: "1200px",
@@ -1021,28 +655,21 @@ Please contact us to guide us further on the admission and counselling process. 
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
-                    gap: "6px",
-                    backgroundColor: "#fef3c7",
-                    border: "1px solid #f1af3c",
+                    gap: "8px",
+                    backgroundColor: darkMode ? "rgba(241, 175, 60, 0.08)" : "#fef3c7",
+                    border: `1.5px solid ${darkMode ? "rgba(241, 175, 60, 0.4)" : "#f1af3c"}`,
+                    boxShadow: darkMode ? "0 0 16px rgba(241, 175, 60, 0.16)" : "none",
                     padding: "6px 14px",
                     borderRadius: "999px",
                     marginBottom: "20px",
                   }}
                 >
-                  <span
-                    style={{
-                      width: "6px",
-                      height: "6px",
-                      borderRadius: "50%",
-                      backgroundColor: "#d97706",
-                      display: "inline-block",
-                    }}
-                  />
+                  <span className="pulse-dot" />
                   <span
                     style={{
                       fontSize: "10px",
                       fontWeight: "800",
-                      color: "#d97706",
+                      color: darkMode ? "#f1af3c" : "#d97706",
                       letterSpacing: "0.08em",
                       textTransform: "uppercase",
                     }}
@@ -1051,13 +678,13 @@ Please contact us to guide us further on the admission and counselling process. 
                   </span>
                 </div>
 
-                {/* Dynamic responsive headings (Mobile view uses "India's Top Coaching..." and Desktop "Nurturing Minds...") */}
+                {/* Desktop Headline with Premium Inline Styles */}
                 <h1
                   className="desktop-only afsu d2"
                   style={{
                     fontSize: "44px",
                     fontWeight: "900",
-                    color: C.textPrimary,
+                    color: darkMode ? "#ffffff" : C.textPrimary,
                     lineHeight: 1.15,
                     letterSpacing: "-0.02em",
                     marginBottom: "12px",
@@ -1067,23 +694,22 @@ Please contact us to guide us further on the admission and counselling process. 
                   <span style={{ color: B.gold }}>Board Exam Toppers</span>{" "}<br />
                   from Class 1st to 12th
                 </h1>
+
+                {/* Mobile Headline (Identical text, premium mobile layout inline styling) */}
                 <h1
                   className="mobile-only afsu d2"
                   style={{
                     fontSize: "28px",
                     fontWeight: "900",
-                    color: C.textPrimary,
+                    color: darkMode ? "#ffffff" : C.textPrimary,
                     lineHeight: 1.2,
                     letterSpacing: "-0.01em",
                     marginBottom: "16px",
                   }}
                 >
-                  India's Top Coaching for <br />
-                  <span style={{ color: B.gold }}>
-                    Classes 1st to 12th<br/>
-                    SSC & HSC Board Prep<br/>
-                    Personalized Small Batches
-                  </span>
+                  Nurturing Minds & Building <br />
+                  <span style={{ color: B.gold }}>Board Exam Toppers</span> <br />
+                  from Class 1st to 12th
                 </h1>
 
                 {/* Sub-headline */}
@@ -1091,7 +717,7 @@ Please contact us to guide us further on the admission and counselling process. 
                   className="afsu d3"
                   style={{
                     fontSize: "14.5px",
-                    color: C.textSecond,
+                    color: darkMode ? "#94a3b8" : C.textSecond,
                     lineHeight: 1.6,
                     marginBottom: "20px",
                     maxWidth: "560px",
@@ -1156,9 +782,9 @@ Please contact us to guide us further on the admission and counselling process. 
                     className="btn-shine-navy"
                     onClick={() => go("admission")}
                     style={{
-                      backgroundColor: darkMode ? "#081226" : "#0a1835",
+                      backgroundColor: darkMode ? "transparent" : "#0a1835",
                       color: "#ffffff",
-                      border: `1.5px solid ${darkMode ? "#081226" : "#0a1835"}`,
+                      border: `1.5px solid ${darkMode ? "rgba(255, 255, 255, 0.25)" : "#0a1835"}`,
                       borderRadius: "10px",
                       padding: "16px 28px",
                       fontSize: "13px",
@@ -1183,7 +809,7 @@ Please contact us to guide us further on the admission and counselling process. 
                     >
                       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                     </svg>
-                    Book Free Counselling
+                    <span>Book Free Counselling</span>
                   </button>
                 </div>
               </div>
@@ -1193,7 +819,7 @@ Please contact us to guide us further on the admission and counselling process. 
                 className="desktop-only afsu d5"
                 style={{
                   backgroundColor: C.cardBg,
-                  border: `1.5px solid ${C.gold}50`,
+                  border: darkMode ? "1.5px solid rgba(255, 255, 255, 0.08)" : `1.5px solid ${C.gold}50`,
                   borderRadius: "16px",
                   padding: "20px",
                   display: "flex",
@@ -1207,7 +833,7 @@ Please contact us to guide us further on the admission and counselling process. 
                   style={{
                     textAlign: "center",
                     flex: 1,
-                    borderRight: `1.5px solid ${B.goldBg}25`,
+                    borderRight: darkMode ? "1.5px solid rgba(255, 255, 255, 0.08)" : `1.5px solid ${B.goldBg}25`,
                   }}
                 >
                   <div
@@ -1223,7 +849,7 @@ Please contact us to guide us further on the admission and counselling process. 
                     style={{
                       fontSize: "9px",
                       fontWeight: "700",
-                      color: B.textGrey,
+                      color: C.textSecond,
                       textTransform: "uppercase",
                       marginTop: "4px",
                     }}
@@ -1235,7 +861,7 @@ Please contact us to guide us further on the admission and counselling process. 
                   style={{
                     textAlign: "center",
                     flex: 1,
-                    borderRight: `1.5px solid ${B.goldBg}25`,
+                    borderRight: darkMode ? "1.5px solid rgba(255, 255, 255, 0.08)" : `1.5px solid ${B.goldBg}25`,
                   }}
                 >
                   <div
@@ -1251,7 +877,7 @@ Please contact us to guide us further on the admission and counselling process. 
                     style={{
                       fontSize: "9px",
                       fontWeight: "700",
-                      color: B.textGrey,
+                      color: C.textSecond,
                       textTransform: "uppercase",
                       marginTop: "4px",
                     }}
@@ -1264,7 +890,7 @@ Please contact us to guide us further on the admission and counselling process. 
                     style={{
                       fontSize: "24px",
                       fontWeight: "900",
-                      color: B.textNavy,
+                      color: C.textPrimary,
                     }}
                   >
                     2,500+
@@ -1273,7 +899,7 @@ Please contact us to guide us further on the admission and counselling process. 
                     style={{
                       fontSize: "9px",
                       fontWeight: "700",
-                      color: B.textGrey,
+                      color: C.textSecond,
                       textTransform: "uppercase",
                       marginTop: "4px",
                     }}
@@ -1381,7 +1007,7 @@ Please contact us to guide us further on the admission and counselling process. 
                 className="mobile-only"
                 style={{
                   backgroundColor: C.cardBg,
-                  border: `1.5px solid ${C.gold}50`,
+                  border: darkMode ? "1.5px solid rgba(255, 255, 255, 0.08)" : `1.5px solid ${C.gold}50`,
                   borderRadius: "16px",
                   padding: "20px",
                   display: "flex",
@@ -1395,7 +1021,7 @@ Please contact us to guide us further on the admission and counselling process. 
                   style={{
                     textAlign: "center",
                     flex: 1,
-                    borderRight: `1.5px solid ${B.goldBg}25`,
+                    borderRight: darkMode ? "1.5px solid rgba(255, 255, 255, 0.08)" : `1.5px solid ${B.goldBg}25`,
                   }}
                 >
                   <div
@@ -1411,7 +1037,7 @@ Please contact us to guide us further on the admission and counselling process. 
                     style={{
                       fontSize: "9px",
                       fontWeight: "700",
-                      color: B.textGrey,
+                      color: C.textSecond,
                       textTransform: "uppercase",
                       marginTop: "4px",
                     }}
@@ -1423,7 +1049,7 @@ Please contact us to guide us further on the admission and counselling process. 
                   style={{
                     textAlign: "center",
                     flex: 1,
-                    borderRight: `1.5px solid ${B.goldBg}25`,
+                    borderRight: darkMode ? "1.5px solid rgba(255, 255, 255, 0.08)" : `1.5px solid ${B.goldBg}25`,
                   }}
                 >
                   <div
@@ -1439,7 +1065,7 @@ Please contact us to guide us further on the admission and counselling process. 
                     style={{
                       fontSize: "9px",
                       fontWeight: "700",
-                      color: B.textGrey,
+                      color: C.textSecond,
                       textTransform: "uppercase",
                       marginTop: "4px",
                     }}
@@ -1461,7 +1087,7 @@ Please contact us to guide us further on the admission and counselling process. 
                     style={{
                       fontSize: "9px",
                       fontWeight: "700",
-                      color: B.textGrey,
+                      color: C.textSecond,
                       textTransform: "uppercase",
                       marginTop: "4px",
                     }}
@@ -1669,7 +1295,7 @@ Please contact us to guide us further on the admission and counselling process. 
       {/* ══════ SMART INFRASTRUCTURE SECTION ══════════════════════════════════════ */}
       <section
         id="facilities"
-        style={{ padding: "80px 0", borderBottom: `1px solid ${B.borderCol}` }}
+        style={{ padding: "80px 0", borderBottom: `1px solid ${C.cardBorder}` }}
       >
         <div
           style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}
@@ -1692,7 +1318,7 @@ Please contact us to guide us further on the admission and counselling process. 
               style={{
                 fontSize: "36px",
                 fontWeight: "900",
-                color: B.textNavy,
+                color: C.textPrimary,
                 marginBottom: "16px",
               }}
             >
@@ -1701,7 +1327,7 @@ Please contact us to guide us further on the admission and counselling process. 
             <p
               style={{
                 fontSize: "15px",
-                color: B.textGrey,
+                color: C.textSecond,
                 maxWidth: "600px",
                 margin: "0 auto",
                 lineHeight: 1.6,
@@ -1728,8 +1354,8 @@ Please contact us to guide us further on the admission and counselling process. 
                 key={idx}
                 className="hover-card reveal reveal-slide-up"
                 style={{
-                  backgroundColor: B.white,
-                  border: `1px solid ${B.borderCol}`,
+                  backgroundColor: C.cardBg,
+                  border: `1px solid ${C.cardBorder}`,
                   borderRadius: "24px",
                   overflow: "hidden",
                   display: "flex",
@@ -1820,7 +1446,7 @@ Please contact us to guide us further on the admission and counselling process. 
               style={{
                 fontSize: "10px",
                 fontWeight: "800",
-                color: B.textGrey,
+                color: C.textSecond,
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
               }}
@@ -2034,7 +1660,7 @@ Please contact us to guide us further on the admission and counselling process. 
 
       {/* ══════ TEACHERS & TESTIMONIALS SECTION ══════════════════════════════════ */}
       <section
-        style={{ padding: "80px 0", borderBottom: `1px solid ${B.borderCol}` }}
+        style={{ padding: "80px 0", borderBottom: `1px solid ${C.cardBorder}` }}
       >
         <div
           style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}
@@ -2066,7 +1692,7 @@ Please contact us to guide us further on the admission and counselling process. 
                 style={{
                   fontSize: "32px",
                   fontWeight: "900",
-                  color: B.textNavy,
+                  color: C.textPrimary,
                   marginBottom: "20px",
                 }}
               >
@@ -2075,7 +1701,7 @@ Please contact us to guide us further on the admission and counselling process. 
               <p
                 style={{
                   fontSize: "14.5px",
-                  color: B.textGrey,
+                  color: C.textSecond,
                   lineHeight: 1.6,
                   marginBottom: "32px",
                 }}
@@ -2098,8 +1724,8 @@ Please contact us to guide us further on the admission and counselling process. 
                     key={idx}
                     className="hover-card"
                     style={{
-                      backgroundColor: B.white,
-                      border: `1px solid ${B.borderCol}`,
+                      backgroundColor: C.cardBg,
+                      border: `1px solid ${C.cardBorder}`,
                       borderRadius: "16px",
                       padding: "20px",
                       display: "flex",
@@ -2112,12 +1738,12 @@ Please contact us to guide us further on the admission and counselling process. 
                         width: "48px",
                         height: "48px",
                         borderRadius: "50%",
-                        backgroundColor: B.cream,
+                        backgroundColor: darkMode ? "#1e293b" : B.cream,
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
                         flexShrink: 0,
-                        color: B.navy,
+                        color: C.textPrimary,
                       }}
                     >
                       <svg
@@ -2139,7 +1765,7 @@ Please contact us to guide us further on the admission and counselling process. 
                         style={{
                           fontSize: "15px",
                           fontWeight: "800",
-                          color: B.textNavy,
+                          color: C.textPrimary,
                           marginBottom: "2px",
                         }}
                       >
@@ -2159,7 +1785,7 @@ Please contact us to guide us further on the admission and counselling process. 
                       <p
                         style={{
                           fontSize: "12.5px",
-                          color: B.textGrey,
+                          color: C.textSecond,
                           margin: 0,
                           lineHeight: 1.5,
                         }}
@@ -2375,8 +2001,8 @@ Please contact us to guide us further on the admission and counselling process. 
         id="admission"
         style={{
           padding: "80px 0",
-          backgroundColor: B.cream,
-          borderBottom: `1px solid ${B.borderCol}`,
+          backgroundColor: darkMode ? "#0B1120" : B.cream,
+          borderBottom: `1px solid ${C.cardBorder}`,
         }}
       >
         <div style={{ maxWidth: "600px", margin: "0 auto", padding: "0 24px" }}>
@@ -2397,13 +2023,13 @@ Please contact us to guide us further on the admission and counselling process. 
               style={{
                 fontSize: "32px",
                 fontWeight: "900",
-                color: B.textNavy,
+                color: C.textPrimary,
                 marginBottom: "12px",
               }}
             >
               Admissions Enquiry
             </h2>
-            <p style={{ fontSize: "14px", color: B.textGrey, lineHeight: 1.5 }}>
+            <p style={{ fontSize: "14px", color: C.textSecond, lineHeight: 1.5 }}>
               Fill in the details below, and our student advisors will call you
               within 24 hours to help book counselling.
             </p>
@@ -2412,7 +2038,7 @@ Please contact us to guide us further on the admission and counselling process. 
           {sent ? (
             <div
               style={{
-                backgroundColor: B.white,
+                backgroundColor: C.cardBg,
                 border: `2px solid #10b981`,
                 borderRadius: "20px",
                 padding: "40px",
@@ -2453,7 +2079,7 @@ Please contact us to guide us further on the admission and counselling process. 
               <p
                 style={{
                   fontSize: "13.5px",
-                  color: B.textGrey,
+                  color: C.textSecond,
                   lineHeight: 1.6,
                   margin: 0,
                 }}
@@ -2465,11 +2091,11 @@ Please contact us to guide us further on the admission and counselling process. 
           ) : (
             <form
               onSubmit={submitForm}
+              className="form-card"
               style={{
-                backgroundColor: B.white,
-                border: `1px solid ${B.borderCol}`,
+                backgroundColor: C.cardBg,
+                border: `1px solid ${C.cardBorder}`,
                 borderRadius: "20px",
-                padding: "32px",
                 display: "flex",
                 flexDirection: "column",
                 gap: "20px",
@@ -2482,7 +2108,7 @@ Please contact us to guide us further on the admission and counselling process. 
                     display: "block",
                     fontSize: "11px",
                     fontWeight: "700",
-                    color: B.textNavy,
+                    color: C.textPrimary,
                     textTransform: "uppercase",
                     letterSpacing: "0.05em",
                     marginBottom: "6px",
@@ -2499,9 +2125,11 @@ Please contact us to guide us further on the admission and counselling process. 
                   style={{
                     width: "100%",
                     padding: "12px 16px",
-                    border: `1.5px solid ${B.borderCol}`,
+                    border: `1.5px solid ${C.cardBorder}`,
                     borderRadius: "10px",
                     fontSize: "13.5px",
+                    backgroundColor: darkMode ? "#1e293b" : "#ffffff",
+                    color: C.textPrimary,
                   }}
                 />
               </div>
@@ -2512,7 +2140,7 @@ Please contact us to guide us further on the admission and counselling process. 
                     display: "block",
                     fontSize: "11px",
                     fontWeight: "700",
-                    color: B.textNavy,
+                    color: C.textPrimary,
                     textTransform: "uppercase",
                     letterSpacing: "0.05em",
                     marginBottom: "6px",
@@ -2529,9 +2157,11 @@ Please contact us to guide us further on the admission and counselling process. 
                   style={{
                     width: "100%",
                     padding: "12px 16px",
-                    border: `1.5px solid ${B.borderCol}`,
+                    border: `1.5px solid ${C.cardBorder}`,
                     borderRadius: "10px",
                     fontSize: "13.5px",
+                    backgroundColor: darkMode ? "#1e293b" : "#ffffff",
+                    color: C.textPrimary,
                   }}
                 />
               </div>
@@ -2542,7 +2172,7 @@ Please contact us to guide us further on the admission and counselling process. 
                     display: "block",
                     fontSize: "11px",
                     fontWeight: "700",
-                    color: B.textNavy,
+                    color: C.textPrimary,
                     textTransform: "uppercase",
                     letterSpacing: "0.05em",
                     marginBottom: "6px",
@@ -2558,9 +2188,11 @@ Please contact us to guide us further on the admission and counselling process. 
                   style={{
                     width: "100%",
                     padding: "12px 16px",
-                    border: `1.5px solid ${B.borderCol}`,
+                    border: `1.5px solid ${C.cardBorder}`,
                     borderRadius: "10px",
                     fontSize: "13.5px",
+                    backgroundColor: darkMode ? "#1e293b" : "#ffffff",
+                    color: C.textPrimary,
                   }}
                 />
               </div>
@@ -2571,7 +2203,7 @@ Please contact us to guide us further on the admission and counselling process. 
                     display: "block",
                     fontSize: "11px",
                     fontWeight: "700",
-                    color: B.textNavy,
+                    color: C.textPrimary,
                     textTransform: "uppercase",
                     letterSpacing: "0.05em",
                     marginBottom: "6px",
@@ -2586,10 +2218,11 @@ Please contact us to guide us further on the admission and counselling process. 
                   style={{
                     width: "100%",
                     padding: "12px 16px",
-                    border: `1.5px solid ${B.borderCol}`,
+                    border: `1.5px solid ${C.cardBorder}`,
                     borderRadius: "10px",
                     fontSize: "13.5px",
-                    backgroundColor: "#fff",
+                    backgroundColor: darkMode ? "#1e293b" : "#ffffff",
+                    color: C.textPrimary,
                   }}
                 >
                   {[...Array(12)].map((_, i) => (
@@ -2625,16 +2258,16 @@ Please contact us to guide us further on the admission and counselling process. 
       </section>
 
       {/* ══════ CTA CONTAINER (Dark blue card) ═════════════════════════════════════ */}
-      <section style={{ padding: "80px 0" }}>
+      <section className="cta-section">
         <div
           style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}
         >
           <div
+            className="cta-card"
             style={{
-              backgroundColor: B.navyEl,
-              border: `2.5px solid ${B.goldBg}`,
+              backgroundColor: darkMode ? "#0f1f35" : B.navyEl,
+              border: `2.5px solid ${darkMode ? "#e0a020" : B.goldBg}`,
               borderRadius: "24px",
-              padding: "64px 32px",
               textAlign: "center",
               color: B.white,
               position: "relative",
@@ -2651,8 +2284,7 @@ Please contact us to guide us further on the admission and counselling process. 
                 width: "150px",
                 height: "150px",
                 borderRadius: "50%",
-                background:
-                  "radial-gradient(circle, rgba(241,175,60,0.15) 0%, transparent 70%)",
+                background: darkMode ? "radial-gradient(circle, rgba(15,31,53,0.4) 0%, transparent 70%)" : "radial-gradient(circle, rgba(12,30,63,0.4) 0%, transparent 70%)",
               }}
             />
             <div
@@ -2663,8 +2295,7 @@ Please contact us to guide us further on the admission and counselling process. 
                 width: "250px",
                 height: "250px",
                 borderRadius: "50%",
-                background:
-                  "radial-gradient(circle, rgba(241,175,60,0.12) 0%, transparent 70%)",
+                background: darkMode ? "radial-gradient(circle, rgba(15,31,53,0.3) 0%, transparent 70%)" : "radial-gradient(circle, rgba(12,30,63,0.3) 0%, transparent 70%)",
               }}
             />
 
@@ -2673,7 +2304,7 @@ Please contact us to guide us further on the admission and counselling process. 
                 style={{
                   fontSize: "10px",
                   fontWeight: "800",
-                  color: B.goldBg,
+                  color: darkMode ? "#e0a020" : B.goldBg,
                   letterSpacing: "0.18em",
                   textTransform: "uppercase",
                   marginBottom: "12px",
@@ -2683,7 +2314,6 @@ Please contact us to guide us further on the admission and counselling process. 
               </div>
               <h2
                 style={{
-                  fontSize: "36px",
                   fontWeight: "900",
                   marginBottom: "16px",
                   letterSpacing: "-0.01em",
@@ -2694,7 +2324,7 @@ Please contact us to guide us further on the admission and counselling process. 
               <p
                 style={{
                   fontSize: "14.5px",
-                  color: "rgba(255,255,255,0.7)",
+                  color: darkMode ? "#8fa0b0" : "rgba(255,255,255,0.7)",
                   maxWidth: "560px",
                   margin: "0 auto 36px",
                   lineHeight: 1.6,
@@ -2706,6 +2336,7 @@ Please contact us to guide us further on the admission and counselling process. 
               </p>
 
               <div
+                className="cta-btn-container"
                 style={{
                   display: "flex",
                   gap: "16px",
@@ -2717,8 +2348,8 @@ Please contact us to guide us further on the admission and counselling process. 
                   className="btn-shine-gold"
                   onClick={() => go("admission")}
                   style={{
-                    backgroundColor: B.goldBg,
-                    color: B.navy,
+                    backgroundColor: darkMode ? "#e0a020" : B.goldBg,
+                    color: darkMode ? "#0d1b2a" : B.navy,
                     border: "none",
                     borderRadius: "10px",
                     padding: "16px 32px",
@@ -2756,8 +2387,8 @@ Please contact us to guide us further on the admission and counselling process. 
                   onClick={() => go("admission")}
                   style={{
                     background: "none",
-                    border: `1.5px solid ${B.goldBg}`,
-                    color: B.goldBg,
+                    border: `1.5px solid ${darkMode ? "#e0a020" : B.goldBg}`,
+                    color: darkMode ? "#e0a020" : B.goldBg,
                     borderRadius: "10px",
                     padding: "16px 32px",
                     fontSize: "13px",
@@ -2792,344 +2423,26 @@ Please contact us to guide us further on the admission and counselling process. 
         </div>
       </section>
 
-      {/* ══════ FOOTER SECTION (Navy blue background) ══════════════════════════════ */}
-      <footer
-        style={{
-          backgroundColor: B.navy,
-          color: B.white,
-          paddingTop: "80px",
-          paddingBottom: "40px",
-          borderTop: `4px solid ${B.goldBg}`,
-        }}
-      >
-        <div
-          style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}
-        >
-          {/* Academy moments gallery */}
-          <div style={{ marginBottom: "64px" }}>
-            <div style={{ textAlign: "center", marginBottom: "28px" }}>
-              <div
-                style={{
-                  fontSize: "10px",
-                  fontWeight: "800",
-                  color: B.goldBg,
-                  letterSpacing: "0.15em",
-                  textTransform: "uppercase",
-                  marginBottom: "6px",
-                }}
-              >
-                CLASSROOM LIFE MOMENTS
-              </div>
-              <h3 style={{ fontSize: "22px", fontWeight: "900" }}>
-                Our Moments Gallery
-              </h3>
-            </div>
-            <div
-              style={{
-                display: "grid",
-                gridTemplateColumns: "repeat(2, 1fr)",
-                gap: "16px",
-              }}
-              className="gallery-grid"
-            >
-              {GALLERY.map((src, idx) => (
-                <div
-                  key={idx}
-                  style={{
-                    borderRadius: "16px",
-                    overflow: "hidden",
-                    aspectRatio: "4/3",
-                    border: "3px solid rgba(255,255,255,0.06)",
-                    boxShadow: "0 4px 15px rgba(0,0,0,0.2)",
-                  }}
-                >
-                  <img
-                    src={src}
-                    alt={`Academy Moment ${idx + 1}`}
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                    }}
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr",
-              gap: "48px",
-              marginBottom: "48px",
-            }}
-            className="footer-cols"
-          >
-            {/* Column 1: Info */}
-            <div>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "10px",
-                  marginBottom: "20px",
-                }}
-              >
-                <img
-                  src="/logo.png"
-                  alt="Sharda Academy Logo"
-                  onError={(e) => {
-                    e.target.style.display = "none";
-                  }}
-                  style={{
-                    width: "42px",
-                    height: "42px",
-                    objectFit: "contain",
-                  }}
-                />
-                <div>
-                  <div
-                    style={{
-                      fontSize: "16px",
-                      fontWeight: "900",
-                      letterSpacing: "0.04em",
-                    }}
-                  >
-                    SHARDA ACADEMY
-                  </div>
-                  <div
-                    style={{
-                      fontSize: "8px",
-                      color: B.goldBg,
-                      letterSpacing: "0.15em",
-                    }}
-                  >
-                    Mankhurd · Est. 2009
-                  </div>
-                </div>
-              </div>
-              <p
-                style={{
-                  fontSize: "13px",
-                  color: "rgba(255,255,255,0.55)",
-                  lineHeight: 1.7,
-                  marginBottom: "24px",
-                  maxWidth: "340px",
-                }}
-              >
-                Mumbai's premier academic coaching academy for Classes 1st to
-                12th. Guided by industry leading professionals.
-              </p>
-
-              {/* Social icons */}
-              <div style={{ display: "flex", gap: "8px" }}>
-                {SOCIAL_ICONS.map((svgIcon, idx) => (
-                  <button
-                    key={idx}
-                    style={{
-                      width: "36px",
-                      height: "36px",
-                      borderRadius: "8px",
-                      border: "1px solid rgba(255,255,255,0.1)",
-                      backgroundColor: "rgba(255,255,255,0.05)",
-                      cursor: "pointer",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      color: B.white,
-                    }}
-                  >
-                    {svgIcon}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Column 2: Navigation Links */}
-            <div>
-              <h4
-                style={{
-                  fontSize: "14px",
-                  fontWeight: "800",
-                  color: B.goldBg,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.05em",
-                  marginBottom: "20px",
-                }}
-              >
-                Navigation
-              </h4>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "10px",
-                }}
-              >
-                {NAV.map((n) => (
-                  <button
-                    key={n.id}
-                    onClick={() => go(n.id)}
-                    style={{
-                      background: "none",
-                      border: "none",
-                      color: "rgba(255,255,255,0.6)",
-                      fontSize: "13px",
-                      textAlign: "left",
-                      cursor: "pointer",
-                      padding: 0,
-                    }}
-                    onMouseEnter={(e) => (e.target.style.color = "#fff")}
-                    onMouseLeave={(e) =>
-                      (e.target.style.color = "rgba(255,255,255,0.6)")
-                    }
-                  >
-                    {n.l}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Column 3: Contact Info */}
-            <div>
-              <h4
-                style={{
-                  fontSize: "14px",
-                  fontWeight: "800",
-                  color: B.goldBg,
-                  textTransform: "uppercase",
-                  letterSpacing: "0.05em",
-                  marginBottom: "20px",
-                }}
-              >
-                Contact Details
-              </h4>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "12px",
-                  fontSize: "13px",
-                  color: "rgba(255,255,255,0.6)",
-                }}
-              >
-                <div
-                  style={{ display: "flex", alignItems: "center", gap: "8px" }}
-                >
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    style={{ flexShrink: 0 }}
-                  >
-                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                    <circle cx="12" cy="10" r="3" />
-                  </svg>
-                  <span>
-                    Sharda Academy, Jankalyan Society, 43, PMG Colony, Mankhurd,
-                    Mumbai — 400043
-                  </span>
-                </div>
-                <div
-                  style={{ display: "flex", alignItems: "center", gap: "8px" }}
-                >
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    style={{ flexShrink: 0 }}
-                  >
-                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
-                  </svg>
-                  <span>Phone: +91 93244 44269</span>
-                </div>
-                <div
-                  style={{ display: "flex", alignItems: "center", gap: "8px" }}
-                >
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    style={{ flexShrink: 0 }}
-                  >
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
-                    <polyline points="22,6 12,13 2,6" />
-                  </svg>
-                  <span>Email: info@sharda-academy.in</span>
-                </div>
-                <div
-                  style={{ display: "flex", alignItems: "center", gap: "8px" }}
-                >
-                  <svg
-                    width="14"
-                    height="14"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    style={{ flexShrink: 0 }}
-                  >
-                    <circle cx="12" cy="12" r="10" />
-                    <polyline points="12 6 12 12 16 14" />
-                  </svg>
-                  <span>Timings: Mon–Sat (09:00 AM – 08:00 PM)</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <hr
-            style={{
-              border: "none",
-              borderTop: "1px solid rgba(255,255,255,0.08)",
-              margin: "40px 0 24px 0",
-            }}
-          />
-
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "between",
-              alignItems: "center",
-              flexWrap: "wrap",
-              gap: "16px",
-              fontSize: "11px",
-              color: "rgba(255,255,255,0.4)",
-            }}
-            className="footer-bottom"
-          >
-            <div>
-              © {new Date().getFullYear()} Sharda Academy, Mankhurd-43, Mumbai.
-              All Rights Reserved.
-            </div>
-            <div style={{ display: "flex", gap: "16px" }}>
-              <span>Privacy Policy</span>
-              <span>Terms & Conditions</span>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer go={go} darkMode={darkMode} activeId="home" />
 
       {/* ── Responsive Styling Blocks ── */}
       <style>{`
+        @media (max-width: 768px) {
+          .cta-btn-container {
+            flex-direction: column !important;
+            align-items: stretch !important;
+            width: 100% !important;
+            max-width: 320px !important;
+            margin: 0 auto !important;
+            gap: 12px !important;
+          }
+          .cta-btn-container button {
+            width: 100% !important;
+            justify-content: center !important;
+            padding: 14px 24px !important;
+          }
+        }
+
         /* Desktop styles */
         @media (min-width: 769px) {
           .hero-grid { grid-template-columns: 1.25fr 0.75fr !important; }
@@ -3195,6 +2508,7 @@ Please contact us to guide us further on the admission and counselling process. 
         .btn-syllabus-cta:hover {
           background-color: #fef3c7 !important; /* GoldLt */
           border-color: #f1af3c !important; /* GoldBg */
+          color: #0a1835 !important;
         }
 
         .btn-syllabus-cta:hover svg {
@@ -3304,6 +2618,88 @@ Please contact us to guide us further on the admission and counselling process. 
         .nav-link-item.active::after {
           transform: scaleX(1);
           transform-origin: left center;
+        }
+
+        /* Pulsing Dot animation for Hero chip badge */
+        .pulse-dot {
+          display: inline-block;
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background-color: #d97706;
+          position: relative;
+        }
+
+        .pulse-dot::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          border-radius: 50%;
+          background-color: #d97706;
+          animation: dot-pulse-glow 1.8s infinite ease-in-out;
+        }
+
+        .dark .pulse-dot {
+          background-color: #f1af3c;
+        }
+
+        .dark .pulse-dot::after {
+          background-color: #f1af3c;
+        }
+
+        @keyframes dot-pulse-glow {
+          0% {
+            transform: scale(1);
+            opacity: 0.85;
+          }
+          100% {
+            transform: scale(2.6);
+            opacity: 0;
+          }
+        }
+
+        /* High contrast placeholder styling for both light and dark modes */
+        input::placeholder,
+        textarea::placeholder {
+          color: rgba(15, 26, 48, 0.45) !important;
+        }
+
+        .dark input::placeholder,
+        .dark textarea::placeholder {
+          color: rgba(255, 255, 255, 0.45) !important;
+        }
+
+        .form-card {
+          padding: 20px !important;
+        }
+        @media (min-width: 769px) {
+          .form-card {
+            padding: 32px !important;
+          }
+        }
+
+        /* Responsive CTA Section and Card */
+        .cta-section {
+          padding: 40px 16px !important;
+        }
+        .cta-card {
+          padding: 40px 20px !important;
+        }
+        .cta-card h2 {
+          font-size: 24px !important;
+          line-height: 1.25 !important;
+        }
+        @media (min-width: 769px) {
+          .cta-section {
+            padding: 80px 0 !important;
+          }
+          .cta-card {
+            padding: 64px 48px !important;
+          }
+          .cta-card h2 {
+            font-size: 36px !important;
+            line-height: 1.15 !important;
+          }
         }
       `}</style>
     </div>

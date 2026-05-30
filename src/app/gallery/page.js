@@ -1,6 +1,8 @@
 "use client";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import Footer from "@/components/Footer";
+import Navbar from "@/components/Navbar";
 
 /* ═══════════════════════════════════════════════════════════════
    PREMIUM THEME BRAND SYSTEM — Extracted from mockups
@@ -233,7 +235,7 @@ export default function GalleryPage() {
   };
 
   const C = {
-    bg:         darkMode ? "#0B1120"               : "#ffffff",
+    bg:         darkMode ? "#0a0e1a"               : "#ffffff",
     cardBg:     darkMode ? "#131C2E"               : "#ffffff",
     cardBorder: darkMode ? "#243145"               : "rgba(10,24,53,0.08)",
     textPrimary:darkMode ? "#F9FAFB"               : "#0f1a30",
@@ -243,122 +245,20 @@ export default function GalleryPage() {
   };
 
   return (
-    <div className="page-wrapper" style={{ backgroundColor: darkMode ? "#0B1120" : "#ffffff", minHeight: "100vh", fontFamily: "'Inter', sans-serif", color: darkMode ? "#F9FAFB" : B.textNavy }}>
-      
-      {/* ══════ TOP HEADER BAR ════════════════════════════════ */}
-      <div style={{ backgroundColor: "#060f22", color: B.goldBg, padding: "8px 16px", fontSize: "11px", fontWeight: "700", textAlign: "center", borderBottom: "1px solid rgba(255,255,255,0.08)", letterSpacing: "0.08em", display: "flex", justifyContent: "center", alignItems: "center", gap: "8px", flexWrap: "wrap" }}>
-        <span style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ display: "inline-block" }}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
-          CALL ACADEMY: +91 93244 44269
-        </span>
-        <span className="desktop-only">|</span>
-        <span className="desktop-only" style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
-          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ display: "inline-block" }}><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
-          LOCATION: PMG Colony, Mankhurd, Mumbai — 400043
-        </span>
-      </div>
-
-      {/* ══════ MAIN NAVIGATION BAR ════════════════════════════════════════════ */}
-      <nav style={{ position: "sticky", top: 0, zIndex: 500, backgroundColor: darkMode ? "#081226" : "#0a1835", color: "#ffffff", boxShadow: "0 4px 20px rgba(0,0,0,0.15)" }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px", height: "66px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          
-          {/* Logo & Brand */}
-          <div style={{ display: "flex", alignItems: "center", gap: "12px", cursor: "pointer" }} onClick={() => go("home")}>
-            <img src="/logo.png" alt="Sharda Academy Logo" onError={(e) => { e.target.style.display = "none"; }} style={{ width: "58px", height: "58px", objectFit: "contain" }} />
-            <div>
-              <div style={{ fontSize: "15px", fontWeight: "900", letterSpacing: "0.05em", lineHeight: 1.1, color: "#ffffff" }}>SHARDA ACADEMY</div>
-              <div style={{ fontSize: "8px", fontWeight: "800", color: C.gold, letterSpacing: "0.18em", textTransform: "uppercase" }}>Mankhurd · Est. 2009</div>
-            </div>
-          </div>
-
-          {/* Desktop Navigation Links */}
-          <div className="desktop-only" style={{ display: "flex", gap: "28px", marginLeft: "auto", marginRight: "32px" }}>
-            {NAV.map((n) => (
-              <button
-                key={n.id}
-                className={`nav-link-item ${activeId === n.id ? "active" : ""}`}
-                onClick={() => go(n.id)}
-              >
-                {n.l}
-              </button>
-            ))}
-          </div>
-
-          {/* Action Button */}
-          <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-            {/* Theme Switcher */}
-            <button
-              onClick={toggleTheme}
-              style={{
-                background: "rgba(255,255,255,0.05)",
-                border: "1.5px solid rgba(255,255,255,0.12)",
-                borderRadius: "8px",
-                padding: "8.5px",
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                transition: "all 0.3s ease"
-              }}
-              className="theme-toggle-btn desktop-only"
-              title="Toggle Theme"
-            >
-              {darkMode ? (
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.2} stroke="#F4B63D" className="w-4 h-4" style={{ width: "15px", height: "15px" }}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M21.752 15.002A9.72 9.72 0 0 1 18 15.75c-5.385 0-9.75-4.365-9.75-9.75 0-1.33.266-2.597.748-3.752A9.753 9.753 0 0 0 3 11.25C3 16.635 7.365 21 12.75 21a9.753 9.753 0 0 0 9.002-5.998Z" />
-                </svg>
-              ) : (
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.2} stroke="#F4B63D" className="w-4 h-4" style={{ width: "15px", height: "15px" }}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 3v2.25m0 13.5V21m9.75-9h-2.25M4.95 19.05l1.59-1.59m11.92-11.92l1.59-1.59M3.52 12h2.25m11.92 7.05l-1.59-1.59M4.95 4.95l1.59 1.59M12 7.5a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Z" />
-                </svg>
-              )}
-            </button>
-
-            <button className="desktop-only btn-nav-apply" onClick={() => go("admission")} style={{ backgroundColor: "#f1af3c", color: "#0a1835", border: "1.5px solid transparent", borderRadius: "8px", padding: "8.5px 18.5px", fontSize: "12px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.05em", cursor: "pointer", boxShadow: "0 4px 14px rgba(241,175,60,0.35)", display: "inline-flex", alignItems: "center", gap: "6px" }}>
-              <span>Apply Now</span>
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" style={{ transition: "transform 0.5s cubic-bezier(0.16, 1, 0.3, 1)" }}><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
-            </button>
-
-            {/* Mobile Hamburger menu */}
-            <button className="mobile-only" onClick={() => setMenu(!menu)} aria-label="menu" style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: "8px", padding: "10px", cursor: "pointer", display: "flex", flexDirection: "column", gap: "5px" }}>
-              {[0, 1, 2].map((i) => (
-                <span key={i} style={{ display: "block", width: "18px", height: "2px", backgroundColor: "rgba(255,255,255,0.85)", borderRadius: "1px", transition: "0.3s", transform: menu && i === 0 ? "rotate(45deg) translateY(5px)" : menu && i === 2 ? "rotate(-45deg) translateY(-5px)" : "", opacity: menu && i === 1 ? 0 : 1 }} />
-              ))}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile drawer */}
-        {menu && (
-          <div style={{ position: "fixed", inset: 0, zIndex: 600, backgroundColor: C.navBg, display: "flex", flexDirection: "column", padding: "80px 32px 32px", gap: "10px" }}>
-            <button onClick={() => setMenu(false)} aria-label="close menu" style={{ position: "absolute", top: "24px", right: "24px", background: "none", border: "none", color: "rgba(255,255,255,0.85)", fontSize: "28px", fontWeight: "300", cursor: "pointer" }}>
-              ✕
-            </button>
-            {NAV.map((n) => (
-              <button key={n.id} onClick={() => go(n.id)} style={{ background: "none", border: "none", borderBottom: "1px solid rgba(255,255,255,0.06)", padding: "16px 0", textAlign: "left", fontSize: "20px", fontWeight: "800", color: activeId === n.id ? "#f1af3c" : "#fff", cursor: "pointer" }}>
-                {n.l}
-              </button>
-            ))}
-            <button onClick={() => go("admission")} style={{ backgroundColor: C.gold, color: C.textPrimary, border: "none", borderRadius: "10px", padding: "16px", fontSize: "14px", fontWeight: "800", textTransform: "uppercase", letterSpacing: "0.06em", cursor: "pointer", marginTop: "24px", display: "flex", alignItems: "center", justifyContent: "center", gap: "8px" }}>
-              <span>Apply for Admission</span>
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
-            </button>
-          </div>
-        )}
-      </nav>
+    <div className="page-wrapper" style={{ backgroundColor: darkMode ? "#0a0e1a" : "#ffffff", minHeight: "100vh", fontFamily: "'Inter', sans-serif", color: darkMode ? "#F9FAFB" : B.textNavy }}>
+      <Navbar darkMode={darkMode} toggleTheme={toggleTheme} activeId={activeId} go={go} menu={menu} setMenu={setMenu} />
 
       {/* ══════ HERO / HEADER SECTION ══════════════════════ */}
-      <section style={{ background: darkMode ? "radial-gradient(circle at top, #0f2347 0%, #0B1120 70%)" : "radial-gradient(circle at top, #eef2f6 0%, #ffffff 75%)", padding: "80px 0 54px 0", borderBottom: `1px solid ${C.cardBorder}`, position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", top: "10%", left: "5%", width: "120px", height: "120px", borderRadius: "50%", background: "radial-gradient(circle, rgba(241,175,60,0.08) 0%, transparent 60%)" }} />
-        <div style={{ position: "absolute", bottom: "10%", right: "8%", width: "160px", height: "160px", borderRadius: "50%", background: "radial-gradient(circle, rgba(12,70,196,0.06) 0%, transparent 60%)" }} />
+      <section style={{ background: darkMode ? "#0a0e1a" : "radial-gradient(circle at top, #eef2f6 0%, #ffffff 75%)", padding: "80px 0 54px 0", borderBottom: `1px solid ${C.cardBorder}`, position: "relative", overflow: "hidden" }}>
+
 
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px", width: "100%", textAlign: "center", position: "relative", zIndex: 1 }}>
-          <div className="afsu d1" style={{ display: "inline-flex", alignItems: "center", gap: "6px", backgroundColor: darkMode ? "#1e293b" : "#fef3c7", border: `1.5px solid ${B.goldBg}`, padding: "6px 16px", borderRadius: "999px", marginBottom: "20px" }}>
-            <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#d97706", display: "inline-block" }} />
+          <div className="afsu d1" style={{ display: "inline-flex", alignItems: "center", gap: "8px", backgroundColor: darkMode ? "rgba(241, 175, 60, 0.08)" : "#fef3c7", border: `1.5px solid ${darkMode ? "rgba(241, 175, 60, 0.4)" : "#f1af3c"}`, padding: "6px 14px", borderRadius: "999px", marginBottom: "20px", boxShadow: darkMode ? "0 0 16px rgba(241, 175, 60, 0.16)" : "none" }}>
+            <span className="pulse-dot" />
             <span style={{ fontSize: "10px", fontWeight: "800", color: darkMode ? "#f1af3c" : "#d97706", letterSpacing: "0.08em", textTransform: "uppercase" }}>LIFE AT SHARDA ACADEMY</span>
           </div>
 
-          <h1 className="afsu d2" style={{ fontSize: "40px", fontWeight: "900", color: C.textPrimary, lineHeight: 1.15, letterSpacing: "-0.02em", marginBottom: "16px" }}>
+          <h1 className="afsu d2 hero-title" style={{ fontWeight: "900", color: C.textPrimary, letterSpacing: "-0.02em" }}>
             Our Outings & Festive Memories
           </h1>
           
@@ -373,11 +273,44 @@ export default function GalleryPage() {
         <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
           
           {/* Category Filter Tabs */}
-          <div style={{ display: "flex", justifyContent: "center", gap: "12px", marginBottom: "48px", flexWrap: "wrap" }}>
+          <div className="scroll-tabs-container" style={{ display: "flex", justifyContent: "center", gap: "12px", marginBottom: "48px" }}>
             {[
-              { id: "all", l: "✨ All Memories" },
-              { id: "outings", l: "🚌 Picnics & Outings" },
-              { id: "events", l: "🎉 Events & Festivals" },
+              { 
+                id: "all", 
+                l: "All Memories",
+                icon: (
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                  </svg>
+                )
+              },
+              { 
+                id: "outings", 
+                l: "Picnics & Outings",
+                icon: (
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                    <path d="M8 21h8M16 8H8V3h8v5z" />
+                    <circle cx="6" cy="17" r="2" />
+                    <circle cx="18" cy="17" r="2" />
+                  </svg>
+                )
+              },
+              { 
+                id: "events", 
+                l: "Events & Festivals",
+                icon: (
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}>
+                    <path d="M5 3a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H5z" />
+                    <path d="M3 10h18" />
+                    <path d="M8 2v4" />
+                    <path d="M16 2v4" />
+                    <circle cx="8" cy="14" r="1" />
+                    <circle cx="12" cy="14" r="1" />
+                    <circle cx="16" cy="14" r="1" />
+                  </svg>
+                )
+              },
             ].map((tab) => (
               <button
                 key={tab.id}
@@ -393,16 +326,20 @@ export default function GalleryPage() {
                   color: filter === tab.id ? B.navy : C.textPrimary,
                   boxShadow: filter === tab.id ? "0 6px 18px rgba(241,175,60,0.25)" : "none",
                   transition: "all 0.4s cubic-bezier(0.16, 1, 0.3, 1)",
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "8px",
                 }}
                 className="gallery-tab-btn"
               >
-                {tab.l}
+                {tab.icon}
+                <span>{tab.l}</span>
               </button>
             ))}
           </div>
 
           {/* Gallery Items Grid */}
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "32px" }} className="cards-grid reveal reveal-scale">
+          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "32px" }} className="cards-grid reveal reveal-slide-up">
             {filteredItems.map((item, idx) => (
               <div
                 key={item.id}
@@ -429,17 +366,24 @@ export default function GalleryPage() {
                     style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
                   />
                   <div className="img-hover-overlay" style={{ position: "absolute", inset: 0, backgroundColor: "rgba(10,24,53,0.4)", opacity: 0, display: "flex", alignItems: "center", justifyContent: "center", transition: "opacity 0.4s ease" }}>
-                    <span style={{ backgroundColor: "#ffffff", color: B.navy, borderRadius: "50%", width: "48px", height: "48px", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "20px", boxShadow: "0 8px 24px rgba(0,0,0,0.15)" }}>🔍</span>
+                    <span style={{ backgroundColor: "#ffffff", color: B.navy, borderRadius: "50%", width: "48px", height: "48px", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 8px 24px rgba(0,0,0,0.15)", transition: "transform 0.3s ease" }} className="zoom-icon-wrapper">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                      </svg>
+                    </span>
                   </div>
-                  <span style={{ position: "absolute", bottom: "16px", left: "16px", backgroundColor: "rgba(10,24,53,0.8)", backdropFilter: "blur(4px)", color: "#ffffff", padding: "6px 12px", borderRadius: "8px", fontSize: "11px", fontWeight: "700", border: "1px solid rgba(255,255,255,0.1)" }}>
+                  <span style={{ position: "absolute", bottom: "16px", left: "16px", backgroundColor: "rgba(10,24,53,0.8)", backdropFilter: "blur(4px)", color: "#ffffff", padding: "6px 12px", borderRadius: "8px", fontSize: "11px", fontWeight: "700", border: "1px solid rgba(255,255,255,0.1)", display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: B.goldBg }}><rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>
                     {item.date}
                   </span>
                 </div>
 
                 {/* Text Details */}
                 <div style={{ padding: "28px" }}>
-                  <div style={{ fontSize: "10px", fontWeight: "800", color: B.goldBg, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "8px" }}>
-                    {item.loc}
+                  <div style={{ fontSize: "10px", fontWeight: "800", color: B.goldBg, textTransform: "uppercase", letterSpacing: "0.08em", marginBottom: "8px", display: "inline-flex", alignItems: "center", gap: "6px" }}>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ color: B.goldBg }}><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
+                    <span>{item.loc}</span>
                   </div>
                   <h3 style={{ fontSize: "18px", fontWeight: "900", color: C.textPrimary, marginBottom: "12px", lineHeight: 1.3 }}>
                     {item.title}
@@ -479,15 +423,25 @@ export default function GalleryPage() {
               position: "absolute",
               top: "24px",
               right: "24px",
-              background: "none",
-              border: "none",
+              background: "rgba(255,255,255,0.06)",
+              border: "1px solid rgba(255,255,255,0.12)",
               color: "#ffffff",
-              fontSize: "36px",
+              width: "48px",
+              height: "48px",
+              borderRadius: "50%",
               cursor: "pointer",
               zIndex: 1010,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              transition: "all 0.3s ease",
             }}
+            className="lightbox-close-btn"
           >
-            ✕
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18" />
+              <line x1="6" y1="6" x2="18" y2="18" />
+            </svg>
           </button>
 
           {/* Lightbox Container */}
@@ -516,7 +470,6 @@ export default function GalleryPage() {
                 width: "48px",
                 height: "48px",
                 borderRadius: "50%",
-                fontSize: "20px",
                 cursor: "pointer",
                 display: "flex",
                 alignItems: "center",
@@ -525,7 +478,9 @@ export default function GalleryPage() {
               }}
               className="lightbox-arrow-btn"
             >
-              ‹
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="15 18 9 12 15 6" />
+              </svg>
             </button>
 
             <button
@@ -541,7 +496,6 @@ export default function GalleryPage() {
                 width: "48px",
                 height: "48px",
                 borderRadius: "50%",
-                fontSize: "20px",
                 cursor: "pointer",
                 display: "flex",
                 alignItems: "center",
@@ -550,7 +504,9 @@ export default function GalleryPage() {
               }}
               className="lightbox-arrow-btn"
             >
-              ›
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                <polyline points="9 18 15 12 9 6" />
+              </svg>
             </button>
 
             {/* Main Lightbox Image */}
@@ -578,103 +534,51 @@ export default function GalleryPage() {
         </div>
       )}
 
-      {/* ══════ FOOTER SECTION ══════════════════════════════ */}
-      <footer style={{ backgroundColor: B.navy, color: B.white, paddingTop: "80px", paddingBottom: "40px", borderTop: `4px solid ${B.goldBg}` }}>
-        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
-          
-          {/* Academy moments gallery */}
-          <div style={{ marginBottom: "64px" }}>
-            <div style={{ textAlign: "center", marginBottom: "28px" }}>
-              <div style={{ fontSize: "10px", fontWeight: "800", color: B.goldBg, letterSpacing: "0.15em", textTransform: "uppercase", marginBottom: "6px" }}>CLASSROOM LIFE MOMENTS</div>
-              <h3 style={{ fontSize: "22px", fontWeight: "900" }}>Our Moments Gallery</h3>
-            </div>
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(2, 1fr)", gap: "16px" }} className="gallery-grid">
-              {GALLERY.map((src, idx) => (
-                <div key={idx} style={{ borderRadius: "16px", overflow: "hidden", aspectRatio: "4/3", border: "3px solid rgba(255,255,255,0.06)", boxShadow: "0 4px 15px rgba(0,0,0,0.2)" }}>
-                  <img src={src} alt={`Academy Moment ${idx+1}`} style={{ width: "100%", height: "100%", objectFit: "cover" }} />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "48px", marginBottom: "48px" }} className="footer-cols">
-            
-            {/* Column 1: Info */}
-            <div>
-              <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "20px" }}>
-                <img src="/logo.png" alt="Sharda Academy Logo" onError={(e) => { e.target.style.display = "none"; }} style={{ width: "42px", height: "42px", objectFit: "contain" }} />
-                <div>
-                  <div style={{ fontSize: "16px", fontWeight: "900", letterSpacing: "0.04em" }}>SHARDA ACADEMY</div>
-                  <div style={{ fontSize: "8px", color: B.goldBg, letterSpacing: "0.15em" }}>Mankhurd · Est. 2009</div>
-                </div>
-              </div>
-              <p style={{ fontSize: "13px", color: "rgba(255,255,255,0.55)", lineHeight: 1.7, marginBottom: "24px", maxWidth: "340px" }}>
-                Mumbai's premier academic coaching academy for Classes 1st to 12th. Guided by industry leading professionals.
-              </p>
-              
-              {/* Social icons */}
-              <div style={{ display: "flex", gap: "8px" }}>
-                {SOCIAL_ICONS.map((svgIcon, idx) => (
-                  <button key={idx} style={{ width: "36px", height: "36px", borderRadius: "8px", border: "1px solid rgba(255,255,255,0.1)", backgroundColor: "rgba(255,255,255,0.05)", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", color: B.white }}>
-                    {svgIcon}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Column 2: Navigation Links */}
-            <div>
-              <h4 style={{ fontSize: "14px", fontWeight: "800", color: B.goldBg, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "20px" }}>Navigation</h4>
-              <div style={{ display: "flex", flexDirection: "column", gap: "10px" }}>
-                {NAV.map((n) => (
-                  <button key={n.id} onClick={() => go(n.id)} style={{ background: "none", border: "none", color: n.id === "gallery" ? "#f1af3c" : "rgba(255,255,255,0.6)", fontSize: "13px", textAlign: "left", cursor: "pointer", padding: 0 }} onMouseEnter={(e) => e.target.style.color = "#fff"} onMouseLeave={(e) => e.target.style.color = n.id === "gallery" ? "#f1af3c" : "rgba(255,255,255,0.6)"}>
-                    {n.l}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Column 3: Contact Info */}
-            <div>
-              <h4 style={{ fontSize: "14px", fontWeight: "800", color: B.goldBg, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "20px" }}>Contact Details</h4>
-              <div style={{ display: "flex", flexDirection: "column", gap: "12px", fontSize: "13px", color: "rgba(255,255,255,0.6)" }}>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
-                  <span>Sharda Academy, Jankalyan Society, 43, PMG Colony, Mankhurd, Mumbai — 400043</span>
-                </div>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
-                  <span>Phone: +91 93244 44269</span>
-                </div>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
-                  <span>Email: info@sharda-academy.in</span>
-                </div>
-                <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" style={{ flexShrink: 0 }}><circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" /></svg>
-                  <span>Timings: Mon–Sat (09:00 AM – 08:00 PM)</span>
-                </div>
-              </div>
-            </div>
-
-          </div>
-
-          <hr style={{ border: "none", borderTop: "1px solid rgba(255,255,255,0.08)", margin: "40px 0 24px 0" }} />
-
-          <div style={{ display: "flex", justifyContent: "between", alignItems: "center", flexWrap: "wrap", gap: "16px", fontSize: "11px", color: "rgba(255,255,255,0.4)" }} className="footer-bottom">
-            <div>© {new Date().getFullYear()} Sharda Academy, Mankhurd-43, Mumbai. All Rights Reserved.</div>
-            <div style={{ display: "flex", gap: "16px" }}>
-              <span>Privacy Policy</span>
-              <span>Terms & Conditions</span>
-            </div>
-          </div>
-
-        </div>
-      </footer>
+      <Footer go={go} darkMode={darkMode} activeId={activeId} />
 
       {/* ── Responsive Styling & Left-to-Right Underline Animations ── */}
       <style>{`
+        @media (max-width: 768px) {
+          .scroll-tabs-container {
+            display: flex !important;
+            justify-content: flex-start !important;
+            overflow-x: auto !important;
+            flex-wrap: nowrap !important;
+            padding: 8px 24px !important;
+            margin-left: -24px !important;
+            margin-right: -24px !important;
+            margin-bottom: 32px !important;
+            gap: 10px !important;
+            -webkit-overflow-scrolling: touch !important;
+            scroll-behavior: smooth !important;
+          }
+          .scroll-tabs-container::-webkit-scrollbar {
+            display: none !important;
+          }
+          .scroll-tabs-container {
+            -ms-overflow-style: none !important;
+            scrollbar-width: none !important;
+          }
+          .gallery-tab-btn {
+            flex-shrink: 0 !important;
+            white-space: nowrap !important;
+            padding: 8px 18px !important;
+            font-size: 12.5px !important;
+          }
+        }
+
+        .hero-title {
+          font-size: 26px !important;
+          line-height: 1.25 !important;
+          margin-bottom: 16px !important;
+        }
+
         @media (min-width: 769px) {
+          .hero-title {
+            font-size: 40px !important;
+            line-height: 1.15 !important;
+            margin-bottom: 20px !important;
+          }
           .cards-grid { grid-template-columns: repeat(3, 1fr) !important; }
           .main-grid { grid-template-columns: 1.1fr 0.9fr !important; }
           .gallery-grid { grid-template-columns: repeat(4, 1fr) !important; }
@@ -683,6 +587,27 @@ export default function GalleryPage() {
           .form-row-2 { grid-template-columns: repeat(2, 1fr) !important; }
           .hero-grid { grid-template-columns: 1.1fr 0.9fr !important; }
         }
+
+        /* Responsive lightbox arrows & buttons for mobile screens */
+        @media (max-width: 768px) {
+          .lightbox-arrow-btn {
+            width: 40px !important;
+            height: 40px !important;
+            font-size: 16px !important;
+          }
+          .lightbox-arrow-btn:first-of-type {
+            left: 8px !important;
+          }
+          .lightbox-arrow-btn:last-of-type {
+            right: 8px !important;
+          }
+          .lightbox-close-btn {
+            top: 16px !important;
+            right: 16px !important;
+            width: 40px !important;
+            height: 40px !important;
+          }
+        }
         
         /* Smooth transform hardware-accelerated transitions */
         .hover-card {
@@ -690,7 +615,7 @@ export default function GalleryPage() {
         }
 
         .hover-card:hover {
-          transform: translateY(-8px) scale(1.02) !important;
+          transform: translateY(-6px) scale(1.01) !important;
           box-shadow: 0 16px 40px rgba(10,24,53,0.06) !important;
           border-color: ${B.goldBg}70 !important;
         }
@@ -702,6 +627,10 @@ export default function GalleryPage() {
 
         .hover-card:hover .img-hover-overlay {
           opacity: 1 !important;
+        }
+
+        .hover-card:hover .zoom-icon-wrapper {
+          transform: scale(1.1);
         }
 
         .btn-shine-gold {
@@ -805,12 +734,51 @@ export default function GalleryPage() {
           transform-origin: left center;
         }
 
-        /* Lightbox arrow buttons hover styling */
-        .lightbox-arrow-btn:hover {
+        /* Lightbox arrow & close buttons hover styling */
+        .lightbox-arrow-btn:hover,
+        .lightbox-close-btn:hover {
           background: rgba(255, 255, 255, 0.15) !important;
           border-color: rgba(255, 255, 255, 0.3) !important;
           box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08) !important;
           color: #f1af3c !important;
+        }
+
+        /* Pulsing Dot animation for Hero chip badge */
+        .pulse-dot {
+          display: inline-block;
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background-color: #d97706;
+          position: relative;
+        }
+
+        .pulse-dot::after {
+          content: '';
+          position: absolute;
+          inset: 0;
+          border-radius: 50%;
+          background-color: #d97706;
+          animation: dot-pulse-glow 1.8s infinite ease-in-out;
+        }
+
+        .dark .pulse-dot {
+          background-color: #f1af3c;
+        }
+
+        .dark .pulse-dot::after {
+          background-color: #f1af3c;
+        }
+
+        @keyframes dot-pulse-glow {
+          0% {
+            transform: scale(1);
+            opacity: 0.85;
+          }
+          100% {
+            transform: scale(2.6);
+            opacity: 0;
+          }
         }
       `}</style>
     </div>
