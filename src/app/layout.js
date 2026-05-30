@@ -1,9 +1,9 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "Sharda Academy | Premier SSC, HSC & Board Coaching — Mankhurd-43",
+  title: "Sharda Academy | Quality Education & Skill Development Institute",
   description:
-    "Sharda Academy, Mankhurd-43 — Mumbai's most trusted coaching institute for Classes 1–12. Expert board specialist faculty, smart classrooms, biometric attendance, and a 92%+ success rate. Enroll for SSC & HSC Board preparation programs.",
+    "Sharda Academy provides quality education, professional training, and skill development programs designed to help students achieve academic excellence, practical knowledge, and career success.",
   keywords:
     "Sharda Academy, SSC coaching Mankhurd, HSC coaching Mumbai, coaching classes Mankhurd, board preparation, classes 1 to 12 coaching Mumbai",
   icons: {
@@ -12,13 +12,19 @@ export const metadata = {
     apple: "/logo_cropped.png",
   },
   openGraph: {
-    title: "Sharda Academy — Nurturing Minds & Building Board Achievers",
+    title: "Sharda Academy | Quality Education & Skill Development Institute",
     description:
-      "Join Mumbai's premier coaching institute for academic excellence. SSC, HSC, Board preparation & Primary programs for Classes 1–12.",
+      "Sharda Academy provides quality education, professional training, and skill development programs designed to help students achieve academic excellence, practical knowledge, and career success.",
     url: "https://sharda-academy.in",
     siteName: "Sharda Academy",
     locale: "en_IN",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Sharda Academy | Quality Education & Skill Development Institute",
+    description: "Sharda Academy provides quality education, professional training, and skill development programs designed to help students achieve academic excellence, practical knowledge, and career success.",
+    images: [{ url: "/og-image.png" }]
   },
 };
 
