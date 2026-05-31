@@ -55,55 +55,55 @@ const GALLERY = [
 
 const WINGS_DETAIL = [
   {
-    id: "foundation",
-    tag: "PRIMARY EDUCATION stage",
-    tc: B.gold,
-    bg: B.goldLt,
-    title: "Foundation Wing (Class 1st to 5th)",
-    desc: "A highly specialized child-centric program focused on building structural basics in Mathematics, English vocabulary, and logical visual science sheets.",
-    maxBatch: "Strictly limited to standard small batches (max 25 students per class)",
-    subjects: ["English Language & Grammar", "Mathematics (Visual Foundations)", "Environmental Science & Play", "Logical Analytical Reasoning"],
-    schedule: "Monday to Friday: 04:30 PM - 06:30 PM",
+    id: "class_1_10",
+    tag: "ALL SUBJECTS",
+    tc: B.blue,
+    bg: B.blueLt,
+    title: "Class 1st to 10th (All Subjects)",
+    desc: "A highly comprehensive coaching program designed to map success for state-board students. We cover all subjects in depth, building solid foundations for board exams with regular evaluations.",
+    maxBatch: "Strictly limited batches for absolute personal attention and guidance",
+    subjects: ["English Language & Grammar", "Mathematics & Geometry", "Science & Social Studies", "Hindi, Marathi & Sanskrit"],
+    schedule: "Monday to Saturday: 04:30 PM - 07:30 PM",
     features: [
-      "Custom visual conceptual worksheets designed for young minds.",
-      "Weekly concept reviews and fun doubt clearing rounds.",
-      "Biometrics Parents reporting SMS immediately upon student arrival/exit."
+      "Experienced & dedicated faculty mentors guiding every step.",
+      "Weekly mock assessments and real-time parent progress updates.",
+      "Complete study materials including workbooks and board pattern question sheets."
     ],
     img: "/campus_moment_1.png"
   },
   {
-    id: "middle",
-    tag: "MIDDLE STAGE development",
-    tc: B.blue,
-    bg: B.blueLt,
-    title: "Middle Stage Wing (Class 6th to 8th)",
-    desc: "Designed to trigger advanced logical development. Transitioning from primary worksheets to robust science derivations, algebraic logic, and visual laboratory experiments.",
-    maxBatch: "Small batches (maximum 25 students) to track individual learning speed",
-    subjects: ["Science (Physics, Chemistry, Biology basics)", "Mathematics (Algebra, Geometry foundations)", "Social Sciences & Civics", "Advanced English Writing & Reading"],
-    schedule: "Monday to Saturday: 05:00 PM - 07:15 PM",
+    id: "science_11_12",
+    tag: "PCM / PCB Stream",
+    tc: B.gold,
+    bg: B.goldLt,
+    title: "Class 11th & 12th Science",
+    desc: "Our premium Science division specializing in concept-based learning. We cover Physics, Chemistry, Mathematics, and Biology with structured test series for board exam special preparation.",
+    maxBatch: "Strict limit of 25 students per batch for specialized focus",
+    subjects: ["Physics (Core & Applied)", "Chemistry (Organic, Inorganic, Physical)", "Mathematics (Part I & II)", "Biology (Botany & Zoology)"],
+    schedule: "Monday to Saturday: 03:30 PM - 07:30 PM",
     features: [
-      "Daily Practice Problems (DPPs) tailored to state-board standards.",
-      "Interactive digital panel derivations illustrating concrete visual concepts.",
-      "Personal parent-teacher meets to track academic milestone progression."
-    ],
-    img: "/campus_moment_3.png"
-  },
-  {
-    id: "senior",
-    tag: "BOARD PREPARATION elite stream",
-    tc: B.pink,
-    bg: B.pinkLt,
-    title: "Senior Secondary Wing (Class 9th to 12th)",
-    desc: "Our board specialization wing for SSC (9th & 10th) and HSC Science & Commerce streams (11th & 12th). Structured with rigorous evaluations and mock board exam patterns guided by state-board mentors.",
-    maxBatch: "Strict limit of 25 students per batch to provide absolute personal guidance",
-    subjects: ["Secondary Science (Physics, Chemistry, Biology core)", "Secondary Mathematics (Part I & II)", "Higher Secondary Physics, Chem, Math, Bio", "Commerce Streams (Accounts, OCM, SP, Economics)"],
-    schedule: "Monday to Saturday: 03:30 PM - 07:30 PM (Special Sunday Mock tests)",
-    features: [
-      "Weekly evaluated full mock board exam papers with personal reviews.",
-      "Evaluations led by experienced senior board specialist mentors.",
-      "Advanced student analytics report cards visible instantly on parent portals."
+      "Advanced digital interactive panel diagrams for visual clarity.",
+      "Regular one-on-one doubt solving sessions and concept monitoring.",
+      "Board-focused mock exam preparation curated by senior board examiners."
     ],
     img: "/hero_classroom.png"
+  },
+  {
+    id: "commerce_11_12",
+    tag: "COMMERCE Stream",
+    tc: B.pink,
+    bg: B.pinkLt,
+    title: "Class 11th & 12th Commerce",
+    desc: "Professional guidance for Commerce students. We specialize in Accounts, Business Studies, OCM, SP, and Economics, building a strong conceptual foundation in commercial studies.",
+    maxBatch: "Strictly limited seats for personalized interactive learning",
+    subjects: ["Book Keeping & Accountancy", "Economics (Micro & Macro)", "Organization of Commerce & Mgmt (OCM)", "Secretarial Practice (SP) & English"],
+    schedule: "Monday to Saturday: 04:00 PM - 07:00 PM",
+    features: [
+      "Practical accounting practice sheets under expert supervision.",
+      "Detailed concept based learning and board exam special preparation.",
+      "Affordable fees structure with flexible monthly payment options."
+    ],
+    img: "/campus_moment_3.png"
   }
 ];
 
@@ -252,9 +252,9 @@ export default function CoursesPage() {
           <div className="reveal reveal-slide-up scroll-tabs-container" style={{ display: "flex", justifyContent: "center", gap: "12px", marginBottom: "54px" }}>
             {[
               { id: "all", l: "All Courses" },
-              { id: "foundation", l: "Foundation (1st-5th)" },
-              { id: "middle", l: "Middle School (6th-8th)" },
-              { id: "senior", l: "Board Prep (9th-12th)" }
+              { id: "class_1_10", l: "Class 1st-10th" },
+              { id: "science_11_12", l: "11th & 12th Science" },
+              { id: "commerce_11_12", l: "11th & 12th Commerce" }
             ].map((tab) => (
               <button
                 key={tab.id}

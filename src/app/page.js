@@ -45,37 +45,41 @@ const NAV = [
 
 const WINGS = [
   {
-    tag: "PRIMARY CLASSES",
-    tc: B.gold,
-    bg: B.goldLt,
-    title: "Foundation Wing",
-    sub: "Class 1st to 5th",
-    points: ["Conceptual Basis", "Active Learning", "Cognitive Growth"],
-    link: "#admission",
-  },
-  {
-    tag: "CORE CLASSES",
+    tag: "ALL SUBJECTS",
     tc: B.blue,
     bg: B.blueLt,
-    title: "Middle Stage Wing",
-    sub: "Class 6th to 8th",
+    title: "Class 1st to 10th",
+    sub: "Comprehensive Board Foundation",
     points: [
-      "Science & Maths",
-      "Analytical Thinking",
-      "Active Concept Building",
+      "All Subjects Covered",
+      "Dedicated Subject Teachers",
+      "Weekly Practice & Tests",
     ],
     link: "#admission",
   },
   {
-    tag: "BOARD PREPARATION",
+    tag: "SCIENCE (PCM / PCB)",
+    tc: B.gold,
+    bg: B.goldLt,
+    title: "Class 11th & 12th Science",
+    sub: "Academic Board & Concept Focused",
+    points: [
+      "Physics, Chemistry, Maths & Bio",
+      "Concept-Based Learning Flow",
+      "State-Board Pattern Focus",
+    ],
+    link: "#admission",
+  },
+  {
+    tag: "COMMERCE Stream",
     tc: B.pink,
     bg: B.pinkLt,
-    title: "Senior Secondary Wing",
-    sub: "Class 9th to 12th",
+    title: "Class 11th & 12th Commerce",
+    sub: "Professional Commercial Foundations",
     points: [
-      "Board Exam Focus",
-      "SSC & HSC Board Prep",
-      "Weekly Test Analysis",
+      "Accounts, OCM & Economics",
+      "Expert Board Specialized Faculty",
+      "Affordable Fee Structure",
     ],
     link: "#admission",
   },
@@ -157,82 +161,131 @@ const FACILITIES = [
 
 const BENEFITS = [
   {
+    title: "Experienced & Dedicated Faculty",
+    desc: "Senior Board experts bringing a combined legacy of excellence.",
     icon: (
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="#f1af3c"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M23 7l-7 5 7 5V7z" />
-        <rect x="1" y="5" width="15" height="14" rx="2" ry="2" />
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f1af3c" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
+        <path d="M16 3.13a4 4 0 0 1 0 7.75" />
       </svg>
-    ),
-    title: "CCTV Video Security",
-    desc: "Continuous 24/7 camera monitoring inside and outside classes.",
+    )
   },
   {
+    title: "Personal Attention to Every Student",
+    desc: "Focused attention to match each student's learning pace.",
     icon: (
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="#f1af3c"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f1af3c" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 2a5 5 0 1 0 10 0A5 5 0 1 0 12 2z" />
+        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+        <circle cx="12" cy="7" r="4" />
+      </svg>
+    )
+  },
+  {
+    title: "Small Batch Size Better Learning",
+    desc: "Strictly limited batches for active classroom interaction.",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f1af3c" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+        <circle cx="9" cy="7" r="4" />
+        <circle cx="18" cy="18" r="3" />
+      </svg>
+    )
+  },
+  {
+    title: "Regular Tests & Assessments",
+    desc: "Weekly mock tests to track performance under board conditions.",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f1af3c" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+        <line x1="9" y1="9" x2="15" y2="9" />
+        <line x1="9" y1="13" x2="15" y2="13" />
+        <line x1="9" y1="17" x2="15" y2="17" />
+      </svg>
+    )
+  },
+  {
+    title: "Doubt Solving Sessions",
+    desc: "One-on-one session slots to resolve all academic questions.",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f1af3c" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <circle cx="12" cy="12" r="10" />
+        <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+        <line x1="12" y1="17" x2="12.01" y2="17" />
+      </svg>
+    )
+  },
+  {
+    title: "Complete Study Material",
+    desc: "Curated workbooks, formula sheets, and past question banks.",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f1af3c" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
         <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
       </svg>
-    ),
-    title: "Quiet Study & Resources Area",
-    desc: "Curated board-exam reference books, question banks, and a quiet study space.",
+    )
   },
   {
+    title: "Board Exam Special Preparation",
+    desc: "Targeted strategies to excel in Maharashtra SSC & HSC Exams.",
     icon: (
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="#f1af3c"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
-        <path d="M6 12v5c0 2 2 3 6 3s6-1 6-3v-5" />
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f1af3c" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+        <polyline points="22 4 12 14.01 9 11.01" />
       </svg>
-    ),
-    title: "Highly Professional Spaces",
-    desc: "Clean science laboratories, spacious desks, and modern design.",
+    )
   },
   {
+    title: "Parent Progress Updates",
+    desc: "Real-time updates on attendance and monthly academic reports.",
     icon: (
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="#f1af3c"
-        strokeWidth="2"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f1af3c" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+      </svg>
+    )
+  },
+  {
+    title: "Individual Progress Monitoring",
+    desc: "Personal guidance to mentor and boost each student's performance.",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f1af3c" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
         <line x1="18" y1="20" x2="18" y2="10" />
         <line x1="12" y1="20" x2="12" y2="4" />
         <line x1="6" y1="20" x2="6" y2="14" />
       </svg>
-    ),
-    title: "Regular Test Reporting",
-    desc: "Weekly test score analysis directly visible on parent dashboards.",
+    )
   },
+  {
+    title: "Concept Based Learning",
+    desc: "Fostering analytical logic over traditional rote-learning methods.",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f1af3c" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" />
+        <path d="M13.73 21a2 2 0 0 1-3.46 0" />
+      </svg>
+    )
+  },
+  {
+    title: "Disciplined & Positive Environment",
+    desc: "An inspiring atmosphere designed for high academic focus.",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f1af3c" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+      </svg>
+    )
+  },
+  {
+    title: "Affordable Fees Structure",
+    desc: "Premium conceptual education priced fairly and transparently.",
+    icon: (
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#f1af3c" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+        <line x1="12" y1="1" x2="12" y2="23" />
+        <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
+      </svg>
+    )
+  }
 ];
 
 const TOPPERS = [
@@ -1440,18 +1493,18 @@ Please contact us to guide us further on the admission and counselling process. 
             ))}
           </div>
 
-          {/* Four small additional benefits cards */}
+          {/* Why Choose Sharda Academy Section */}
           <div style={{ textAlign: "center", marginBottom: "32px" }}>
             <div
               style={{
                 fontSize: "10px",
                 fontWeight: "800",
-                color: C.textSecond,
+                color: C.gold,
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
               }}
             >
-              ADDITIONAL INSTITUTIONAL BENEFITS & STANDARDS
+              WHY CHOOSE SHARDA ACADEMY?
             </div>
           </div>
           <div
@@ -2448,7 +2501,7 @@ Please contact us to guide us further on the admission and counselling process. 
           .hero-grid { grid-template-columns: 1.25fr 0.75fr !important; }
           .curriculum-grid { grid-template-columns: repeat(3, 1fr) !important; }
           .facilities-grid { grid-template-columns: repeat(3, 1fr) !important; }
-          .benefits-grid { grid-template-columns: repeat(4, 1fr) !important; }
+          .benefits-grid { grid-template-columns: repeat(3, 1fr) !important; }
           .gallery-grid { grid-template-columns: repeat(4, 1fr) !important; }
           .footer-cols { grid-template-columns: 1.5fr 1fr 1.5fr !important; }
           .footer-bottom { justify-content: space-between !important; }
