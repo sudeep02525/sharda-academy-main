@@ -67,10 +67,10 @@ export default function Footer({ go, darkMode, activeId }) {
             {/* Column 1: Info */}
             <div>
               <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "20px" }}>
-                <img src="/logo.png" alt="Sharda Academy Logo" onError={(e) => { e.target.style.display = "none"; }} style={{ width: "42px", height: "42px", objectFit: "contain" }} />
+                <img src="/logo.png" alt="Sharda Academy Logo" onError={(e) => { e.target.style.display = "none"; }} style={{ width: "45px", height: "45px", objectFit: "contain" }} />
                 <div>
-                  <div style={{ fontSize: "16px", fontWeight: "900", letterSpacing: "0.04em", color: B.white }}>SHARDA ACADEMY</div>
-                  <div style={{ fontSize: "8px", color: C.goldBg, letterSpacing: "0.15em" }}>Mankhurd · Est. 2009</div>
+                  <div style={{ fontSize: "14px", fontWeight: "900", letterSpacing: "0.04em", color: B.white }}>SHARDA ACADEMY</div>
+                  <div style={{ fontSize: "9px", color: C.goldBg, letterSpacing: "0.15em", fontWeight: "800" }}>Mankhurd · Est. 2021</div>
                 </div>
               </div>
               <p style={{ fontSize: "13px", color: C.mutedText, lineHeight: 1.7, marginBottom: "24px", maxWidth: "340px" }}>

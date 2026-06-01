@@ -1,6 +1,7 @@
 import "./globals.css";
 
 export const metadata = {
+  metadataBase: new URL("https://sharda-academy.in"),
   title: "Sharda Academy | Quality Education & Skill Development Institute",
   description:
     "Sharda Academy provides quality education, professional training, and skill development programs designed to help students achieve academic excellence, practical knowledge, and career success.",
@@ -30,7 +31,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" data-scroll-behavior="smooth">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
