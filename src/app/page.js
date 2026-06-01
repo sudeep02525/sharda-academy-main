@@ -58,7 +58,7 @@ const WINGS = [
     link: "#admission",
   },
   {
-    tag: "SCIENCE (PCM / PCB)",
+    tag: "SCIENCE (PCM / PCB / PCMB)",
     tc: B.gold,
     bg: B.goldLt,
     title: "Class 11th & 12th Science",
@@ -896,7 +896,7 @@ Please contact us to guide us further on the admission and counselling process. 
                       color: C.textPrimary,
                     }}
                   >
-                    15+
+                    {new Date().getFullYear() - 2021}+
                   </div>
                   <div
                     style={{
@@ -946,7 +946,7 @@ Please contact us to guide us further on the admission and counselling process. 
                       color: C.textPrimary,
                     }}
                   >
-                    2,500+
+                    1,000+
                   </div>
                   <div
                     style={{
@@ -1084,7 +1084,7 @@ Please contact us to guide us further on the admission and counselling process. 
                       color: C.textPrimary,
                     }}
                   >
-                    15+
+                    {new Date().getFullYear() - 2021}+
                   </div>
                   <div
                     style={{
