@@ -12,7 +12,7 @@ export default function Faculty({ darkMode, C }) {
   const [mentors, setMentors] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/sams/content")
+    fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/sams/content`)
       .then((res) => res.json())
       .then((json) => {
         if (json.success && json.data.mentors) {
@@ -43,7 +43,7 @@ export default function Faculty({ darkMode, C }) {
             {mentors.map((mentor, index) => (
               <div key={index} className="hover-card" style={{ backgroundColor: C.cardBg, border: `1.5px solid ${C.cardBorder}`, borderRadius: "20px", padding: "40px", display: "flex", gap: "24px", flexDirection: "column", alignItems: "center", textAlign: "center", transition: "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease" }}>
                 {mentor.image ? (
-                  <img src={mentor.image.startsWith("http") ? mentor.image : `http://localhost:5000${mentor.image}`} alt={mentor.name} style={{ width: "72px", height: "72px", borderRadius: "50%", objectFit: "cover" }} />
+                  <img src={mentor.image.startsWith("http") ? mentor.image : `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}${mentor.image}`} alt={mentor.name} style={{ width: "72px", height: "72px", borderRadius: "50%", objectFit: "cover" }} />
                 ) : (
                   <div style={{ width: "72px", height: "72px", borderRadius: "50%", backgroundColor: darkMode ? "#1e293b" : B.cream, display: "flex", alignItems: "center", justifyContent: "center", color: B.navy, fontSize: "26px", fontWeight: "900" }}>
                     {mentor.name.substring(0, 2).toUpperCase()}

@@ -348,7 +348,7 @@ export default function Page() {
   const [loadingContent, setLoadingContent] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/sams/content")
+    fetch(`${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}/api/sams/content`)
       .then((res) => res.json())
       .then((json) => {
         if (json.success) {
@@ -362,7 +362,7 @@ export default function Page() {
   const getImageUrl = (url) => {
     if (!url) return "";
     if (url.startsWith("http") || url.startsWith("data:")) return url;
-    if (url.startsWith("/uploads")) return `http://localhost:5000${url}`;
+    if (url.startsWith("/uploads")) return `${process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000'}${url}`;
     return url; // Static frontend images like /hero_student.png
   };
 
