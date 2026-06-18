@@ -61,7 +61,7 @@ export default function DirectorsDesk({ darkMode, C }) {
                 </li>
                 <li style={{ display: "flex", gap: "12px", alignItems: "flex-start" }}>
                   <span style={{ color: B.goldBg, fontWeight: "900" }}>✓</span>
-                  <span style={{ fontSize: "13px", color: C.textSecond }}><strong>Individual Parent-Teacher Meets:</strong> Personal meetings with parents after every mock exam cycle to share tailored progress maps and study targets for their child.</span>
+                  <span style={{ fontSize: "13px", color: C.textSecond }}><strong>Individual Parent Meets:</strong> Personal meetings with parents after every mock exam cycle to share tailored progress maps and study targets for their child.</span>
                 </li>
               </ul>
             </div>

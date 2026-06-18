@@ -93,7 +93,7 @@ const GALLERY_ITEMS = [
   {
     id: 5,
     cat: "events",
-    title: "Teachers' Day Tribute Gala",
+    title: "Mentors' Day Tribute Gala",
     desc: "Student-organized tribute event for our expert faculty mentors. Featured musical segments, emotional speeches, and quiz matches.",
     date: "September 2025",
     loc: "PMG Colony Center",

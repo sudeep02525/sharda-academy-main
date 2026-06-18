@@ -314,7 +314,9 @@ Please contact me to guide me further. Thank you!`;
                     <div>
                       <label style={{ display: "block", fontSize: "11px", fontWeight: "700", color: C.textPrimary, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "6px" }}>Target Class *</label>
                       <select required value={form.cls} onChange={(e) => setForm({ ...form, cls: e.target.value })} style={{ width: "100%", padding: "12px 16px", border: `1.5px solid ${C.cardBorder}`, borderRadius: "10px", fontSize: "13.5px", backgroundColor: C.bg, color: C.textPrimary }}>
-                        {[...Array(12)].map((_, i) => <option key={i} value={i + 1}>Class {i + 1}</option>)}
+                        {[
+  {v:"1",l:"Class 1"}, {v:"2",l:"Class 2"}, {v:"3",l:"Class 3"}, {v:"4",l:"Class 4"}, {v:"5",l:"Class 5"}, {v:"6",l:"Class 6"}, {v:"7",l:"Class 7"}, {v:"8",l:"Class 8"}, {v:"9",l:"Class 9"}, {v:"10",l:"Class 10"}, {v:"11-Science",l:"11th Science"}, {v:"11-Commerce",l:"11th Commerce"}, {v:"12-Science",l:"12th Science"}, {v:"12-Commerce",l:"12th Commerce"}
+].map((c) => <option key={c.v} value={c.v}>{c.l}</option>)}
                       </select>
                     </div>
                   </div>

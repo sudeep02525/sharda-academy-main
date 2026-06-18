@@ -1,89 +1,9 @@
-"use client";
+﻿"use client";
 import React from "react";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
-
-/* ═══════════════════════════════════════════════════════════════
-   PREMIUM THEME BRAND SYSTEM — Extracted from mockups
-   Primary:   Deep Navy  #0a1835 (Header, Footer, Dark CTA)
-   Secondary: Gold Yellow #e69c24 or #f1af3c (Primary action)
-   BG:        Warm Beige #faf9f6 (Body, clean off-white)
-   Section Alt: Warm Cream #f4f1ea (Clean container background)
-   Text Navy: #0f1a30
-═══════════════════════════════════════════════════════════════ */
-const B = {
-  navy: "#0a1835",
-  navyLt: "#0f2347",
-  navyEl: "#0c1e3f",
-  beige: "#ffffff",
-  cream: "#f8fafc",
-  white: "#ffffff",
-  gold: "#d97706", // Darker gold for text readability
-  goldBg: "#f1af3c", // Bright gold for active buttons
-  goldLt: "#fef3c7", // Light gold background
-  blue: "#0c46c4",
-  blueLt: "#dbeafe",
-  pink: "#dc2626",
-  pinkLt: "#fee2e2",
-  textNavy: "#0f1a30",
-  textGrey: "#5e6675",
-  borderCol: "#e5e7eb",
-};
-
-/* ═══════════════════════════════════════════════════════════════
-   DATA STRUCTURES
-═══════════════════════════════════════════════════════════════ */
-const NAV = [
-  { id: "home", l: "Home" },
-  { id: "about", l: "About Us" },
-  { id: "gallery", l: "Gallery" },
-  { id: "courses", l: "Courses" },
-  { id: "contact", l: "Contact Us" },
-];
-
-const WINGS = [
-  {
-    tag: "ALL SUBJECTS",
-    tc: B.blue,
-    bg: B.blueLt,
-    title: "Class 1st to 10th",
-    sub: "Comprehensive Board Foundation",
-    points: [
-      "All Subjects Covered",
-      "Dedicated Subject Teachers",
-      "Weekly Practice & Tests",
-    ],
-    link: "#admission",
-  },
-  {
-    tag: "SCIENCE (PCM / PCB / PCMB)",
-    tc: B.gold,
-    bg: B.goldLt,
-    title: "Class 11th & 12th Science",
-    sub: "Academic Board & Concept Focused",
-    points: [
-      "Physics, Chemistry, Maths & Bio",
-      "Concept-Based Learning Flow",
-      "State-Board Pattern Focus",
-    ],
-    link: "#admission",
-  },
-  {
-    tag: "COMMERCE Stream",
-    tc: B.pink,
-    bg: B.pinkLt,
-    title: "Class 11th & 12th Commerce",
-    sub: "Professional Commercial Foundations",
-    points: [
-      "Accounts, OCM & Economics",
-      "Expert Board Specialized Faculty",
-      "Affordable Fee Structure",
-    ],
-    link: "#admission",
-  },
-];
 
 const FACILITIES = [
   {
@@ -288,56 +208,42 @@ const BENEFITS = [
   }
 ];
 
-const TOPPERS = [
-  {
-    name: "Aditya Sharma",
-    rank: "HSC Board Topper",
-    exam: "HSC Board Exam Scorer",
-    score: "99.2% Board Result",
-    c: B.gold,
-    bg: B.goldLt,
-    avatar: "AS",
-  },
-  {
-    name: "Priya Gupta",
-    rank: "SSC Board Topper",
-    exam: "SSC Board Exam Scorer",
-    score: "98.8% Board Result",
-    c: B.blue,
-    bg: B.blueLt,
-    avatar: "PG",
-  },
-  {
-    name: "Aryan Khan",
-    rank: "HSC Science Topper",
-    exam: "HSC Board Exam Scorer",
-    score: "98.4% Board Result",
-    c: B.pink,
-    bg: B.pinkLt,
-    avatar: "AK",
-  },
-];
+/* ═══════════════════════════════════════════════════════════════
+   PREMIUM THEME BRAND SYSTEM — Extracted from mockups
+   Primary:   Deep Navy  #0a1835 (Header, Footer, Dark CTA)
+   Secondary: Gold Yellow #e69c24 or #f1af3c (Primary action)
+   BG:        Warm Beige #faf9f6 (Body, clean off-white)
+   Section Alt: Warm Cream #f4f1ea (Clean container background)
+   Text Navy: #0f1a30
+═══════════════════════════════════════════════════════════════ */
+const B = {
+  navy: "#0a1835",
+  navyLt: "#0f2347",
+  navyEl: "#0c1e3f",
+  beige: "#ffffff",
+  cream: "#f8fafc",
+  white: "#ffffff",
+  gold: "#d97706", // Darker gold for text readability
+  goldBg: "#f1af3c", // Bright gold for active buttons
+  goldLt: "#fef3c7", // Light gold background
+  blue: "#0c46c4",
+  blueLt: "#dbeafe",
+  pink: "#dc2626",
+  pinkLt: "#fee2e2",
+  textNavy: "#0f1a30",
+  textGrey: "#5e6675",
+  borderCol: "#e5e7eb",
+};
 
-const TEACHERS = [
-  {
-    name: "Dr. S. K. Roy",
-    role: "Physics Head",
-    exp: "Ph.D. in Physics, 15+ Yrs Exp.",
-    text: "Senior Board Expert specializing in Physics board exam preparation.",
-  },
-  {
-    name: "Mrs. Priya Patil",
-    role: "Mathematics lead",
-    exp: "M.Sc. in Mathematics, 12+ Yrs Exp.",
-    text: "Board Exam Expert guiding students to 100% conceptual clarity.",
-  },
-];
-
-const GALLERY = [
-  "/campus_moment_1.png",
-  "/campus_moment_2.png",
-  "/campus_moment_3.png",
-  "/campus_moment_4.png",
+/* ═══════════════════════════════════════════════════════════════
+   DATA STRUCTURES
+═══════════════════════════════════════════════════════════════ */
+const NAV = [
+  { id: "home", l: "Home" },
+  { id: "about", l: "About Us" },
+  { id: "gallery", l: "Gallery" },
+  { id: "courses", l: "Courses" },
+  { id: "contact", l: "Contact Us" },
 ];
 
 const SOCIAL_ICONS = [
@@ -409,59 +315,18 @@ const getDynamicSession = () => {
   }
 };
 
-// Premium Zero-Dependency Word Rotator (Clean Slide + Fade, replaces mechanical typewriter)
-const TextRotator = ({ strings, interval = 2500 }) => {
-  const [index, setIndex] = useState(0);
-  const [visible, setVisible] = useState(true);
-
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setVisible(false);
-      setTimeout(() => {
-        setIndex((prev) => (prev + 1) % strings.length);
-        setVisible(true);
-      }, 350); // duration of fade-out
-    }, interval);
-
-    return () => clearInterval(timer);
-  }, [strings, interval]);
-
-  return (
-    <span
-      style={{
-        display: "inline-block",
-        transition:
-          "opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1), transform 0.35s cubic-bezier(0.16, 1, 0.3, 1)",
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(8px)",
-      }}
-    >
-      {strings[index]}
-    </span>
-  );
-};
-
-const TESTIMONIALS = [
+const TEACHERS = [
   {
-    stars: 5,
-    text: "The curriculum here is designed to make children critical thinkers. The biometric safety combined with the professional teaching style has been the key to my child's academic success.",
-    author: "Mr. Suresh Patil",
-    role: "Parent of Class 10th Topper",
-    avatar: "SP",
+    name: "Dr. S. K. Roy",
+    role: "Physics Head",
+    exp: "Ph.D. in Physics, 15+ Yrs Exp.",
+    text: "Senior Board Expert specializing in Physics board exam preparation.",
   },
   {
-    stars: 5,
-    text: "Sharda Academy does not feel like an overcrowded classes. It is a personalized learning home where the teachers spend quality time explaining every single conceptual doubt with infinite patience.",
-    author: "Mrs. Anjali Roy",
-    role: "Parent of HSC Science Achiever",
-    avatar: "AR",
-  },
-  {
-    stars: 5,
-    text: "The conceptual sheets and weekly mock exams prepared by board specialists transformed my daughter's confidence. She scored 98.8% in her board exams. The biometric tracking alerts are incredibly reassuring.",
-    author: "Mr. Rajesh Gupta",
-    role: "Parent of SSC Board Topper",
-    avatar: "RG",
+    name: "Mrs. Priya Patil",
+    role: "Mathematics lead",
+    exp: "M.Sc. in Mathematics, 12+ Yrs Exp.",
+    text: "Board Exam Expert guiding students to 100% conceptual clarity.",
   },
 ];
 
@@ -479,13 +344,35 @@ export default function Page() {
   const [darkMode, setDarkMode] = useState(false);
   const [activeId, setActiveId] = useState("home");
   const [activeTestimonial, setActiveTestimonial] = useState(0);
+  const [siteContent, setSiteContent] = useState(null);
+  const [loadingContent, setLoadingContent] = useState(true);
 
   useEffect(() => {
+    fetch("http://localhost:5000/api/sams/content")
+      .then((res) => res.json())
+      .then((json) => {
+        if (json.success) {
+          setSiteContent(json.data);
+        }
+      })
+      .catch((err) => console.error("Failed to load site content:", err))
+      .finally(() => setLoadingContent(false));
+  }, []);
+
+  const getImageUrl = (url) => {
+    if (!url) return "";
+    if (url.startsWith("http") || url.startsWith("data:")) return url;
+    if (url.startsWith("/uploads")) return `http://localhost:5000${url}`;
+    return url; // Static frontend images like /hero_student.png
+  };
+
+  useEffect(() => {
+    if (!siteContent?.testimonials) return;
     const timer = setInterval(() => {
-      setActiveTestimonial((prev) => (prev + 1) % TESTIMONIALS.length);
+      setActiveTestimonial((prev) => (prev + 1) % siteContent?.testimonials?.length);
     }, 5000);
     return () => clearInterval(timer);
-  }, []);
+  }, [siteContent]);
 
   useEffect(() => {
     const reveals = document.querySelectorAll(".reveal");
@@ -500,30 +387,10 @@ export default function Page() {
       { threshold: 0.1, rootMargin: "0px 0px -40px 0px" },
     );
     reveals.forEach((el) => observer.observe(el));
-    return () => reveals.forEach((el) => observer.unobserve(el));
-  }, []);
+    return () => observer.disconnect();
+  }, [siteContent]);
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const sections = ["home", "courses"];
-      const scrollPos = window.scrollY + 200;
-
-      for (const section of sections) {
-        const el = document.getElementById(section);
-        if (el) {
-          const top = el.offsetTop;
-          const height = el.offsetHeight;
-          if (scrollPos >= top && scrollPos < top + height) {
-            setActiveId(section);
-            break;
-          }
-        }
-      }
-    };
-
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  
 
   useEffect(() => {
     const hash = window.location.hash;
@@ -615,8 +482,7 @@ export default function Page() {
   const submitForm = (e) => {
     e.preventDefault();
 
-    // Construct WhatsApp message details
-    const whatsappNum = "919324444269"; // Target phone number +91 93244 44269
+    const whatsappNum = "919324444269"; 
     const defaultMsg = `Hello Sharda Academy, I have submitted the admissions enquiry form on the website. Here are my details:
 
 * Student's Name: ${form.name}
@@ -629,7 +495,6 @@ Please contact us to guide us further on the admission and counselling process. 
     const encodedMsg = encodeURIComponent(defaultMsg);
     const whatsappUrl = `https://wa.me/${whatsappNum}?text=${encodedMsg}`;
 
-    // Open WhatsApp in a new tab/window
     window.open(whatsappUrl, "_blank");
 
     setSent(true);
@@ -660,7 +525,13 @@ Please contact us to guide us further on the admission and counselling process. 
     >
       <Navbar darkMode={darkMode} toggleTheme={toggleTheme} activeId={activeId} go={go} menu={menu} setMenu={setMenu} />
 
-      {/* ══════ HERO SECTION (Desktop / Mobile Dual Layouts) ══════════════════════ */}
+      {loadingContent ? (
+        <div className="flex items-center justify-center min-h-screen text-slate-400 font-bold tracking-widest uppercase text-sm animate-pulse">
+          Loading Sharda Academy...
+        </div>
+      ) : (
+      <>
+      {/* ══════ HERO SECTION ══════════════════════════════════════════════ */}
       <section
         id="home"
         style={{
@@ -683,16 +554,8 @@ Please contact us to guide us further on the admission and counselling process. 
           }}
         >
           {/* Dual Desktop and Mobile Grid */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr",
-              gap: "48px",
-              alignItems: "stretch",
-            }}
-            className="hero-grid"
-          >
-            {/* Left Content Column (Flex container spanning 100% height to push stats card to bottom) */}
+          <div className="hero-grid reveal" style={{ display: "grid", gap: "48px", alignItems: "center" }}>
+            {/* Left Content Column */}
             <div
               style={{
                 display: "flex",
@@ -702,7 +565,6 @@ Please contact us to guide us further on the admission and counselling process. 
               }}
             >
               <div>
-                {/* Gold Chip */}
                 <div
                   className="afsu d1"
                   style={{
@@ -731,7 +593,6 @@ Please contact us to guide us further on the admission and counselling process. 
                   </span>
                 </div>
 
-                {/* Desktop Headline with Premium Inline Styles */}
                 <h1
                   className="desktop-only afsu d2"
                   style={{
@@ -743,12 +604,13 @@ Please contact us to guide us further on the admission and counselling process. 
                     marginBottom: "12px",
                   }}
                 >
-                  Nurturing Minds & Building <br />
-                  <span style={{ color: B.gold }}>Board Exam Toppers</span>{" "}<br />
-                  from Class 1st to 12th
+                  {siteContent?.hero?.title?.split(siteContent?.hero?.highlight)[0]} <br />
+                  {siteContent?.hero?.highlight && (
+                    <span style={{ color: B.gold }}>{siteContent?.hero?.highlight}</span>
+                  )}
+                  <br /> {siteContent?.hero?.title?.split(siteContent?.hero?.highlight)[1]}
                 </h1>
 
-                {/* Mobile Headline (Identical text, premium mobile layout inline styling) */}
                 <h1
                   className="mobile-only afsu d2"
                   style={{
@@ -760,12 +622,13 @@ Please contact us to guide us further on the admission and counselling process. 
                     marginBottom: "16px",
                   }}
                 >
-                  Nurturing Minds & Building <br />
-                  <span style={{ color: B.gold }}>Board Exam Toppers</span> <br />
-                  from Class 1st to 12th
+                  {siteContent?.hero?.title?.split(siteContent?.hero?.highlight)[0]} <br />
+                  {siteContent?.hero?.highlight && (
+                    <span style={{ color: B.gold }}>{siteContent?.hero?.highlight}</span>
+                  )}
+                  <br /> {siteContent?.hero?.title?.split(siteContent?.hero?.highlight)[1]}
                 </h1>
 
-                {/* Sub-headline */}
                 <p
                   className="afsu d3"
                   style={{
@@ -776,10 +639,7 @@ Please contact us to guide us further on the admission and counselling process. 
                     maxWidth: "560px",
                   }}
                 >
-                  Sharda Academy, Mankhurd-43 — Mumbai's most trusted coaching
-                  institute for academic excellence. We combine professional
-                  Board expert mentorship with high-tech smart classrooms and
-                  advanced biometric safety to deliver top Board results.
+                  {siteContent?.hero?.description}
                 </p>
 
                 {/* Action Buttons */}
@@ -833,11 +693,11 @@ Please contact us to guide us further on the admission and counselling process. 
                   </button>
                   <button
                     className="btn-shine-navy"
-                    onClick={() => go("admission")}
+                      onClick={() => go("contact")}
                     style={{
-                      backgroundColor: darkMode ? "transparent" : "#0a1835",
+                      backgroundColor: darkMode ? "rgba(255,255,255,0.05)" : "#0a1835",
                       color: "#ffffff",
-                      border: `1.5px solid ${darkMode ? "rgba(255, 255, 255, 0.25)" : "#0a1835"}`,
+                      border: darkMode ? "1.5px solid rgba(255, 255, 255, 0.25)" : "1.5px solid #0a1835",
                       borderRadius: "10px",
                       padding: "16px 28px",
                       fontSize: "13px",
@@ -850,16 +710,7 @@ Please contact us to guide us further on the admission and counselling process. 
                       gap: "8px",
                     }}
                   >
-                    <svg
-                      width="13"
-                      height="13"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2.5"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                    >
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                       <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                     </svg>
                     <span>Book Free Counselling</span>
@@ -867,100 +718,64 @@ Please contact us to guide us further on the admission and counselling process. 
                 </div>
               </div>
 
-              {/* Stats Card (Floating/Rounded block in hero - Desktop Only) */}
-              <div
-                className="desktop-only afsu d5"
-                style={{
-                  backgroundColor: C.cardBg,
-                  border: darkMode ? "1.5px solid rgba(255, 255, 255, 0.08)" : `1.5px solid ${C.gold}50`,
-                  borderRadius: "16px",
-                  padding: "20px",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  maxWidth: "520px",
-                  boxShadow: "0 10px 32px rgba(10,24,53,0.06)",
-                  marginTop: "24px",
-                }}
-              >
-                <div
-                  style={{
-                    textAlign: "center",
-                    flex: 1,
-                    borderRight: darkMode ? "1.5px solid rgba(255, 255, 255, 0.08)" : `1.5px solid ${B.goldBg}25`,
-                  }}
-                >
+              {/* Stats Card */}
+              {true && (() => {
+                const activeStats = (siteContent?.stats && siteContent?.stats?.length > 0) 
+                  ? siteContent.stats 
+                  : [
+                      {value: '5+', label: 'Years Teaching'}, 
+                      {value: '98.4%', label: 'Success Rate'}, 
+                      {value: '1,000+', label: 'Students Mentored'}
+                    ];
+                return (
                   <div
+                    className="desktop-only afsu d5"
                     style={{
-                      fontSize: "24px",
-                      fontWeight: "900",
-                      color: C.textPrimary,
+                      backgroundColor: C.cardBg,
+                      border: darkMode ? "1.5px solid rgba(255, 255, 255, 0.08)" : `1.5px solid ${C.gold}50`,
+                      borderRadius: "16px",
+                      padding: "20px",
+                      display: "flex",
+                      justifyContent: "space-between",
+                      maxWidth: "520px",
+                      boxShadow: "0 10px 32px rgba(10,24,53,0.06)",
+                      marginTop: "24px",
                     }}
                   >
-                    {new Date().getFullYear() - 2021}+
+                    {activeStats?.map((stat, i) => (
+                      <div
+                        key={i}
+                        style={{
+                          textAlign: "center",
+                          flex: 1,
+                          borderRight: i < activeStats.length - 1 ? (darkMode ? "1.5px solid rgba(255, 255, 255, 0.08)" : `1.5px solid ${B.goldBg}25`) : "none",
+                        }}
+                      >
+                        <div
+                          style={{
+                            fontSize: "24px",
+                            fontWeight: "900",
+                            color: i === 1 ? C.gold : C.textPrimary,
+                          }}
+                        >
+                          {stat.value}
+                        </div>
+                        <div
+                          style={{
+                            fontSize: "9px",
+                            fontWeight: "700",
+                            color: C.textSecond,
+                            textTransform: "uppercase",
+                            marginTop: "4px",
+                          }}
+                        >
+                          {stat.label}
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                  <div
-                    style={{
-                      fontSize: "9px",
-                      fontWeight: "700",
-                      color: C.textSecond,
-                      textTransform: "uppercase",
-                      marginTop: "4px",
-                    }}
-                  >
-                    Years Teaching
-                  </div>
-                </div>
-                <div
-                  style={{
-                    textAlign: "center",
-                    flex: 1,
-                    borderRight: darkMode ? "1.5px solid rgba(255, 255, 255, 0.08)" : `1.5px solid ${B.goldBg}25`,
-                  }}
-                >
-                  <div
-                    style={{
-                      fontSize: "24px",
-                      fontWeight: "900",
-                      color: C.gold,
-                    }}
-                  >
-                    98.4%
-                  </div>
-                  <div
-                    style={{
-                      fontSize: "9px",
-                      fontWeight: "700",
-                      color: C.textSecond,
-                      textTransform: "uppercase",
-                      marginTop: "4px",
-                    }}
-                  >
-                    Success Rate
-                  </div>
-                </div>
-                <div style={{ textAlign: "center", flex: 1 }}>
-                  <div
-                    style={{
-                      fontSize: "24px",
-                      fontWeight: "900",
-                      color: C.textPrimary,
-                    }}
-                  >
-                    1,000+
-                  </div>
-                  <div
-                    style={{
-                      fontSize: "9px",
-                      fontWeight: "700",
-                      color: C.textSecond,
-                      textTransform: "uppercase",
-                      marginTop: "4px",
-                    }}
-                  >
-                    Students Mentored
-                  </div>
-                </div>
-              </div>
+                );
+              })()}
             </div>
 
             {/* Right Asset Column */}
@@ -985,12 +800,12 @@ Please contact us to guide us further on the admission and counselling process. 
               >
                 <img
                   className="zoom-img"
-                  src="/hero_classroom.png"
+                  src={getImageUrl(siteContent?.hero?.image || "/hero_classroom.png")}
                   alt="Sharda Academy Premium Classroom"
                   style={{ width: "100%", height: "auto", display: "block" }}
                 />
 
-                {/* Floating Labels over Hero Image (Bound inside relative card) */}
+                {/* Intelligent Classrooms Badge */}
                 <div
                   style={{
                     position: "absolute",
@@ -998,6 +813,7 @@ Please contact us to guide us further on the admission and counselling process. 
                     right: "20px",
                     backgroundColor: "rgba(16,185,129,0.9)",
                     backdropFilter: "blur(4px)",
+                    WebkitBackdropFilter: "blur(4px)",
                     padding: "6px 12px",
                     borderRadius: "999px",
                     display: "flex",
@@ -1007,27 +823,11 @@ Please contact us to guide us further on the admission and counselling process. 
                     zIndex: 10,
                   }}
                 >
-                  <span
-                    style={{
-                      width: "6px",
-                      height: "6px",
-                      borderRadius: "50%",
-                      backgroundColor: "#fff",
-                      display: "inline-block",
-                    }}
-                  />
-                  <span
-                    style={{
-                      fontSize: "9px",
-                      fontWeight: "800",
-                      color: "#ffffff",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.05em",
-                    }}
-                  >
-                    INTELLIGENT CLASSROOMS
-                  </span>
+                  <span style={{ width: "6px", height: "6px", borderRadius: "50%", backgroundColor: "#fff", display: "inline-block" }}></span>
+                  <span style={{ fontSize: "9px", fontWeight: "800", color: "#ffffff", textTransform: "uppercase", letterSpacing: "0.05em" }}>INTELLIGENT CLASSROOMS</span>
                 </div>
+
+                {/* State-of-the-Art Badge */}
                 <div
                   style={{
                     position: "absolute",
@@ -1035,6 +835,7 @@ Please contact us to guide us further on the admission and counselling process. 
                     left: "20px",
                     backgroundColor: "rgba(10,24,53,0.85)",
                     backdropFilter: "blur(4px)",
+                    WebkitBackdropFilter: "blur(4px)",
                     padding: "10px 18px",
                     borderRadius: "12px",
                     border: "1px solid rgba(255,255,255,0.1)",
@@ -1042,111 +843,7 @@ Please contact us to guide us further on the admission and counselling process. 
                     zIndex: 10,
                   }}
                 >
-                  <div
-                    style={{
-                      fontSize: "11px",
-                      fontWeight: "800",
-                      color: C.gold,
-                      textTransform: "uppercase",
-                    }}
-                  >
-                    State-of-the-Art Learning Spaces
-                  </div>
-                </div>
-              </div>
-
-              {/* Mobile Stats Card (Rendered below classroom image only on mobile viewports) */}
-              <div
-                className="mobile-only"
-                style={{
-                  backgroundColor: C.cardBg,
-                  border: darkMode ? "1.5px solid rgba(255, 255, 255, 0.08)" : `1.5px solid ${C.gold}50`,
-                  borderRadius: "16px",
-                  padding: "20px",
-                  display: "flex",
-                  justifyContent: "space-between",
-                  width: "100%",
-                  boxShadow: "0 10px 32px rgba(10,24,53,0.06)",
-                  marginTop: "24px",
-                }}
-              >
-                <div
-                  style={{
-                    textAlign: "center",
-                    flex: 1,
-                    borderRight: darkMode ? "1.5px solid rgba(255, 255, 255, 0.08)" : `1.5px solid ${B.goldBg}25`,
-                  }}
-                >
-                  <div
-                    style={{
-                      fontSize: "24px",
-                      fontWeight: "900",
-                      color: C.textPrimary,
-                    }}
-                  >
-                    {new Date().getFullYear() - 2021}+
-                  </div>
-                  <div
-                    style={{
-                      fontSize: "9px",
-                      fontWeight: "700",
-                      color: C.textSecond,
-                      textTransform: "uppercase",
-                      marginTop: "4px",
-                    }}
-                  >
-                    Years Teaching
-                  </div>
-                </div>
-                <div
-                  style={{
-                    textAlign: "center",
-                    flex: 1,
-                    borderRight: darkMode ? "1.5px solid rgba(255, 255, 255, 0.08)" : `1.5px solid ${B.goldBg}25`,
-                  }}
-                >
-                  <div
-                    style={{
-                      fontSize: "24px",
-                      fontWeight: "900",
-                      color: C.gold,
-                    }}
-                  >
-                    98.4%
-                  </div>
-                  <div
-                    style={{
-                      fontSize: "9px",
-                      fontWeight: "700",
-                      color: C.textSecond,
-                      textTransform: "uppercase",
-                      marginTop: "4px",
-                    }}
-                  >
-                    Success Rate
-                  </div>
-                </div>
-                <div style={{ textAlign: "center", flex: 1 }}>
-                  <div
-                    style={{
-                      fontSize: "24px",
-                      fontWeight: "900",
-                      color: C.textPrimary,
-                    }}
-                  >
-                    2,500+
-                  </div>
-                  <div
-                    style={{
-                      fontSize: "9px",
-                      fontWeight: "700",
-                      color: C.textSecond,
-                      textTransform: "uppercase",
-                      marginTop: "4px",
-                    }}
-                  >
-                    Students Mentored
-                  </div>
+                  <div style={{ fontSize: "11px", fontWeight: "800", color: "#f1af3c", textTransform: "uppercase" }}>State-of-the-Art Learning Spaces</div>
                 </div>
               </div>
             </div>
@@ -1156,7 +853,7 @@ Please contact us to guide us further on the admission and counselling process. 
 
       {/* ══════ CURRICULUM SECTION ══════════════════════════════════════════════════ */}
       <section
-        id="home"
+        id="courses"
         style={{
           padding: "80px 0",
           backgroundColor: C.bg,
@@ -1166,7 +863,6 @@ Please contact us to guide us further on the admission and counselling process. 
         <div
           style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}
         >
-          {/* Section Header */}
           <div style={{ textAlign: "center", marginBottom: "54px" }}>
             <div
               style={{
@@ -1190,29 +886,19 @@ Please contact us to guide us further on the admission and counselling process. 
             >
               Exceptional Classes 1st to 12th Curriculum
             </h2>
-            <p
-              style={{
-                fontSize: "15px",
-                color: B.textGrey,
-                maxWidth: "600px",
-                margin: "0 auto",
-                lineHeight: 1.6,
-              }}
-            >
-              Tailored learning paths engineered to trigger academic excellence,
-              conceptual clarity, and unshakeable foundations for SSC & HSC
-              Board success.
-            </p>
           </div>
 
-          {/* Three columns curriculum cards */}
           <div
-            style={{ display: "grid", gridTemplateColumns: "1fr", gap: "24px" }}
-            className="curriculum-grid"
+            className="wings-grid reveal"
+            style={{
+              display: "grid",
+              gap: "24px",
+              marginTop: "48px",
+            }}
           >
-            {WINGS.map((w, idx) => (
+            {siteContent?.wings?.map((w, i) => (
               <div
-                key={idx}
+                key={i}
                 className="hover-card reveal reveal-slide-up"
                 style={{
                   backgroundColor: C.cardBg,
@@ -1222,7 +908,7 @@ Please contact us to guide us further on the admission and counselling process. 
                   display: "flex",
                   flexDirection: "column",
                   transition: "transform 0.3s, box-shadow 0.3s",
-                  transitionDelay: `${idx * 0.15}s`,
+                  transitionDelay: `${i * 0.15}s`,
                 }}
               >
                 {/* Wing Category Chip */}
@@ -1276,7 +962,7 @@ Please contact us to guide us further on the admission and counselling process. 
                     gap: "10px",
                   }}
                 >
-                  {w.points.map((pt, pIdx) => (
+                  {w.points?.map((pt, pIdx) => (
                     <li
                       key={pIdx}
                       style={{
@@ -1353,7 +1039,6 @@ Please contact us to guide us further on the admission and counselling process. 
         <div
           style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}
         >
-          {/* Section Header */}
           <div style={{ textAlign: "center", marginBottom: "54px" }}>
             <div
               style={{
@@ -1377,34 +1062,12 @@ Please contact us to guide us further on the admission and counselling process. 
             >
               Premium Standards & Smart Infrastructure
             </h2>
-            <p
-              style={{
-                fontSize: "15px",
-                color: C.textSecond,
-                maxWidth: "600px",
-                margin: "0 auto",
-                lineHeight: 1.6,
-              }}
-            >
-              World-class classroom environments and cutting-edge administrative
-              tools engineered to guarantee seamless learning and complete
-              safety.
-            </p>
           </div>
 
-          {/* Three large premium infrastructure cards */}
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "1fr",
-              gap: "24px",
-              marginBottom: "54px",
-            }}
-            className="facilities-grid"
-          >
-            {FACILITIES.map((f, idx) => (
+           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 reveal">
+            {siteContent?.facilities?.map((f, i) => (
               <div
-                key={idx}
+                key={i}
                 className="hover-card reveal reveal-slide-up"
                 style={{
                   backgroundColor: C.cardBg,
@@ -1414,7 +1077,7 @@ Please contact us to guide us further on the admission and counselling process. 
                   display: "flex",
                   flexDirection: "column",
                   transition: "transform 0.3s, box-shadow 0.3s",
-                  transitionDelay: `${idx * 0.15}s`,
+                  transitionDelay: `${i * 0.15}s`,
                 }}
               >
                 {/* Card Image */}
@@ -1428,7 +1091,7 @@ Please contact us to guide us further on the admission and counselling process. 
                 >
                   <img
                     className="zoom-img"
-                    src={f.img}
+                    src={getImageUrl(f.img)}
                     alt={f.title}
                     style={{
                       width: "100%",
@@ -1455,7 +1118,7 @@ Please contact us to guide us further on the admission and counselling process. 
                       boxShadow: "0 4px 10px rgba(0,0,0,0.15)",
                     }}
                   >
-                    {f.icon}
+                    {FACILITIES.find(of => of.title === f.title)?.icon}
                   </div>
                 </div>
 
@@ -1493,8 +1156,7 @@ Please contact us to guide us further on the admission and counselling process. 
             ))}
           </div>
 
-          {/* Why Choose Sharda Academy Section */}
-          <div style={{ textAlign: "center", marginBottom: "32px" }}>
+          <div style={{ textAlign: "center", marginBottom: "32px", marginTop: "64px" }}>
             <div
               style={{
                 fontSize: "10px",
@@ -1507,13 +1169,10 @@ Please contact us to guide us further on the admission and counselling process. 
               WHY CHOOSE SHARDA ACADEMY?
             </div>
           </div>
-          <div
-            style={{ display: "grid", gridTemplateColumns: "1fr", gap: "20px" }}
-            className="benefits-grid"
-          >
-            {BENEFITS.map((b, idx) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-12 reveal">
+            {siteContent?.benefits?.map((b, i) => (
               <div
-                key={idx}
+                key={i}
                 className="reveal reveal-scale"
                 style={{
                   backgroundColor: C.cardBg,
@@ -1523,7 +1182,7 @@ Please contact us to guide us further on the admission and counselling process. 
                   display: "flex",
                   gap: "16px",
                   alignItems: "flex-start",
-                  transitionDelay: `${idx * 0.1}s`,
+                  transitionDelay: `${i * 0.1}s`,
                 }}
               >
                 <div
@@ -1539,7 +1198,7 @@ Please contact us to guide us further on the admission and counselling process. 
                     flexShrink: 0,
                   }}
                 >
-                  {b.icon}
+                  {BENEFITS.find(ob => ob.title === b.title)?.icon}
                 </div>
                 <div>
                   <h4
@@ -1569,7 +1228,7 @@ Please contact us to guide us further on the admission and counselling process. 
         </div>
       </section>
 
-      {/* ══════ TOPOERS & HALL OF FAME SECTION ═════════════════════════════════════ */}
+      {/* ══════ TOPOERS SECTION ═════════════════════════════════════ */}
       <section
         id="results"
         style={{
@@ -1581,7 +1240,6 @@ Please contact us to guide us further on the admission and counselling process. 
         <div
           style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}
         >
-          {/* Section Header */}
           <div style={{ textAlign: "center", marginBottom: "54px" }}>
             <div
               style={{
@@ -1603,107 +1261,216 @@ Please contact us to guide us further on the admission and counselling process. 
                 marginBottom: "16px",
               }}
             >
-              Our State Board Toppers & SSC/HSC Scores
+              Our State Board Toppers (SSC)
             </h2>
-            <p
-              style={{
-                fontSize: "15px",
-                color: B.textGrey,
-                maxWidth: "600px",
-                margin: "0 auto",
-                lineHeight: 1.6,
-              }}
-            >
-              A decade-long legacy of unshakeable ranks. Witness the spectacular
-              board achievements from our classroom champions.
-            </p>
           </div>
 
-          {/* Three topper cards */}
           <div
-            style={{ display: "grid", gridTemplateColumns: "1fr", gap: "24px" }}
-            className="curriculum-grid"
+            className="toppers-grid reveal"
+            style={{
+              display: "grid",
+              gap: "24px",
+              marginTop: "48px",
+            }}
           >
-            {TOPPERS.map((t, idx) => (
+            {siteContent?.toppers?.filter(t => t.rank?.toLowerCase().includes("ssc") || t.exam?.toLowerCase().includes("ssc")).map((t, i) => (
               <div
-                key={idx}
-                className="reveal reveal-slide-up hover-card"
+                key={i}
                 style={{
                   backgroundColor: C.cardBg,
-                  border: `1px solid ${C.cardBorder}`,
                   borderRadius: "20px",
                   padding: "32px",
+                  border: `1px solid ${C.cardBorder}`,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
                   textAlign: "center",
-                  transitionDelay: `${idx * 0.15}s`,
+                  position: "relative",
+                  overflow: "hidden",
                 }}
+                className="hover-lift"
               >
-                {/* Avatar Initials block */}
                 <div
                   style={{
-                    width: "64px",
-                    height: "64px",
-                    borderRadius: "50%",
-                    backgroundColor: t.bg,
-                    color: t.c,
-                    fontSize: "20px",
-                    fontWeight: "900",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    margin: "0 auto 20px",
-                    border: `2px solid ${t.c}50`,
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: "4px",
+                    backgroundColor: t.c || "#f1af3c",
                   }}
-                >
-                  {t.avatar}
-                </div>
+                />
+                
+                {t.image ? (
+                  <img src={getImageUrl(t.image)} alt={t.name} style={{ width: "80px", height: "80px", borderRadius: "50%", objectFit: "cover", marginBottom: "16px", boxShadow: darkMode ? `0 0 15px ${t.bg || "#fef3c7"}30` : `0 0 20px ${t.bg || "#fef3c7"}` }} />
+                ) : (
+                  <div
+                    style={{
+                      width: "80px",
+                      height: "80px",
+                      borderRadius: "50%",
+                      backgroundColor: t.bg || "#fef3c7",
+                      color: t.c || "#d97706",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: "28px",
+                      fontWeight: "900",
+                      marginBottom: "16px",
+                      boxShadow: darkMode ? `0 0 15px ${t.bg || "#fef3c7"}30` : `0 0 20px ${t.bg || "#fef3c7"}`,
+                    }}
+                  >
+                    {t.avatar}
+                  </div>
+                )}
 
                 <h3
                   style={{
-                    fontSize: "18px",
-                    fontWeight: "850",
+                    fontSize: "20px",
+                    fontWeight: "900",
                     color: C.textPrimary,
                     marginBottom: "4px",
                   }}
                 >
                   {t.name}
                 </h3>
+                <p style={{ fontSize: "13px", color: C.textSecond, fontWeight: "600", marginBottom: "16px" }}>
+                  {t.rank}
+                </p>
 
-                {/* Rank Badge */}
                 <div
                   style={{
-                    display: "inline-block",
-                    backgroundColor: t.bg,
-                    color: t.c,
-                    border: `2px solid ${C.gold}50`,
-                    borderRadius: "999px",
-                    padding: "4px 14px",
-                    fontSize: "10px",
-                    fontWeight: "800",
-                    letterSpacing: "0.04em",
-                    margin: "8px 0 16px",
+                    backgroundColor: darkMode ? "rgba(255,255,255,0.03)" : "#f8fafc",
+                    padding: "12px 16px",
+                    borderRadius: "12px",
+                    width: "100%",
+                    border: `1px dashed ${C.cardBorder}`,
                   }}
                 >
-                  {t.rank}
+                  <p style={{ fontSize: "11px", color: C.textSecond, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "4px", fontWeight: "700" }}>
+                    {t.exam}
+                  </p>
+                  <p style={{ fontSize: "16px", fontWeight: "900", color: t.c || "#d97706" }}>
+                    {t.score}
+                  </p>
                 </div>
+              </div>
+            ))}
+          </div>
 
+<div style={{ textAlign: "center", marginBottom: "54px", marginTop: "80px" }}>
+            <div
+              style={{
+                fontSize: "10px",
+                fontWeight: "800",
+                color: C.gold,
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
+                marginBottom: "8px",
+              }}
+            >
+              ACHIEVERS & TOPPERS
+            </div>
+            <h2
+              style={{
+                fontSize: "36px",
+                fontWeight: "900",
+                color: C.textPrimary,
+                marginBottom: "16px",
+              }}
+            >
+              Our State Board Toppers (HSC)
+            </h2>
+          </div>
+
+          <div
+            className="toppers-grid reveal"
+            style={{
+              display: "grid",
+              gap: "24px",
+              marginTop: "48px",
+            }}
+          >
+            {siteContent?.toppers?.filter(t => t.rank?.toLowerCase().includes("hsc") || t.exam?.toLowerCase().includes("hsc")).map((t, i) => (
+              <div
+                key={i}
+                style={{
+                  backgroundColor: C.cardBg,
+                  borderRadius: "20px",
+                  padding: "32px",
+                  border: `1px solid ${C.cardBorder}`,
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  textAlign: "center",
+                  position: "relative",
+                  overflow: "hidden",
+                }}
+                className="hover-lift"
+              >
                 <div
                   style={{
-                    fontSize: "13.5px",
-                    color: C.gold,
-                    fontWeight: "700",
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    height: "4px",
+                    backgroundColor: t.c || "#f1af3c",
+                  }}
+                />
+                
+                {t.image ? (
+                  <img src={getImageUrl(t.image)} alt={t.name} style={{ width: "80px", height: "80px", borderRadius: "50%", objectFit: "cover", marginBottom: "16px", boxShadow: darkMode ? `0 0 15px ${t.bg || "#fef3c7"}30` : `0 0 20px ${t.bg || "#fef3c7"}` }} />
+                ) : (
+                  <div
+                    style={{
+                      width: "80px",
+                      height: "80px",
+                      borderRadius: "50%",
+                      backgroundColor: t.bg || "#fef3c7",
+                      color: t.c || "#d97706",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      fontSize: "28px",
+                      fontWeight: "900",
+                      marginBottom: "16px",
+                      boxShadow: darkMode ? `0 0 15px ${t.bg || "#fef3c7"}30` : `0 0 20px ${t.bg || "#fef3c7"}`,
+                    }}
+                  >
+                    {t.avatar}
+                  </div>
+                )}
+
+                <h3
+                  style={{
+                    fontSize: "20px",
+                    fontWeight: "900",
+                    color: C.textPrimary,
                     marginBottom: "4px",
                   }}
                 >
-                  {t.score}
-                </div>
+                  {t.name}
+                </h3>
+                <p style={{ fontSize: "13px", color: C.textSecond, fontWeight: "600", marginBottom: "16px" }}>
+                  {t.rank}
+                </p>
+
                 <div
                   style={{
-                    fontSize: "12px",
-                    color: C.textSecond,
-                    fontWeight: "600",
+                    backgroundColor: darkMode ? "rgba(255,255,255,0.03)" : "#f8fafc",
+                    padding: "12px 16px",
+                    borderRadius: "12px",
+                    width: "100%",
+                    border: `1px dashed ${C.cardBorder}`,
                   }}
                 >
-                  {t.exam}
+                  <p style={{ fontSize: "11px", color: C.textSecond, textTransform: "uppercase", letterSpacing: "0.05em", marginBottom: "4px", fontWeight: "700" }}>
+                    {t.exam}
+                  </p>
+                  <p style={{ fontSize: "16px", fontWeight: "900", color: t.c || "#d97706" }}>
+                    {t.score}
+                  </p>
                 </div>
               </div>
             ))}
@@ -1712,12 +1479,8 @@ Please contact us to guide us further on the admission and counselling process. 
       </section>
 
       {/* ══════ TEACHERS & TESTIMONIALS SECTION ══════════════════════════════════ */}
-      <section
-        style={{ padding: "80px 0", borderBottom: `1px solid ${C.cardBorder}` }}
-      >
-        <div
-          style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}
-        >
+      <section style={{ padding: "80px 0", borderBottom: `1px solid ${C.cardBorder}` }}>
+        <div style={{ maxWidth: "1200px", margin: "0 auto", padding: "0 24px" }}>
           <div
             style={{
               display: "grid",
@@ -1733,7 +1496,7 @@ Please contact us to guide us further on the admission and counselling process. 
                 style={{
                   fontSize: "10px",
                   fontWeight: "800",
-                  color: B.gold,
+                  color: "#f1af3c",
                   letterSpacing: "0.15em",
                   textTransform: "uppercase",
                   marginBottom: "8px",
@@ -1791,7 +1554,7 @@ Please contact us to guide us further on the admission and counselling process. 
                         width: "48px",
                         height: "48px",
                         borderRadius: "50%",
-                        backgroundColor: darkMode ? "#1e293b" : B.cream,
+                        backgroundColor: darkMode ? "#1e293b" : "#fefaf5",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -1819,7 +1582,7 @@ Please contact us to guide us further on the admission and counselling process. 
                           fontSize: "15px",
                           fontWeight: "800",
                           color: C.textPrimary,
-                          marginBottom: "2px",
+                          marginBottom: "4px",
                         }}
                       >
                         {t.name}
@@ -1827,19 +1590,19 @@ Please contact us to guide us further on the admission and counselling process. 
                       <div
                         style={{
                           fontSize: "11px",
-                          fontWeight: "700",
-                          color: B.gold,
+                          fontWeight: "800",
+                          color: "#d97706",
                           textTransform: "uppercase",
+                          letterSpacing: "0.05em",
                           marginBottom: "8px",
                         }}
                       >
-                        {t.role} · {t.exp}
+                        {t.role} • {t.exp}
                       </div>
                       <p
                         style={{
-                          fontSize: "12.5px",
+                          fontSize: "13px",
                           color: C.textSecond,
-                          margin: 0,
                           lineHeight: 1.5,
                         }}
                       >
@@ -1851,199 +1614,73 @@ Please contact us to guide us further on the admission and counselling process. 
               </div>
             </div>
 
-            {/* Right Column: Parent Review Testimonial (Swiper Emulator) */}
-            <div
-              className="reveal reveal-slide-right"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                justifyContent: "center",
-                height: "100%",
-              }}
-            >
+            {/* Right Column: Testimonials */}
+            <div className="reveal reveal-slide-right">
+{siteContent?.testimonials && siteContent?.testimonials?.length > 0 && (
               <div
+                key={activeTestimonial}
+                className="animate-fade-in"
                 style={{
                   backgroundColor: C.cardBg,
-                  border: `1.5px solid ${C.cardBorder}`,
                   borderRadius: "24px",
                   padding: "40px",
-                  boxShadow: "0 10px 40px rgba(10,24,53,0.03)",
+                  border: `1px solid ${C.cardBorder}`,
+                  boxShadow: darkMode ? "0 10px 40px rgba(0,0,0,0.2)" : "0 10px 40px rgba(10,24,53,0.03)",
                   position: "relative",
-                  minHeight: "340px",
-                  display: "flex",
-                  flexDirection: "column",
-                  justifyContent: "space-between",
+                  overflow: "hidden",
                 }}
               >
-                {/* Active Slide */}
-                <div style={{ transition: "all 0.5s ease-in-out" }}>
-                  {/* 5 Yellow Stars */}
-                  <div
-                    style={{
-                      display: "flex",
-                      gap: "4px",
-                      color: "#facc15",
-                      fontSize: "18px",
-                      marginBottom: "20px",
-                    }}
-                  >
-                    {"★"
-                      .repeat(TESTIMONIALS[activeTestimonial].stars)
-                      .split("")
-                      .map((s, i) => (
-                        <span key={i}>{s}</span>
-                      ))}
-                  </div>
-
-                  <blockquote
-                    style={{
-                      fontSize: "15.5px",
-                      fontWeight: "600",
-                      color: C.textPrimary,
-                      fontStyle: "italic",
-                      lineHeight: 1.7,
-                      margin: "0 0 28px 0",
-                    }}
-                  >
-                    "{TESTIMONIALS[activeTestimonial].text}"
-                  </blockquote>
-
-                  <div
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      gap: "12px",
-                    }}
-                  >
-                    <div
-                      style={{
-                        width: "42px",
-                        height: "42px",
-                        borderRadius: "50%",
-                        backgroundColor: darkMode ? "#1e293b" : B.goldLt,
-                        color: B.gold,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        fontSize: "14px",
-                        fontWeight: "900",
-                      }}
-                    >
-                      {TESTIMONIALS[activeTestimonial].avatar}
-                    </div>
-                    <div>
-                      <div
-                        style={{
-                          fontSize: "14px",
-                          fontWeight: "800",
-                          color: C.textPrimary,
-                        }}
-                      >
-                        {TESTIMONIALS[activeTestimonial].author}
-                      </div>
-                      <div
-                        style={{
-                          fontSize: "11px",
-                          color: C.textSecond,
-                          fontWeight: "600",
-                        }}
-                      >
-                        {TESTIMONIALS[activeTestimonial].role}
-                      </div>
-                    </div>
-                  </div>
+                <div style={{ display: "flex", gap: "4px", marginBottom: "20px" }}>
+                  {[...Array(siteContent?.testimonials?.[activeTestimonial].stars || 5)].map((_, i) => (
+                    <svg key={i} width="20" height="20" viewBox="0 0 24 24" fill="#f1af3c" stroke="#f1af3c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                  ))}
                 </div>
+                
+                <p style={{ fontSize: "18px", color: C.textPrimary, lineHeight: 1.6, fontWeight: "500", marginBottom: "32px", fontStyle: "italic" }}>
+                  "{siteContent?.testimonials?.[activeTestimonial].text}"
+                </p>
 
-                {/* Swiper controls */}
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "space-between",
-                    marginTop: "32px",
-                    borderTop: `1px solid ${C.cardBorder}`,
-                    paddingTop: "20px",
-                  }}
-                >
-                  {/* Pagination Dots */}
-                  <div style={{ display: "flex", gap: "8px" }}>
-                    {TESTIMONIALS.map((_, i) => (
-                      <button
-                        key={i}
-                        onClick={() => setActiveTestimonial(i)}
-                        style={{
-                          width: activeTestimonial === i ? "24px" : "8px",
-                          height: "8px",
-                          borderRadius: "4px",
-                          backgroundColor:
-                            activeTestimonial === i
-                              ? B.goldBg
-                              : "rgba(10,24,53,0.15)",
-                          border: "none",
-                          cursor: "pointer",
-                          transition: "all 0.3s ease",
-                          padding: 0,
-                        }}
-                        aria-label={`Go to slide ${i + 1}`}
-                      />
-                    ))}
-                  </div>
-
-                  {/* Navigation Arrows */}
-                  <div style={{ display: "flex", gap: "8px" }}>
-                    <button
-                      onClick={() =>
-                        setActiveTestimonial(
-                          (prev) =>
-                            (prev - 1 + TESTIMONIALS.length) %
-                            TESTIMONIALS.length,
-                        )
-                      }
-                      style={{
-                        width: "36px",
-                        height: "36px",
-                        borderRadius: "50%",
-                        border: `1.5px solid ${C.cardBorder}`,
-                        backgroundColor: C.cardBg,
-                        color: C.textPrimary,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        cursor: "pointer",
-                        transition: "all 0.3s ease",
-                      }}
-                      className="carousel-nav-arrow"
-                      aria-label="Previous review"
-                    >
-                      ←
-                    </button>
-                    <button
-                      onClick={() =>
-                        setActiveTestimonial(
-                          (prev) => (prev + 1) % TESTIMONIALS.length,
-                        )
-                      }
-                      style={{
-                        width: "36px",
-                        height: "36px",
-                        borderRadius: "50%",
-                        border: `1.5px solid ${C.cardBorder}`,
-                        backgroundColor: C.cardBg,
-                        color: C.textPrimary,
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "center",
-                        cursor: "pointer",
-                        transition: "all 0.3s ease",
-                      }}
-                      className="carousel-nav-arrow"
-                      aria-label="Next review"
-                    >
-                      →
-                    </button>
+                <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
+                  {siteContent?.testimonials?.[activeTestimonial].image ? (
+                    <img src={getImageUrl(siteContent?.testimonials?.[activeTestimonial].image)} alt={siteContent?.testimonials?.[activeTestimonial].author} style={{ width: "48px", height: "48px", borderRadius: "50%", objectFit: "cover" }} />
+                  ) : (
+                    <div style={{ width: "48px", height: "48px", borderRadius: "50%", backgroundColor: darkMode ? "#1A263D" : "#f1f5f9", display: "flex", alignItems: "center", justifyContent: "center", color: B.gold, fontWeight: "800", fontSize: "14px" }}>
+                      {siteContent?.testimonials?.[activeTestimonial].avatar}
+                    </div>
+                  )}
+                  <div>
+                    <h4 style={{ fontSize: "15px", fontWeight: "800", color: C.textPrimary }}>
+                      {siteContent?.testimonials?.[activeTestimonial].author}
+                    </h4>
+                    <p style={{ fontSize: "12px", color: C.textSecond, fontWeight: "600" }}>
+                      {siteContent?.testimonials?.[activeTestimonial].role}
+                    </p>
                   </div>
                 </div>
               </div>
+            )}
+            
+            {siteContent?.testimonials && siteContent?.testimonials?.length > 0 && (
+            <div style={{ display: "flex", justifyContent: "center", gap: "8px", marginTop: "24px" }}>
+              {siteContent?.testimonials?.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActiveTestimonial(i)}
+                  style={{
+                    width: i === activeTestimonial ? "24px" : "8px",
+                    height: "8px",
+                    borderRadius: "4px",
+                    backgroundColor: i === activeTestimonial ? B.gold : (darkMode ? "#334155" : "#cbd5e1"),
+                    transition: "all 0.3s ease",
+                    border: "none",
+                    cursor: "pointer",
+                  }}
+                />
+              ))}
+            </div>
+            )}
             </div>
           </div>
         </div>
@@ -2479,6 +2116,8 @@ Please contact us to guide us further on the admission and counselling process. 
       <Footer go={go} darkMode={darkMode} activeId="home" />
 
       {/* ── Responsive Styling Blocks ── */}
+      
+      
       <style>{`
         @media (max-width: 768px) {
           .cta-btn-container {
@@ -2499,7 +2138,8 @@ Please contact us to guide us further on the admission and counselling process. 
         /* Desktop styles */
         @media (min-width: 769px) {
           .hero-grid { grid-template-columns: 1.25fr 0.75fr !important; }
-          .curriculum-grid { grid-template-columns: repeat(3, 1fr) !important; }
+          .wings-grid { grid-template-columns: repeat(3, 1fr) !important; }
+            .toppers-grid { grid-template-columns: repeat(3, 1fr) !important; }
           .facilities-grid { grid-template-columns: repeat(3, 1fr) !important; }
           .benefits-grid { grid-template-columns: repeat(3, 1fr) !important; }
           .gallery-grid { grid-template-columns: repeat(4, 1fr) !important; }
@@ -2511,7 +2151,7 @@ Please contact us to guide us further on the admission and counselling process. 
         .hover-card:hover {
           transform: translateY(-6px) !important;
           box-shadow: 0 16px 40px rgba(10,24,53,0.06) !important;
-          border-color: ${B.goldBg}70 !important;
+          border-color: #f1af3c70 !important;
         }
 
         /* Premium flowing shine & glowing lift transitions */
@@ -2640,7 +2280,7 @@ Please contact us to guide us further on the admission and counselling process. 
           border: none;
           color: #ffffff !important;
           font-size: 12.5px;
-          font-weight: 700;
+          font-weight: #f1af3c700;
           text-transform: uppercase;
           letter-spacing: 0.06em;
           cursor: pointer;
@@ -2679,7 +2319,7 @@ Please contact us to guide us further on the admission and counselling process. 
           width: 7px;
           height: 7px;
           border-radius: 50%;
-          background-color: #d97706;
+          background-color: #d97#f1af3c706;
           position: relative;
         }
 
@@ -2688,7 +2328,7 @@ Please contact us to guide us further on the admission and counselling process. 
           position: absolute;
           inset: 0;
           border-radius: 50%;
-          background-color: #d97706;
+          background-color: #d97#f1af3c706;
           animation: dot-pulse-glow 1.8s infinite ease-in-out;
         }
 
@@ -2755,6 +2395,20 @@ Please contact us to guide us further on the admission and counselling process. 
           }
         }
       `}</style>
+
+      </>
+      )}
     </div>
   );
 }
+
+
+
+
+
+
+
+
+
+
+

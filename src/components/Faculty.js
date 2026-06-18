@@ -1,5 +1,7 @@
 "use client";
 
+import { useState, useEffect } from "react";
+
 const B = {
   goldBg: "#f1af3c",
   navy: "#0a1835",
@@ -7,6 +9,21 @@ const B = {
 };
 
 export default function Faculty({ darkMode, C }) {
+  const [mentors, setMentors] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:5000/api/sams/content")
+      .then((res) => res.json())
+      .then((json) => {
+        if (json.success && json.data.mentors) {
+          setMentors(json.data.mentors);
+        }
+      })
+      .catch((err) => console.error("Error fetching mentors:", err));
+  }, []);
+
+  if (mentors.length === 0) return null;
+
   return (
     <>
       {/* ══════ SPECIALIST FACULTY SECTION ══════════════════════ */}
@@ -23,33 +40,24 @@ export default function Faculty({ darkMode, C }) {
 
           <div style={{ display: "grid", gridTemplateColumns: "1fr", gap: "32px", maxWidth: "900px", margin: "0 auto" }} className="form-row-2">
             
-            {/* Mentor 1 */}
-            <div className="hover-card" style={{ backgroundColor: C.cardBg, border: `1.5px solid ${C.cardBorder}`, borderRadius: "20px", padding: "40px", display: "flex", gap: "24px", flexDirection: "column", alignItems: "center", textAlign: "center", transition: "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease" }}>
-              <div style={{ width: "72px", height: "72px", borderRadius: "50%", backgroundColor: darkMode ? "#1e293b" : B.cream, display: "flex", alignItems: "center", justifyContent: "center", color: B.navy, fontSize: "26px", fontWeight: "900" }}>
-                SR
+            {mentors.map((mentor, index) => (
+              <div key={index} className="hover-card" style={{ backgroundColor: C.cardBg, border: `1.5px solid ${C.cardBorder}`, borderRadius: "20px", padding: "40px", display: "flex", gap: "24px", flexDirection: "column", alignItems: "center", textAlign: "center", transition: "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease" }}>
+                {mentor.image ? (
+                  <img src={mentor.image.startsWith("http") ? mentor.image : `http://localhost:5000${mentor.image}`} alt={mentor.name} style={{ width: "72px", height: "72px", borderRadius: "50%", objectFit: "cover" }} />
+                ) : (
+                  <div style={{ width: "72px", height: "72px", borderRadius: "50%", backgroundColor: darkMode ? "#1e293b" : B.cream, display: "flex", alignItems: "center", justifyContent: "center", color: B.navy, fontSize: "26px", fontWeight: "900" }}>
+                    {mentor.name.substring(0, 2).toUpperCase()}
+                  </div>
+                )}
+                <div>
+                  <h3 style={{ fontSize: "19px", fontWeight: "900", color: C.textPrimary, marginBottom: "4px" }}>{mentor.name}</h3>
+                  <div style={{ fontSize: "11px", fontWeight: "800", color: B.goldBg, textTransform: "uppercase", marginBottom: "16px", letterSpacing: "0.05em" }}>{mentor.role}</div>
+                  <p style={{ fontSize: "13.5px", color: C.textSecond, lineHeight: 1.6, margin: 0 }}>
+                    {mentor.text}
+                  </p>
+                </div>
               </div>
-              <div>
-                <h3 style={{ fontSize: "19px", fontWeight: "900", color: C.textPrimary, marginBottom: "4px" }}>Dr. S. K. Roy</h3>
-                <div style={{ fontSize: "11px", fontWeight: "800", color: B.goldBg, textTransform: "uppercase", marginBottom: "16px", letterSpacing: "0.05em" }}>Physics Department Head · 15+ Yrs Exp</div>
-                <p style={{ fontSize: "13.5px", color: C.textSecond, lineHeight: 1.6, margin: 0 }}>
-                  Holds a Ph.D. in Physics. A senior board specialist recognized for dismantling complex physical mechanics and visual conceptualizations with high board rank results.
-                </p>
-              </div>
-            </div>
-
-            {/* Mentor 2 */}
-            <div className="hover-card" style={{ backgroundColor: C.cardBg, border: `1.5px solid ${C.cardBorder}`, borderRadius: "20px", padding: "40px", display: "flex", gap: "24px", flexDirection: "column", alignItems: "center", textAlign: "center", transition: "transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease" }}>
-              <div style={{ width: "72px", height: "72px", borderRadius: "50%", backgroundColor: darkMode ? "#1e293b" : B.cream, display: "flex", alignItems: "center", justifyContent: "center", color: B.navy, fontSize: "26px", fontWeight: "900" }}>
-                PP
-              </div>
-              <div>
-                <h3 style={{ fontSize: "19px", fontWeight: "900", color: C.textPrimary, marginBottom: "4px" }}>Mrs. Priya Patil</h3>
-                <div style={{ fontSize: "11px", fontWeight: "800", color: B.goldBg, textTransform: "uppercase", marginBottom: "16px", letterSpacing: "0.05em" }}>Mathematics Lead · 12+ Yrs Exp</div>
-                <p style={{ fontSize: "13.5px", color: C.textSecond, lineHeight: 1.6, margin: 0 }}>
-                  M.Sc. in Mathematics. Board exam paper revision expert with years of success simplifying complex trigonometry, calculus, and algebraic methodologies for state-board pupils.
-                </p>
-              </div>
-            </div>
+            ))}
 
           </div>
 

@@ -74,7 +74,7 @@ export default function WhyChoose({ darkMode, C }) {
               <div>
                 <h3 style={{ fontSize: "18px", fontWeight: "900", color: C.textPrimary, marginBottom: "6px" }}>Experienced Faculty (10+ Years)</h3>
                 <p style={{ fontSize: "13px", color: C.textSecond, lineHeight: 1.6, margin: 0 }}>
-                  Our teachers have over a decade of experience in coaching students for board exams. They understand exam patterns, marking schemes, and how to help students score maximum marks.
+                  Our instructors have over a decade of experience in coaching students for board exams. They understand exam patterns, marking schemes, and how to help students score maximum marks.
                 </p>
               </div>
             </div>
