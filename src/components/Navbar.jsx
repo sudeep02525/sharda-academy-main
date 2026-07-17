@@ -28,7 +28,7 @@ export default function Navbar({ darkMode, toggleTheme, activeId, go, menu, setM
 
       {/* ══════ MAIN NAVIGATION BAR ════════════════════════════════════════════ */}
       <nav className="sticky top-0 z-[500] bg-[#0a1835] dark:bg-[#0d1222] text-white shadow-[0_4px_20px_rgba(0,0,0,0.08)] dark:shadow-[0_4px_20px_rgba(0,0,0,0.15)] border-b-[1.5px] border-[#f1af3c] dark:border-white/8">
-        <div className="max-w-[1200px] mx-auto px-6 h-[66px] flex items-center justify-between">
+        <div className="shared-container h-[66px] flex items-center justify-between">
           
           {/* Logo & Brand */}
           <div className="flex items-center gap-3 cursor-pointer" onClick={() => go("home")}>
@@ -59,6 +59,7 @@ export default function Navbar({ darkMode, toggleTheme, activeId, go, menu, setM
               onClick={toggleTheme}
               className="hidden md:flex bg-white/5 border-[1.5px] border-white/12 rounded-lg p-[8.5px] cursor-pointer items-center justify-center transition-all duration-300 hover:bg-white/10"
               title="Toggle Theme"
+              aria-label="Toggle Theme"
             >
               {darkMode ? (
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.2} stroke="#F4B63D" className="w-[15px] h-[15px]">
@@ -71,7 +72,7 @@ export default function Navbar({ darkMode, toggleTheme, activeId, go, menu, setM
               )}
             </button>
 
-            <button className="hidden md:inline-flex bg-[#f1af3c] dark:bg-[#e0a020] text-[#0a1835] dark:text-[#0d1b2a] border-[1.5px] border-transparent rounded-lg py-[8.5px] px-[18.5px] text-[12px] font-extrabold uppercase tracking-[0.05em] cursor-pointer shadow-[0_4px_14px_rgba(241,175,60,0.35)] items-center gap-1.5 transition-transform hover:-translate-y-0.5" onClick={() => go("admission")}>
+            <button className="hidden md:inline-flex bg-[#f1af3c] dark:bg-[#e0a020] text-[#0a1835] dark:text-[#0d1b2a] border-[1.5px] border-transparent rounded-lg py-3 px-6 text-[12px] font-extrabold uppercase tracking-[0.05em] cursor-pointer shadow-[0_4px_14px_rgba(241,175,60,0.35)] items-center gap-1.5 transition-transform hover:-translate-y-0.5" onClick={() => go("admission")}>
               <span>Apply Now</span>
               <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" className="transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] hover:translate-x-1"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
             </button>

@@ -37,12 +37,12 @@ export default function Footer({ go, darkMode, activeId }) {
   return (
     <>
       {/* ══════ FOOTER SECTION ══════════════════════════════ */}
-      <footer className="bg-[#0a1835] dark:bg-[#0d1b2a] text-white pt-[80px] pb-[40px] border-t-[4px] border-[#f1af3c] dark:border-[#e0a020]">
-        <div className="max-w-[1200px] mx-auto px-6">
+      <footer className="bg-[#0a1835] dark:bg-[#0d1b2a] text-white pt-16 pb-10 md:pt-20 md:pb-12 lg:pt-24 lg:pb-16 border-t-[4px] border-[#f1af3c] dark:border-[#e0a020]">
+        <div className="shared-container">
           
           {/* Academy moments gallery */}
-          <div className="mb-[64px]">
-            <div className="text-center mb-7">
+          <div className="mb-16">
+            <div className="text-center mb-6">
               <div className="text-[10px] font-extrabold text-[#f1af3c] dark:text-[#e0a020] tracking-[0.15em] uppercase mb-1.5">CLASSROOM LIFE MOMENTS</div>
               <h3 className="text-[22px] font-black text-white">Our Moments Gallery</h3>
             </div>
@@ -55,11 +55,11 @@ export default function Footer({ go, darkMode, activeId }) {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             
             {/* Column 1: Info */}
             <div>
-              <div className="flex items-center gap-2.5 mb-5">
+              <div className="flex items-center gap-2 mb-5">
                 <Image src="https://res.cloudinary.com/ybzctfb3/image/upload/v1784214511/sharda-academy/uploads/afep5smex3ftpxjigii4.png" alt="Sharda Academy Logo" width={45} height={45} className="object-contain" onError={(e) => { e.target.style.display = "none"; }} />
                 <div>
                   <div className="text-[14px] font-black tracking-[0.04em] text-white">SHARDA ACADEMY</div>
@@ -73,7 +73,7 @@ export default function Footer({ go, darkMode, activeId }) {
               {/* Social icons */}
               <div className="flex gap-2">
                 {SOCIAL_ICONS.map((svgIcon, idx) => (
-                  <button key={idx} className="w-[36px] h-[36px] rounded-lg border border-white/10 dark:border-[#1e2e40] bg-white/5 dark:bg-[#112030] cursor-pointer flex items-center justify-center text-white/60 dark:text-[#8fa0b0] transition-colors duration-300 hover:text-[#f1af3c] dark:hover:text-[#e0a020]">
+                  <button key={idx} className="w-12 h-12 rounded-lg border border-white/10 dark:border-[#1e2e40] bg-white/5 dark:bg-[#112030] cursor-pointer flex items-center justify-center text-white/60 dark:text-[#8fa0b0] transition-colors duration-300 hover:text-[#f1af3c] dark:hover:text-[#e0a020]" aria-label="Social link">
                     {svgIcon}
                   </button>
                 ))}
@@ -83,7 +83,7 @@ export default function Footer({ go, darkMode, activeId }) {
             {/* Column 2: Navigation Links */}
             <div>
               <h4 className="text-[14px] font-extrabold text-[#f1af3c] dark:text-[#e0a020] uppercase tracking-[0.05em] mb-5">Navigation</h4>
-              <div className="flex flex-col gap-2.5">
+              <div className="flex flex-col gap-2">
                 {NAV.map((n) => (
                   <button
                     key={n.id}
@@ -99,7 +99,7 @@ export default function Footer({ go, darkMode, activeId }) {
             {/* Column 3: Contact Info */}
             <div>
               <h4 className="text-[14px] font-extrabold text-[#f1af3c] dark:text-[#e0a020] uppercase tracking-[0.05em] mb-5">Contact Details</h4>
-              <div className="flex flex-col gap-3 text-[13px] text-white/60 dark:text-[#8fa0b0]">
+              <div className="flex flex-col gap-4 text-[13px] text-white/60 dark:text-[#8fa0b0]">
                 <div className="flex items-center gap-2">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="shrink-0"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /><circle cx="12" cy="10" r="3" /></svg>
                   <span>Sharda Academy, Jankalyan Society, PMG Colony, Mankhurd, Mumbai — 400043</span>
@@ -121,7 +121,7 @@ export default function Footer({ go, darkMode, activeId }) {
 
           </div>
 
-          <hr className="border-none border-t border-white/10 dark:border-[#1e2e40] my-10" />
+          <hr className="border-none border-t border-white/10 dark:border-[#1e2e40] my-8" />
 
           <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4 text-[11px] text-white/40 dark:text-[#4a6070]">
             <div className="w-full flex justify-center md:w-auto md:justify-start">© {new Date().getFullYear()} Sharda Academy, Mankhurd-43, Mumbai. All Rights Reserved.</div>

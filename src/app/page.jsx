@@ -626,12 +626,12 @@ Please contact us to guide us further on the admission and counselling process. 
       {/* ══════ HERO SECTION ══════════════════════════════════════════════ */}
       <section
         id="home"
-        className="relative overflow-hidden py-12 min-h-[calc(100vh-102px)] flex items-center border-b border-[#0a1835]/[0.08] dark:border-[#243145]"
+        className="relative overflow-hidden pt-16 pb-10 md:pt-20 md:pb-16 lg:pt-24 lg:pb-20 min-h-[calc(100vh-102px)] flex items-center border-b border-[#0a1835]/[0.08] dark:border-[#243145]"
       >
 
-        <div className="max-w-[1200px] mx-auto px-6 w-full">
+        <div className="shared-container">
           {/* Dual Desktop and Mobile Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-[1.1fr_0.9fr] gap-12 items-center reveal">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center reveal">
             {/* Left Content Column */}
             <div className="flex flex-col justify-between h-full">
               <div>
@@ -642,7 +642,7 @@ Please contact us to guide us further on the admission and counselling process. 
                   </span>
                 </div>
 
-                <h1 className="hidden md:block afsu d2 text-[44px] font-black text-[#0f1a30] dark:text-[#ffffff] leading-[1.15] tracking-[-0.02em] mb-3">
+                <h1 className="hidden md:block afsu d2 text-3xl md:text-4xl lg:text-[40px] font-black text-[#0f1a30] dark:text-[#ffffff] leading-[1.15] tracking-[-0.02em] mb-4">
                   {siteContent?.hero?.title?.split(siteContent?.hero?.highlight)[0]} <br />
                   {siteContent?.hero?.highlight && (
                     <span className="text-[#d97706]">{siteContent?.hero?.highlight}</span>
@@ -658,14 +658,14 @@ Please contact us to guide us further on the admission and counselling process. 
                   <br /> {siteContent?.hero?.title?.split(siteContent?.hero?.highlight)[1]}
                 </h1>
 
-                <p className="afsu d3 text-[14.5px] text-[#5e6675] dark:text-[#94a3b8] leading-[1.6] mb-5 max-w-[560px]">
+                <p className="afsu d3 text-[14.5px] text-[#5e6675] dark:text-[#94a3b8] leading-[1.6] mb-6 max-w-[560px]">
                   {siteContent?.hero?.description}
                 </p>
 
                 {/* Action Buttons */}
-                <div className="afsu d4 flex gap-4 flex-wrap mb-5">
+                <div className="afsu d4 flex gap-4 flex-wrap mb-6">
                   <button
-                    className="btn-shine-gold bg-[#f1af3c] text-[#0a1835] border-none rounded-[10px] py-4 px-7 text-[13px] font-extrabold uppercase tracking-[0.06em] cursor-pointer shadow-[0_6px_20px_rgba(241,175,60,0.35)] inline-flex items-center gap-2"
+                    className="btn-shine-gold bg-[#f1af3c] text-[#0a1835] border-none rounded-lg py-3 px-6 text-[13px] font-extrabold uppercase tracking-[0.06em] cursor-pointer shadow-[0_6px_20px_rgba(241,175,60,0.35)] inline-flex items-center gap-2"
                     onClick={() => go("admission")}
                   >
                     <span>Apply Online For Admission</span>
@@ -685,7 +685,7 @@ Please contact us to guide us further on the admission and counselling process. 
                     </svg>
                   </button>
                   <button
-                    className="btn-shine-navy bg-transparent text-[#0a1835] dark:text-white border-[1.5px] border-[#0a1835] dark:border-white/25 rounded-[10px] py-4 px-7 text-[13px] font-extrabold uppercase tracking-[0.06em] cursor-pointer inline-flex items-center gap-2"
+                    className="btn-shine-navy bg-transparent text-[#0a1835] dark:text-white border-[1.5px] border-[#0a1835] dark:border-white/25 rounded-lg py-3 px-6 text-[13px] font-extrabold uppercase tracking-[0.06em] cursor-pointer inline-flex items-center gap-2"
                       onClick={() => go("contact")}
                   >
                     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
@@ -707,7 +707,7 @@ Please contact us to guide us further on the admission and counselling process. 
                     ];
                 return (
                   <div
-                    className="hidden md:flex afsu d5 bg-white dark:bg-[#131C2E] border-[1.5px] border-[#f1af3c]/50 dark:border-white/8 rounded-2xl p-5 justify-between max-w-[520px] shadow-[0_10px_32px_rgba(10,24,53,0.06)] mt-6"
+                    className="hidden md:flex afsu d5 bg-white dark:bg-[#131C2E] border-[1.5px] border-[#f1af3c]/50 dark:border-white/8 rounded-2xl p-6 justify-between max-w-[520px] shadow-[0_10px_32px_rgba(10,24,53,0.06)] mt-6"
                   >
                     {activeStats?.map((stat, i) => (
                       <div
@@ -731,9 +731,9 @@ Please contact us to guide us further on the admission and counselling process. 
 
             {/* Right Asset Column */}
             <div className="afsu d3 flex flex-col justify-center h-full">
-              <div className="relative rounded-3xl overflow-hidden shadow-[0_20px_48px_rgba(0,0,0,0.08)] border-[6px] border-white dark:border-[#131C2E]">
+              <div className="relative rounded-3xl overflow-hidden shadow-[0_20px_48px_rgba(0,0,0,0.08)] border-[6px] border-white dark:border-[#131C2E] aspect-[16/11]">
                 <img
-                  className="w-full h-auto block transition-transform duration-700 hover:scale-105"
+                  className="w-full h-full object-cover block transition-transform duration-700 hover:scale-105"
                   src={getImageUrl(siteContent?.hero?.image || "https://res.cloudinary.com/ybzctfb3/image/upload/v1784214503/sharda-academy/uploads/hhzs4vupujecbhjk6kfw.jpg")}
                   alt="Sharda Academy Premium Classroom"
                 />
@@ -757,23 +757,23 @@ Please contact us to guide us further on the admission and counselling process. 
       {/* ══════ CURRICULUM SECTION ══════════════════════════════════════════════════ */}
       <section
         id="courses"
-        className="py-20 bg-[#ffffff]  dark:border-[#243145]"
+        className="py-10 md:py-16 lg:py-24 bg-[#ffffff] dark:border-[#243145]"
       >
-        <div className="max-w-[1200px] mx-auto px-6 w-full">
-          <div className="text-center mb-[54px]">
+        <div className="shared-container">
+          <div className="text-center mb-8 lg:mb-12">
             <div className="text-[10px] font-extrabold text-[#f1af3c] tracking-[0.15em] uppercase mb-2">
               CURRICULUM / COMPREHENSIVE
             </div>
-            <h2 className="text-[36px] font-black text-[#0f1a30] dark:text-[#F9FAFB] mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-[40px] font-black text-[#0f1a30] dark:text-[#F9FAFB] mb-4">
               Exceptional Classes 1st to 12th Curriculum
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 reveal">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12 items-stretch reveal">
             {siteContent?.wings?.map((w, i) => (
               <div
                 key={i}
-                className="hover-card reveal reveal-slide-up bg-white dark:bg-[#131C2E] border border-[rgba(10,24,53,0.08)] dark:border-[#243145] rounded-[20px] p-8 flex flex-col transition-all duration-300"
+                className="hover-card reveal reveal-slide-up bg-white dark:bg-[#131C2E] border border-[rgba(10,24,53,0.08)] dark:border-[#243145] rounded-2xl p-6 lg:p-8 flex flex-col h-full transition-all duration-300"
                 style={{ transitionDelay: `${i * 0.15}s` }}
               >
                 {/* Wing Category Chip */}
@@ -796,7 +796,7 @@ Please contact us to guide us further on the admission and counselling process. 
                 </div>
 
                 {/* Point Checkmarks */}
-                <ul className="list-none p-0 m-0 mb-8 flex flex-col gap-2.5">
+                <ul className="list-none p-0 m-0 mb-6 flex flex-col gap-2 flex-grow">
                   {w.points?.map((pt, pIdx) => (
                     <li
                       key={pIdx}
@@ -809,7 +809,7 @@ Please contact us to guide us further on the admission and counselling process. 
 
                 {/* Card CTA */}
                 <button
-                  className="btn-syllabus-cta mt-auto w-full border-[1.5px] border-[rgba(10,24,53,0.08)] dark:border-[#243145] bg-[#ffffff] dark:bg-[#0a0e1a] rounded-[10px] p-3 text-[12px] font-extrabold uppercase tracking-[0.05em] text-[#0f1a30] dark:text-[#F9FAFB] cursor-pointer inline-flex items-center justify-center gap-1.5"
+                  className="btn-syllabus-cta mt-auto w-full border-[1.5px] border-[rgba(10,24,53,0.08)] dark:border-[#243145] bg-[#ffffff] dark:bg-[#0a0e1a] rounded-lg py-3 px-6 text-[12px] font-extrabold uppercase tracking-[0.05em] text-[#0f1a30] dark:text-[#F9FAFB] cursor-pointer inline-flex items-center justify-center gap-1.5"
                   onClick={() => go("admission")}
                 >
                   <span>View Detailed Syllabus</span>
@@ -837,23 +837,23 @@ Please contact us to guide us further on the admission and counselling process. 
       {/* ══════ SMART INFRASTRUCTURE SECTION ══════════════════════════════════════ */}
       <section
         id="facilities"
-        className="py-20 border-b border-[rgba(10,24,53,0.08)] dark:border-[#243145]"
+        className="py-10 md:py-16 lg:py-24 border-b border-[rgba(10,24,53,0.08)] dark:border-[#243145]"
       >
-        <div className="max-w-[1200px] mx-auto px-6 w-full">
-          <div className="text-center mb-[54px]">
+        <div className="shared-container">
+          <div className="text-center mb-8 lg:mb-12">
             <div className="text-[10px] font-extrabold text-[#f1af3c] tracking-[0.15em] uppercase mb-2">
               OUR SMART INFRASTRUCTURE
             </div>
-            <h2 className="text-[36px] font-black text-[#0f1a30] dark:text-[#F9FAFB] mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-[40px] font-black text-[#0f1a30] dark:text-[#F9FAFB] mb-4">
               Premium Standards & Smart Infrastructure
             </h2>
           </div>
 
-           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 reveal">
+           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8 lg:mt-12 items-stretch reveal">
             {siteContent?.facilities?.map((f, i) => (
               <div
                 key={i}
-                className="hover-card reveal reveal-slide-up bg-white dark:bg-[#131C2E] border border-[rgba(10,24,53,0.08)] dark:border-[#243145] rounded-3xl overflow-hidden flex flex-col transition-all duration-300"
+                className="hover-card reveal reveal-slide-up bg-white dark:bg-[#131C2E] border border-[rgba(10,24,53,0.08)] dark:border-[#243145] rounded-3xl overflow-hidden flex flex-col h-full transition-all duration-300"
                 style={{ transitionDelay: `${i * 0.15}s` }}
               >
                 {/* Card Image */}
@@ -864,13 +864,13 @@ Please contact us to guide us further on the admission and counselling process. 
                     alt={f.title}
                   />
                   {/* Floating Icon overlay */}
-                  <div className="absolute top-4 left-4 w-[42px] h-[42px] rounded-xl bg-[#0a1835]/90 flex items-center justify-center text-[20px] shadow-[0_4px_10px_rgba(0,0,0,0.15)]">
+                  <div className="absolute top-4 left-4 w-12 h-12 rounded-xl bg-[#0a1835]/90 flex items-center justify-center text-[20px] shadow-[0_4px_10px_rgba(0,0,0,0.15)]">
                     {FACILITIES.find(of => of.title === f.title)?.icon}
                   </div>
                 </div>
 
                 {/* Card content */}
-                <div className="p-7 flex flex-col flex-grow">
+                <div className="p-6 lg:p-8 flex flex-col flex-grow">
                   <h3 className="text-[18px] font-extrabold text-[#0f1a30] dark:text-[#F9FAFB] mb-2">
                     {f.title}
                   </h3>
@@ -887,14 +887,14 @@ Please contact us to guide us further on the admission and counselling process. 
               WHY CHOOSE SHARDA ACADEMY?
             </div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-12 reveal">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-8 lg:mt-12 items-stretch reveal">
             {siteContent?.benefits?.map((b, i) => (
               <div
                 key={i}
-                className="reveal reveal-scale bg-white dark:bg-[#131C2E] border border-[rgba(10,24,53,0.08)] dark:border-[#243145] rounded-2xl p-5 flex gap-4 items-start"
+                className="reveal reveal-scale bg-white dark:bg-[#131C2E] border border-[rgba(10,24,53,0.08)] dark:border-[#243145] rounded-2xl p-6 flex gap-4 items-start h-full"
                 style={{ transitionDelay: `${i * 0.1}s` }}
               >
-                <div className="w-[42px] h-[42px] rounded-xl bg-white dark:bg-[#0a0e1a] flex items-center justify-center text-[20px] shrink-0">
+                <div className="w-12 h-12 rounded-xl bg-white dark:bg-[#0a0e1a] flex items-center justify-center text-[20px] shrink-0">
                   {BENEFITS.find(ob => ob.title === b.title)?.icon}
                 </div>
                 <div>
@@ -914,23 +914,23 @@ Please contact us to guide us further on the admission and counselling process. 
       {/* ══════ TOPOERS SECTION ═════════════════════════════════════ */}
       <section
         id="results"
-        className="py-20 bg-white dark:bg-[#0a0e1a] border-b border-[rgba(10,24,53,0.08)] dark:border-[#243145]"
+        className="py-10 md:py-16 lg:py-24 bg-white dark:bg-[#0a0e1a] border-b border-[rgba(10,24,53,0.08)] dark:border-[#243145]"
       >
-        <div className="max-w-[1200px] mx-auto px-6 w-full">
-          <div className="text-center mb-[54px]">
+        <div className="shared-container">
+          <div className="text-center mb-8 lg:mb-12">
             <div className="text-[10px] font-extrabold text-[#f1af3c] tracking-[0.15em] uppercase mb-2">
               ACHIEVERS & TOPPERS
             </div>
-            <h2 className="text-[36px] font-black text-[#0f1a30] dark:text-[#F9FAFB] mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-[40px] font-black text-[#0f1a30] dark:text-[#F9FAFB] mb-4">
               Our State Board Toppers (SSC)
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 reveal">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8 lg:mt-12 items-stretch reveal">
             {siteContent?.toppers?.filter(t => t.rank?.toLowerCase().includes("ssc") || t.exam?.toLowerCase().includes("ssc")).map((t, i) => (
               <div
                 key={i}
-                className="hover-lift bg-white dark:bg-[#131C2E] rounded-2xl p-8 border border-[rgba(10,24,53,0.08)] dark:border-[#243145] flex flex-col items-center text-center relative overflow-hidden"
+                className="hover-lift bg-white dark:bg-[#131C2E] rounded-2xl p-6 lg:p-8 border border-[rgba(10,24,53,0.08)] dark:border-[#243145] flex flex-col items-center text-center relative overflow-hidden h-full"
               >
                 <div
                   className="absolute top-0 left-0 right-0 h-1"
@@ -938,10 +938,10 @@ Please contact us to guide us further on the admission and counselling process. 
                 />
                 
                 {t.image ? (
-                  <img src={getImageUrl(t.image)} alt={t.name} className="w-20 h-20 rounded-full object-cover mb-4" style={{ boxShadow: darkMode ? `0 0 15px ${t.bg || "#fef3c7"}30` : `0 0 20px ${t.bg || "#fef3c7"}` }} />
+                  <img src={getImageUrl(t.image)} alt={t.name} className="w-20 h-20 rounded-full object-cover mb-4 shrink-0 mx-auto" style={{ boxShadow: darkMode ? `0 0 15px ${t.bg || "#fef3c7"}30` : `0 0 20px ${t.bg || "#fef3c7"}` }} />
                 ) : (
                   <div
-                    className="w-20 h-20 rounded-full flex items-center justify-center text-[28px] font-black mb-4"
+                    className="w-20 h-20 rounded-full flex items-center justify-center text-[28px] font-black mb-4 shrink-0 mx-auto"
                     style={{
                       backgroundColor: t.bg || "#fef3c7",
                       color: t.c || "#d97706",
@@ -959,7 +959,7 @@ Please contact us to guide us further on the admission and counselling process. 
                   {t.rank}
                 </p>
 
-                <div className="bg-[#f8fafc] dark:bg-white/5 py-3 px-4 rounded-xl w-full border border-dashed border-[rgba(10,24,53,0.08)] dark:border-[#243145]">
+                <div className="bg-[#f8fafc] dark:bg-white/5 py-3 px-4 rounded-xl w-full border border-dashed border-[rgba(10,24,53,0.08)] dark:border-[#243145] mt-auto">
                   <p className="text-[11px] text-[#5e6675] dark:text-[#CBD5E1] uppercase tracking-[0.05em] font-bold mb-1">
                     {t.exam}
                   </p>
@@ -971,20 +971,20 @@ Please contact us to guide us further on the admission and counselling process. 
             ))}
           </div>
 
-          <div className="text-center mb-[54px] mt-20">
+          <div className="text-center mb-8 lg:mb-12 mt-20">
             <div className="text-[10px] font-extrabold text-[#f1af3c] tracking-[0.15em] uppercase mb-2">
               ACHIEVERS & TOPPERS
             </div>
-            <h2 className="text-[36px] font-black text-[#0f1a30] dark:text-[#F9FAFB] mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-[40px] font-black text-[#0f1a30] dark:text-[#F9FAFB] mb-4">
               Our State Board Toppers (HSC)
             </h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12 reveal">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8 lg:mt-12 items-stretch reveal">
             {siteContent?.toppers?.filter(t => t.rank?.toLowerCase().includes("hsc") || t.exam?.toLowerCase().includes("hsc")).map((t, i) => (
               <div
                 key={i}
-                className="hover-lift bg-white dark:bg-[#131C2E] rounded-2xl p-8 border border-[rgba(10,24,53,0.08)] dark:border-[#243145] flex flex-col items-center text-center relative overflow-hidden"
+                className="hover-lift bg-white dark:bg-[#131C2E] rounded-2xl p-6 lg:p-8 border border-[rgba(10,24,53,0.08)] dark:border-[#243145] flex flex-col items-center text-center relative overflow-hidden h-full"
               >
                 <div
                   className="absolute top-0 left-0 right-0 h-1"
@@ -992,10 +992,10 @@ Please contact us to guide us further on the admission and counselling process. 
                 />
                 
                 {t.image ? (
-                  <img src={getImageUrl(t.image)} alt={t.name} className="w-20 h-20 rounded-full object-cover mb-4" style={{ boxShadow: darkMode ? `0 0 15px ${t.bg || "#fef3c7"}30` : `0 0 20px ${t.bg || "#fef3c7"}` }} />
+                  <img src={getImageUrl(t.image)} alt={t.name} className="w-20 h-20 rounded-full object-cover mb-4 shrink-0 mx-auto" style={{ boxShadow: darkMode ? `0 0 15px ${t.bg || "#fef3c7"}30` : `0 0 20px ${t.bg || "#fef3c7"}` }} />
                 ) : (
                   <div
-                    className="w-20 h-20 rounded-full flex items-center justify-center text-[28px] font-black mb-4"
+                    className="w-20 h-20 rounded-full flex items-center justify-center text-[28px] font-black mb-4 shrink-0 mx-auto"
                     style={{
                       backgroundColor: t.bg || "#fef3c7",
                       color: t.c || "#d97706",
@@ -1004,107 +1004,55 @@ Please contact us to guide us further on the admission and counselling process. 
                   >
                     {t.avatar}
                   </div>
-              )}
+                )}
 
-              <h3 className="text-[20px] font-black text-[#0f1a30] dark:text-[#F9FAFB] mb-1">
-                {t.name}
-              </h3>
-              <p className="text-[13px] text-[#5e6675] dark:text-[#CBD5E1] font-semibold mb-4">
-                {t.rank}
-              </p>
-
-              <div className="bg-[#f8fafc] dark:bg-white/5 py-3 px-4 rounded-xl w-full border border-dashed border-[rgba(10,24,53,0.08)] dark:border-[#243145]">
-                <p className="text-[11px] text-[#5e6675] dark:text-[#CBD5E1] uppercase tracking-[0.05em] font-bold mb-1">
-                  {t.exam}
+                <h3 className="text-[20px] font-black text-[#0f1a30] dark:text-[#F9FAFB] mb-1">
+                  {t.name}
+                </h3>
+                <p className="text-[13px] text-[#5e6675] dark:text-[#CBD5E1] font-semibold mb-4">
+                  {t.rank}
                 </p>
-                <p className="text-[16px] font-black" style={{ color: t.c || "#d97706" }}>
-                  {t.score}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
 
-        <div className="text-center mb-[54px] mt-20">
-          <div className="text-[10px] font-extrabold text-[#f1af3c] tracking-[0.15em] uppercase mb-2">
-            ACHIEVERS & TOPPERS
-          </div>
-          <h2 className="text-[36px] font-black text-[#0f1a30] dark:text-[#F9FAFB] mb-4">
-            Our State Board Toppers (HSC)
-          </h2>
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-12 reveal">
-          {siteContent?.toppers?.filter(t => t.rank?.toLowerCase().includes("hsc") || t.exam?.toLowerCase().includes("hsc")).map((t, i) => (
-            <div
-              key={i}
-              className="hover-lift bg-white dark:bg-[#131C2E] rounded-2xl p-8 border border-[rgba(10,24,53,0.08)] dark:border-[#243145] flex flex-col items-center text-center relative overflow-hidden"
-            >
-              <div
-                className="absolute top-0 left-0 right-0 h-1"
-                style={{ backgroundColor: t.c || "#f1af3c" }}
-              />
-              
-              {t.image ? (
-                <img src={getImageUrl(t.image)} alt={t.name} className="w-20 h-20 rounded-full object-cover mb-4" style={{ boxShadow: darkMode ? `0 0 15px ${t.bg || "#fef3c7"}30` : `0 0 20px ${t.bg || "#fef3c7"}` }} />
-              ) : (
-                <div
-                  className="w-20 h-20 rounded-full flex items-center justify-center text-[28px] font-black mb-4"
-                  style={{
-                    backgroundColor: t.bg || "#fef3c7",
-                    color: t.c || "#d97706",
-                    boxShadow: darkMode ? `0 0 15px ${t.bg || "#fef3c7"}30` : `0 0 20px ${t.bg || "#fef3c7"}`,
-                  }}
-                >
-                  {t.avatar}
+                <div className="bg-[#f8fafc] dark:bg-white/5 py-3 px-4 rounded-xl w-full border border-dashed border-[rgba(10,24,53,0.08)] dark:border-[#243145] mt-auto">
+                  <p className="text-[11px] text-[#5e6675] dark:text-[#CBD5E1] uppercase tracking-[0.05em] font-bold mb-1">
+                    {t.exam}
+                  </p>
+                  <p className="text-[16px] font-black" style={{ color: t.c || "#d97706" }}>
+                    {t.score}
+                  </p>
                 </div>
-              )}
-
-              <h3 className="text-[20px] font-black text-[#0f1a30] dark:text-[#F9FAFB] mb-1">
-                {t.name}
-              </h3>
-              <p className="text-[13px] text-[#5e6675] dark:text-[#CBD5E1] font-semibold mb-4">
-                {t.rank}
-              </p>
-
-              <div className="bg-[#f8fafc] dark:bg-white/5 py-3 px-4 rounded-xl w-full border border-dashed border-[rgba(10,24,53,0.08)] dark:border-[#243145]">
-                <p className="text-[11px] text-[#5e6675] dark:text-[#CBD5E1] uppercase tracking-[0.05em] font-bold mb-1">
-                  {t.exam}
-                </p>
-                <p className="text-[16px] font-black" style={{ color: t.c || "#d97706" }}>
-                  {t.score}
-                </p>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
     {/* ══════ TEACHERS & TESTIMONIALS SECTION ══════════════════════════════════ */}
-    <section className="py-20 border-b border-[rgba(10,24,53,0.08)] dark:border-[#243145]">
-      <div className="max-w-[1200px] mx-auto px-6 w-full">
-        <div className="hero-grid grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+    <section className="py-10 md:py-16 lg:py-24 border-b border-[rgba(10,24,53,0.08)] dark:border-[#243145]">
+      <div className="shared-container">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch">
           {/* Left Column: Teacher Mentors */}
-          <div className="reveal reveal-slide-left">
-            <div className="text-[10px] font-extrabold text-[#f1af3c] tracking-[0.15em] uppercase mb-2">
-              LEARN FROM THE MASTERS
+          <div className="reveal reveal-slide-left flex flex-col justify-between h-full">
+            <div>
+              <div className="text-[10px] font-extrabold text-[#f1af3c] tracking-[0.15em] uppercase mb-2">
+                LEARN FROM THE MASTERS
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-[40px] font-black text-[#0f1a30] dark:text-[#F9FAFB] mb-4">
+                Learn from Elite Board Experts & Top Mentors
+              </h2>
+              <p className="text-[14.5px] text-[#5e6675] dark:text-[#CBD5E1] leading-[1.6] mb-6">
+                Our faculty consists of academic specialists and state board
+                experts, bringing a combined legacy of classroom coaching
+                expertise.
+              </p>
             </div>
-            <h2 className="text-[32px] font-black text-[#0f1a30] dark:text-[#F9FAFB] mb-5">
-              Learn from Elite Board Experts & Top Mentors
-            </h2>
-            <p className="text-[14.5px] text-[#5e6675] dark:text-[#CBD5E1] leading-[1.6] mb-8">
-              Our faculty consists of academic specialists and state board
-              experts, bringing a combined legacy of classroom coaching
-              expertise.
-            </p>
 
             {/* Teacher Cards */}
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-4 flex-grow justify-end">
               {TEACHERS.map((t, idx) => (
                 <div
                   key={idx}
-                  className="hover-card bg-white dark:bg-[#131C2E] border border-[rgba(10,24,53,0.08)] dark:border-[#243145] rounded-2xl p-5 flex gap-4 transition-all duration-300"
+                  className="hover-card bg-white dark:bg-[#131C2E] border border-[rgba(10,24,53,0.08)] dark:border-[#243145] rounded-2xl p-6 flex gap-4 transition-all duration-300"
                 >
                   <div className="w-12 h-12 rounded-full bg-[#fefaf5] dark:bg-[#1e293b] flex items-center justify-center shrink-0 text-[#0f1a30] dark:text-[#F9FAFB]">
                     <svg
@@ -1128,7 +1076,7 @@ Please contact us to guide us further on the admission and counselling process. 
                     <p className="text-[12px] font-extrabold text-[#f1af3c] uppercase mb-1">
                       {t.role} • {t.exp}
                     </p>
-                    <p className="text-[13.5px] text-[#5e6675] dark:text-[#CBD5E1] leading-[1.5]">
+                    <p className="text-[13.5px] text-[#5e6675] dark:text-[#CBD5E1] leading-[1.5] m-0">
                       {t.text}
                     </p>
                   </div>
@@ -1138,23 +1086,25 @@ Please contact us to guide us further on the admission and counselling process. 
           </div>
 
           {/* Right Column: Testimonials */}
-          <div className="reveal reveal-slide-right">
+          <div className="reveal reveal-slide-right flex flex-col h-full justify-between">
             {siteContent?.testimonials && siteContent?.testimonials?.length > 0 && (
             <div
               key={activeTestimonial}
-              className="animate-fade-in bg-white dark:bg-[#131C2E] rounded-3xl p-10 border border-[rgba(10,24,53,0.08)] dark:border-[#243145] shadow-[0_10px_40px_rgba(10,24,53,0.03)] dark:shadow-[0_10px_40px_rgba(0,0,0,0.2)] relative overflow-hidden"
+              className="animate-fade-in bg-white dark:bg-[#131C2E] rounded-3xl p-6 lg:p-8 border border-[rgba(10,24,53,0.08)] dark:border-[#243145] shadow-[0_10px_40px_rgba(10,24,53,0.03)] dark:shadow-[0_10px_40px_rgba(0,0,0,0.2)] relative overflow-hidden flex flex-col justify-between h-full flex-grow"
             >
-              <div className="flex gap-1 mb-5">
-                {[...Array(siteContent?.testimonials?.[activeTestimonial].stars || 5)].map((_, i) => (
-                  <svg key={i} width="20" height="20" viewBox="0 0 24 24" fill="#f1af3c" stroke="#f1af3c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
-                  </svg>
-                ))}
+              <div>
+                <div className="flex gap-1 mb-4">
+                  {[...Array(siteContent?.testimonials?.[activeTestimonial].stars || 5)].map((_, i) => (
+                    <svg key={i} width="20" height="20" viewBox="0 0 24 24" fill="#f1af3c" stroke="#f1af3c" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                    </svg>
+                  ))}
+                </div>
+                
+                <p className="text-[18px] text-[#0f1a30] dark:text-[#F9FAFB] leading-[1.6] font-medium italic mb-6">
+                  "{siteContent?.testimonials?.[activeTestimonial].text}"
+                </p>
               </div>
-              
-              <p className="text-[18px] text-[#0f1a30] dark:text-[#F9FAFB] leading-[1.6] font-medium italic mb-8">
-                "{siteContent?.testimonials?.[activeTestimonial].text}"
-              </p>
 
               <div className="flex items-center gap-4">
                 {siteContent?.testimonials?.[activeTestimonial].image ? (
@@ -1183,137 +1133,144 @@ Please contact us to guide us further on the admission and counselling process. 
                   key={i}
                   onClick={() => setActiveTestimonial(i)}
                   className={`h-2 rounded-full transition-all duration-300 border-none cursor-pointer ${i === activeTestimonial ? 'w-6 bg-[#f1af3c]' : 'w-2 bg-[#cbd5e1] dark:bg-[#334155]'}`}
+                  aria-label={`Go to testimonial ${i + 1}`}
                 />
               ))}
             </div>
             )}
-            </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* ══════ ENQUIRY FORM SECTION ═══════════════════════════════════════════════ */}
       <section
         id="admission"
-        className="py-20 bg-[#f8fafc] dark:bg-[#0B1120] border-b border-[rgba(10,24,53,0.08)] dark:border-[#243145]"
+        className="py-10 md:py-16 lg:py-24 bg-[#f8fafc] dark:bg-[#0B1120] border-b border-[rgba(10,24,53,0.08)] dark:border-[#243145]"
       >
-        <div className="max-w-[600px] mx-auto px-6 w-full">
-          <div className="text-center mb-10">
-            <div className="text-[10px] font-extrabold text-[#d97706] dark:text-[#f1af3c] tracking-[0.15em] uppercase mb-2">
-              JOIN THE FAMILY
-            </div>
-            <h2 className="text-[32px] font-black text-[#0f1a30] dark:text-[#F9FAFB] mb-3">
-              Admissions Enquiry
-            </h2>
-            <p className="text-[14px] text-[#5e6675] dark:text-[#CBD5E1] leading-[1.5]">
-              Fill in the details below, and our student advisors will call you
-              within 24 hours to help book counselling.
-            </p>
-          </div>
-
-          {sent ? (
-            <div className="bg-white dark:bg-[#131C2E] border-2 border-[#10b981] rounded-[20px] p-10 text-center">
-              <div className="text-[#10b981] flex justify-center mb-4">
-                <svg
-                  width="48"
-                  height="48"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                >
-                  <polyline points="20 6 9 17 4 12" />
-                </svg>
+        <div className="shared-container">
+          <div className="max-w-[768px] mx-auto">
+            <div className="text-center mb-8 lg:mb-12">
+              <div className="text-[10px] font-extrabold text-[#d97706] dark:text-[#f1af3c] tracking-[0.15em] uppercase mb-2">
+                JOIN THE FAMILY
               </div>
-              <h3 className="text-[20px] font-extrabold text-[#10b981] mb-2">
-                Enquiry Received!
-              </h3>
-              <p className="text-[13.5px] text-[#5e6675] dark:text-[#CBD5E1] leading-[1.6] m-0">
-                Thank you for your interest! Our team will contact you soon on
-                your registered mobile number.
+              <h2 className="text-3xl md:text-4xl lg:text-[40px] font-black text-[#0f1a30] dark:text-[#F9FAFB] mb-3">
+                Admissions Enquiry
+              </h2>
+              <p className="text-[14px] text-[#5e6675] dark:text-[#CBD5E1] leading-[1.5]">
+                Fill in the details below, and our student advisors will call you
+                within 24 hours to help book counselling.
               </p>
             </div>
-          ) : (
-            <form
-              onSubmit={submitForm}
-              className="form-card bg-white dark:bg-[#131C2E] border border-[rgba(10,24,53,0.08)] dark:border-[#243145] rounded-[20px] flex flex-col gap-5 shadow-[0_10px_30px_rgba(0,0,0,0.03)]"
-            >
-              <div>
-                <label className="block text-[11px] font-bold text-[#0f1a30] dark:text-[#F9FAFB] uppercase tracking-[0.05em] mb-1.5">
-                  Student's Full Name *
-                </label>
-                <input
-                  type="text"
-                  required
-                  placeholder="Enter full name"
-                  value={form.name}
-                  onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  className="w-full px-4 py-3 border-[1.5px] border-[rgba(10,24,53,0.08)] dark:border-[#243145] rounded-[10px] text-[13.5px] bg-white dark:bg-[#1e293b] text-[#0f1a30] dark:text-[#F9FAFB] outline-none focus:border-[#f1af3c] transition-colors"
-                />
-              </div>
 
-              <div>
-                <label className="block text-[11px] font-bold text-[#0f1a30] dark:text-[#F9FAFB] uppercase tracking-[0.05em] mb-1.5">
-                  Mobile Number *
-                </label>
-                <input
-                  type="tel"
-                  required
-                  placeholder="10-digit phone number"
-                  value={form.phone}
-                  onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                  className="w-full px-4 py-3 border-[1.5px] border-[rgba(10,24,53,0.08)] dark:border-[#243145] rounded-[10px] text-[13.5px] bg-white dark:bg-[#1e293b] text-[#0f1a30] dark:text-[#F9FAFB] outline-none focus:border-[#f1af3c] transition-colors"
-                />
+            {sent ? (
+              <div className="bg-white dark:bg-[#131C2E] border-2 border-[#10b981] rounded-2xl p-6 lg:p-10 text-center">
+                <div className="text-[#10b981] flex justify-center mb-4">
+                  <svg
+                    width="48"
+                    height="48"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="3"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <polyline points="20 6 9 17 4 12" />
+                  </svg>
+                </div>
+                <h3 className="text-[20px] font-extrabold text-[#10b981] mb-2">
+                  Enquiry Received!
+                </h3>
+                <p className="text-[13.5px] text-[#5e6675] dark:text-[#CBD5E1] leading-[1.6] m-0">
+                  Thank you for your interest! Our team will contact you soon on
+                  your registered mobile number.
+                </p>
               </div>
-
-              <div>
-                <label className="block text-[11px] font-bold text-[#0f1a30] dark:text-[#F9FAFB] uppercase tracking-[0.05em] mb-1.5">
-                  Email Address (Optional)
-                </label>
-                <input
-                  type="email"
-                  placeholder="parent@email.com"
-                  value={form.email}
-                  onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  className="w-full px-4 py-3 border-[1.5px] border-[rgba(10,24,53,0.08)] dark:border-[#243145] rounded-[10px] text-[13.5px] bg-white dark:bg-[#1e293b] text-[#0f1a30] dark:text-[#F9FAFB] outline-none focus:border-[#f1af3c] transition-colors"
-                />
-              </div>
-
-              <div>
-                <label className="block text-[11px] font-bold text-[#0f1a30] dark:text-[#F9FAFB] uppercase tracking-[0.05em] mb-1.5">
-                  Target Class *
-                </label>
-                <select
-                  required
-                  value={form.cls}
-                  onChange={(e) => setForm({ ...form, cls: e.target.value })}
-                  className="w-full px-4 py-3 border-[1.5px] border-[rgba(10,24,53,0.08)] dark:border-[#243145] rounded-[10px] text-[13.5px] bg-white dark:bg-[#1e293b] text-[#0f1a30] dark:text-[#F9FAFB] outline-none focus:border-[#f1af3c] transition-colors"
-                >
-                  {[...Array(12)].map((_, i) => (
-                    <option key={i} value={i + 1}>
-                      Class {i + 1}
-                    </option>
-                  ))}
-                </select>
-              </div>
-
-              <button
-                type="submit"
-                className="bg-[#f1af3c] text-[#0a1835] border-none rounded-[10px] p-4 text-[13px] font-extrabold uppercase tracking-[0.06em] cursor-pointer w-full shadow-[0_6px_20px_rgba(241,175,60,0.25)] transition-transform hover:-translate-y-0.5"
+            ) : (
+              <form
+                onSubmit={submitForm}
+                className="form-card bg-white dark:bg-[#131C2E] border border-[rgba(10,24,53,0.08)] dark:border-[#243145] rounded-2xl p-6 lg:p-8 flex flex-col gap-6 shadow-[0_10px_30px_rgba(0,0,0,0.03)]"
               >
-                Submit Admission Enquiry →
-              </button>
-            </form>
-          )}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-[11px] font-bold text-[#0f1a30] dark:text-[#F9FAFB] uppercase tracking-[0.05em] mb-1.5">
+                      Student's Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      required
+                      placeholder="Enter full name"
+                      value={form.name}
+                      onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      className="w-full px-4 py-3 border-[1.5px] border-[rgba(10,24,53,0.08)] dark:border-[#243145] rounded-lg text-[13.5px] bg-white dark:bg-[#1e293b] text-[#0f1a30] dark:text-[#F9FAFB] outline-none focus:border-[#f1af3c] transition-colors"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-[11px] font-bold text-[#0f1a30] dark:text-[#F9FAFB] uppercase tracking-[0.05em] mb-1.5">
+                      Mobile Number *
+                    </label>
+                    <input
+                      type="tel"
+                      required
+                      placeholder="10-digit phone number"
+                      value={form.phone}
+                      onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                      className="w-full px-4 py-3 border-[1.5px] border-[rgba(10,24,53,0.08)] dark:border-[#243145] rounded-lg text-[13.5px] bg-white dark:bg-[#1e293b] text-[#0f1a30] dark:text-[#F9FAFB] outline-none focus:border-[#f1af3c] transition-colors"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-[11px] font-bold text-[#0f1a30] dark:text-[#F9FAFB] uppercase tracking-[0.05em] mb-1.5">
+                      Email Address (Optional)
+                    </label>
+                    <input
+                      type="email"
+                      placeholder="parent@email.com"
+                      value={form.email}
+                      onChange={(e) => setForm({ ...form, email: e.target.value })}
+                      className="w-full px-4 py-3 border-[1.5px] border-[rgba(10,24,53,0.08)] dark:border-[#243145] rounded-lg text-[13.5px] bg-white dark:bg-[#1e293b] text-[#0f1a30] dark:text-[#F9FAFB] outline-none focus:border-[#f1af3c] transition-colors"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-[11px] font-bold text-[#0f1a30] dark:text-[#F9FAFB] uppercase tracking-[0.05em] mb-1.5">
+                      Target Class *
+                    </label>
+                    <select
+                      required
+                      value={form.cls}
+                      onChange={(e) => setForm({ ...form, cls: e.target.value })}
+                      className="w-full px-4 py-3 border-[1.5px] border-[rgba(10,24,53,0.08)] dark:border-[#243145] rounded-lg text-[13.5px] bg-white dark:bg-[#1e293b] text-[#0f1a30] dark:text-[#F9FAFB] outline-none focus:border-[#f1af3c] transition-colors"
+                    >
+                      {[...Array(12)].map((_, i) => (
+                        <option key={i} value={i + 1}>
+                          Class {i + 1}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                <div className="flex justify-center mt-2">
+                  <button
+                    type="submit"
+                    className="bg-[#f1af3c] text-[#0a1835] border-none rounded-lg py-3.5 px-8 text-[13px] font-extrabold uppercase tracking-[0.06em] cursor-pointer shadow-[0_6px_20px_rgba(241,175,60,0.25)] transition-transform hover:-translate-y-0.5 w-full md:w-auto"
+                  >
+                    Submit Admission Enquiry →
+                  </button>
+                </div>
+              </form>
+            )}
+          </div>
         </div>
       </section>
 
       {/* ══════ CTA CONTAINER (Dark blue card) ═════════════════════════════════════ */}
-      <section className="cta-section py-16">
-        <div className="max-w-[1200px] mx-auto px-6 w-full">
-          <div className="cta-card bg-[#0a1835] dark:bg-[#0f1f35] border-[2.5px] border-[#f1af3c] dark:border-[#e0a020] rounded-3xl text-center text-white relative overflow-hidden shadow-[0_20px_50px_rgba(10,24,53,0.15)] p-12 md:p-16">
+      <section className="cta-section py-10 md:py-16 lg:py-24">
+        <div className="shared-container">
+          <div className="cta-card bg-[#0a1835] dark:bg-[#0f1f35] border-[2.5px] border-[#f1af3c] dark:border-[#e0a020] rounded-3xl text-center text-white relative overflow-hidden shadow-[0_20px_50px_rgba(10,24,53,0.15)] p-8 md:p-12 lg:p-16">
             {/* Background elements */}
             <div className="absolute -top-[50px] -left-[50px] w-[150px] h-[150px] rounded-full" style={{ background: darkMode ? "radial-gradient(circle, rgba(15,31,53,0.4) 0%, transparent 70%)" : "radial-gradient(circle, rgba(12,30,63,0.4) 0%, transparent 70%)" }} />
             <div className="absolute -bottom-[80px] -right-[80px] w-[250px] h-[250px] rounded-full" style={{ background: darkMode ? "radial-gradient(circle, rgba(15,31,53,0.3) 0%, transparent 70%)" : "radial-gradient(circle, rgba(12,30,63,0.3) 0%, transparent 70%)" }} />
@@ -1325,7 +1282,7 @@ Please contact us to guide us further on the admission and counselling process. 
               <h2 className="text-[32px] md:text-[40px] font-black mb-4 tracking-[-0.01em]">
                 Secure Your Child's Brilliant Future Today
               </h2>
-              <p className="text-[14.5px] text-white/70 dark:text-[#8fa0b0] max-w-[560px] mx-auto mb-9 leading-[1.6]">
+              <p className="text-[14.5px] text-white/70 dark:text-[#8fa0b0] max-w-[560px] mx-auto mb-8 leading-[1.6]">
                 Join hands with Mankhurd's top coaching academy. Secure premium
                 guidance under leading educators. Click below to begin
                 enrollment!
@@ -1333,7 +1290,7 @@ Please contact us to guide us further on the admission and counselling process. 
 
               <div className="cta-btn-container flex flex-wrap justify-center gap-4">
                 <button
-                  className="btn-shine-gold bg-[#f1af3c] dark:bg-[#e0a020] text-[#0a1835] dark:text-[#0d1b2a] border-none rounded-[10px] py-4 px-8 text-[13px] font-extrabold uppercase tracking-[0.06em] cursor-pointer shadow-[0_6px_20px_rgba(241,175,60,0.3)] inline-flex items-center justify-center gap-2"
+                  className="btn-shine-gold bg-[#f1af3c] dark:bg-[#e0a020] text-[#0a1835] dark:text-[#0d1b2a] border-none rounded-lg py-3.5 px-8 text-[13px] font-extrabold uppercase tracking-[0.06em] cursor-pointer shadow-[0_6px_20px_rgba(241,175,60,0.3)] inline-flex items-center justify-center gap-2"
                   onClick={() => go("admission")}
                 >
                   <span>Register / Apply Now</span>
@@ -1354,7 +1311,7 @@ Please contact us to guide us further on the admission and counselling process. 
                 </button>
                 <button
                   onClick={() => go("admission")}
-                  className="bg-transparent border-[1.5px] border-[#f1af3c] dark:border-[#e0a020] text-[#f1af3c] dark:text-[#e0a020] rounded-[10px] py-4 px-8 text-[13px] font-extrabold uppercase tracking-[0.06em] cursor-pointer inline-flex items-center justify-center gap-2 hover:bg-[#f1af3c]/10 dark:hover:bg-[#e0a020]/10 transition-colors"
+                  className="bg-transparent border-[1.5px] border-[#f1af3c] dark:border-[#e0a020] text-[#f1af3c] dark:text-[#e0a020] rounded-lg py-3.5 px-8 text-[13px] font-extrabold uppercase tracking-[0.06em] cursor-pointer inline-flex items-center justify-center gap-2 hover:bg-[#f1af3c]/10 dark:hover:bg-[#e0a020]/10 transition-colors"
                 >
                   <svg
                     width="14"
