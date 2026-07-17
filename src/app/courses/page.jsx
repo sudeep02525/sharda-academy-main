@@ -47,10 +47,10 @@ const SOCIAL_ICONS = [
 ];
 
 const GALLERY = [
-  "/campus_moment_1.png",
-  "/campus_moment_2.png",
-  "/campus_moment_3.png",
-  "/campus_moment_4.png",
+  "https://res.cloudinary.com/ybzctfb3/image/upload/v1784214503/sharda-academy/uploads/hhzs4vupujecbhjk6kfw.jpg",
+  "https://res.cloudinary.com/ybzctfb3/image/upload/v1784214504/sharda-academy/uploads/dekhulrc2ycgw8ms1xuu.jpg",
+  "https://res.cloudinary.com/ybzctfb3/image/upload/v1784214505/sharda-academy/uploads/cdia7uktpm01uikmwpes.jpg",
+  "https://res.cloudinary.com/ybzctfb3/image/upload/v1784214506/sharda-academy/uploads/pifnmqcqj1gatp5zsovf.jpg",
 ];
 
 const WINGS_DETAIL = [
@@ -69,7 +69,7 @@ const WINGS_DETAIL = [
       "Weekly mock assessments and real-time parent progress updates.",
       "Complete study materials including workbooks and board pattern question sheets."
     ],
-    img: "/campus_moment_1.png"
+    img: "https://res.cloudinary.com/ybzctfb3/image/upload/v1784214503/sharda-academy/uploads/hhzs4vupujecbhjk6kfw.jpg"
   },
   {
     id: "science_11_12",
@@ -86,7 +86,7 @@ const WINGS_DETAIL = [
       "Regular one-on-one doubt solving sessions and concept monitoring.",
       "Board-focused mock exam preparation curated by senior board examiners."
     ],
-    img: "/hero_classroom.png"
+    img: "https://res.cloudinary.com/ybzctfb3/image/upload/v1784214510/sharda-academy/uploads/chcdsmwhxt8f0hth0ebi.jpg"
   },
   {
     id: "commerce_11_12",
@@ -103,7 +103,7 @@ const WINGS_DETAIL = [
       "Detailed concept based learning and board exam special preparation.",
       "Affordable fees structure with flexible monthly payment options."
     ],
-    img: "/campus_moment_3.png"
+    img: "https://res.cloudinary.com/ybzctfb3/image/upload/v1784214505/sharda-academy/uploads/cdia7uktpm01uikmwpes.jpg"
   }
 ];
 

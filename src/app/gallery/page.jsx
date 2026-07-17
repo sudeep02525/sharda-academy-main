@@ -47,10 +47,10 @@ const SOCIAL_ICONS = [
 ];
 
 const GALLERY = [
-  "/campus_moment_1.png",
-  "/campus_moment_2.png",
-  "/campus_moment_3.png",
-  "/campus_moment_4.png",
+  "https://res.cloudinary.com/ybzctfb3/image/upload/v1784214503/sharda-academy/uploads/hhzs4vupujecbhjk6kfw.jpg",
+  "https://res.cloudinary.com/ybzctfb3/image/upload/v1784214504/sharda-academy/uploads/dekhulrc2ycgw8ms1xuu.jpg",
+  "https://res.cloudinary.com/ybzctfb3/image/upload/v1784214505/sharda-academy/uploads/cdia7uktpm01uikmwpes.jpg",
+  "https://res.cloudinary.com/ybzctfb3/image/upload/v1784214506/sharda-academy/uploads/pifnmqcqj1gatp5zsovf.jpg",
 ];
 
 const GALLERY_ITEMS = [
@@ -61,7 +61,7 @@ const GALLERY_ITEMS = [
     desc: "Our annual monsoon outing to Lonavala. Students enjoyed group nature trails, outdoor bonding activities, and mountain fog treks.",
     date: "August 2025",
     loc: "Lonavala, Maharashtra",
-    img: "/campus_moment_1.png",
+    img: "https://res.cloudinary.com/ybzctfb3/image/upload/v1784214503/sharda-academy/uploads/hhzs4vupujecbhjk6kfw.jpg",
   },
   {
     id: 2,
@@ -70,7 +70,7 @@ const GALLERY_ITEMS = [
     desc: "An action-packed day of thrills, laughter, and high-speed rollercoasters at Imagica. A memorable day of leisure for our board batches.",
     date: "December 2025",
     loc: "Khopoli, Maharashtra",
-    img: "/campus_moment_2.png",
+    img: "https://res.cloudinary.com/ybzctfb3/image/upload/v1784214504/sharda-academy/uploads/dekhulrc2ycgw8ms1xuu.jpg",
   },
   {
     id: 3,
@@ -79,7 +79,7 @@ const GALLERY_ITEMS = [
     desc: "An educational nature trail and physical fitness trek to Kharghar Hills. Students explored local botany and enjoyed waterfall views.",
     date: "July 2025",
     loc: "Kharghar, Navi Mumbai",
-    img: "/campus_moment_3.png",
+    img: "https://res.cloudinary.com/ybzctfb3/image/upload/v1784214505/sharda-academy/uploads/cdia7uktpm01uikmwpes.jpg",
   },
   {
     id: 4,
@@ -88,7 +88,7 @@ const GALLERY_ITEMS = [
     desc: "Celebrated our outstanding toppers scoring 95%+ in state exams. Rankers received gold trophies and shared personalized tips.",
     date: "June 2025",
     loc: "Sharda Academy Mankhurd",
-    img: "/campus_moment_4.png",
+    img: "https://res.cloudinary.com/ybzctfb3/image/upload/v1784214506/sharda-academy/uploads/pifnmqcqj1gatp5zsovf.jpg",
   },
   {
     id: 5,
@@ -97,7 +97,7 @@ const GALLERY_ITEMS = [
     desc: "Student-organized tribute event for our expert faculty mentors. Featured musical segments, emotional speeches, and quiz matches.",
     date: "September 2025",
     loc: "PMG Colony Center",
-    img: "/campus_moment_1.png",
+    img: "https://res.cloudinary.com/ybzctfb3/image/upload/v1784214503/sharda-academy/uploads/hhzs4vupujecbhjk6kfw.jpg",
   },
   {
     id: 6,
@@ -106,7 +106,7 @@ const GALLERY_ITEMS = [
     desc: "Traditional attire, rhythmic garba circles, and high festive energy. Celebrating rich cultural unity among students and mentors.",
     date: "October 2025",
     loc: "PMG Colony Hall",
-    img: "/campus_moment_2.png",
+    img: "https://res.cloudinary.com/ybzctfb3/image/upload/v1784214504/sharda-academy/uploads/dekhulrc2ycgw8ms1xuu.jpg",
   },
 ];
 

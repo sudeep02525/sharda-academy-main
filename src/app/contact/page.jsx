@@ -47,10 +47,10 @@ const SOCIAL_ICONS = [
 ];
 
 const GALLERY = [
-  "/campus_moment_1.png",
-  "/campus_moment_2.png",
-  "/campus_moment_3.png",
-  "/campus_moment_4.png",
+  "https://res.cloudinary.com/ybzctfb3/image/upload/v1784214503/sharda-academy/uploads/hhzs4vupujecbhjk6kfw.jpg",
+  "https://res.cloudinary.com/ybzctfb3/image/upload/v1784214504/sharda-academy/uploads/dekhulrc2ycgw8ms1xuu.jpg",
+  "https://res.cloudinary.com/ybzctfb3/image/upload/v1784214505/sharda-academy/uploads/cdia7uktpm01uikmwpes.jpg",
+  "https://res.cloudinary.com/ybzctfb3/image/upload/v1784214506/sharda-academy/uploads/pifnmqcqj1gatp5zsovf.jpg",
 ];
 
 const getDynamicSession = () => {
